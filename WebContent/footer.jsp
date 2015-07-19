@@ -4,15 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Welcome Page</title>
-<!-- Pahes Needed -->
-<%@ include file="header.jsp"%>
+
 </head>
 <body>
+<div class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="padding-top: 60px;">
+<div class="container">
+<div class="navbar-text pull-left">@Copyrights <br/>
+All Rights reserved-StudentPortalSystem</div>
+</div>
+</div>
 
-This is a test!
-
-
-<%@ include file="footer.jsp"%>
 </body>
 </html>
