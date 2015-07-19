@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<link rel="stylesheet" type="text/css" href="css/application.css">
 </head>
-<body>
-<div class="navbar navbar-default navbar-fixed-bottom" role="navigation" style="padding-top: 60px;">
+<div class="clear"></div>
+<div class="navbar navbar-default navbar-fixed-bottom" >
 <div class="container">
-<div class="navbar-text pull-left">@Copyrights <br/>
-All Rights reserved-StudentPortalSystem</div>
-</div>
+
 </div>
 
+</div>
 </body>
 </html>
