@@ -1,0 +1,14 @@
+alter table studentportal_alpha.department add column(imageURl varchar(255));
+
+
+
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://www.chicagobookclinic.org/wp-content/uploads/2014/07/dept-of-accounting1.jpg' WHERE `dept_id`='ACCF';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://ce.yeditepe.edu.tr/images/ce2.jpg' WHERE `dept_id`='CVGR';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://mf.erciyes.edu.tr/en/dosyalar/resimler/Bilgisayar%201.jpg' WHERE `dept_id`='ECGR';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://www.qdcqatar.com.qa/images/electrical-engineering.jpg' WHERE `dept_id`='EEGR';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://artsandsciences.fsu.edu/var/ezwebin_site/storage/images/media/images/arts-and-sciences-general-images/computer-science-generic-image/1105420-1-eng-US/Computer-science-generic-image_large.jpg' WHERE `dept_id`='ITCS';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://www.geosciences.msstate.edu/images/geology/Geo2.jpg' WHERE `dept_id`='GEOS';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://www.ct.gov/ecd/lib/ecd/NextGen_IMG_cluster_IT_bluewave_computer_iStock_4474914.jpg' WHERE `dept_id`='ITIS';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://www.achieveguilford.org/blog/wp-content/uploads/2013/02/mechanical-engineering.jpg' WHERE `dept_id`='MHGR';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://educationcareerarticles.com/wp-content/uploads/2013/04/Management-Information-Systems.jpeg' WHERE `dept_id`='MISS';
+UPDATE `studentportal_alpha`.`department` SET `imageURl`='http://www.physics.colostate.edu/wp-content/uploads/sites/3/2012/07/Physics_building.jpg' WHERE `dept_id`='PHYS';
