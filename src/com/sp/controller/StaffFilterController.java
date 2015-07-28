@@ -18,6 +18,7 @@ import com.sp.dao.StaffFilterDao;
 @WebServlet("/StaffFilterController")
 public class StaffFilterController extends StudentBaseController {
 	private static final long serialVersionUID = 1L;
+	private static final String FILTER_LIST = null;
        
     /**
      * @see HttpServlet#HttpServlet()
