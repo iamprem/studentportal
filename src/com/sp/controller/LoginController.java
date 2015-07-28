@@ -5,11 +5,14 @@ import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.Statement;
 import com.sp.db.DbConnection;
@@ -51,23 +54,55 @@ public class LoginController extends HttpServlet {
 		
 		DbConnection conn = null;
 		Statement stmt = null;
-//		try {
-//			conn = new DbConnection();
-//			String sql = "SELECT login_credential.username,login_credential.user_password,login_credential.approval_flag,user.user_type from login_credential inner join user on login_credential.username=user.username where login_credential.username = '"
-//					+ userid + "'";
-//			stmt = conn.DbConnectionForPreparedStatement(sql);
+		String sql = null;
+		String passcode = null;
+		try {
+			conn = new DbConnection();
+			if(userType.equals("student")){
+				 sql = "SELECT user_stud_pwd FROM user_student WHERE user_stud_email='"+userName+"'";
+			}else{
+				 sql = "SELECT user_staf_pwd FROM user_staff WHERE user_staf_email='"+userName+"'";
+			}
+			stmt = (Statement) conn.DbConnectionForPreparedStatement(sql);
 //			PrintWriter writer = response.getWriter();
-//			ResultSet rs = stmt.executeQuery(sql);
-//			while (rs.next()) {
-//				username = rs.getString("username");
-//				password = rs.getString("user_password");
-//				usertype = rs.getString("user_type");
-//				approvalflag = rs.getInt("approval_flag");
-//			}
-//			if (!passcode.equals(password)) {
-//				request.setAttribute("error","Invalid Username or Password"); 
-//				RequestDispatcher rd=request.getRequestDispatcher("/login.jsp"); 
-//				rd.include(request, response);
+			ResultSet rs = stmt.executeQuery(sql);
+			if(rs.next()){
+				if(userType.equals("student")){
+				passcode = rs.getString("user_stud_pwd");
+				System.out.println("Retrived"+passcode);
+				}else{
+					passcode=rs.getString("user_staff_pwd");
+					System.out.println("Retrived"+passcode);
+				}
+			}else{
+				System.out.println("User Not Found");
+			}
+			if(!passcode.equals(passCode)){
+				request.setAttribute("error","Invalid Username or Password"); 
+				RequestDispatcher rd=request.getRequestDispatcher("/login.jsp"); 
+				rd.include(request, response);
+			}else{
+				if(userType == "faculty"){
+					System.out.println("Fac");
+					HttpSession user_session = request.getSession(true);
+					user_session.setMaxInactiveInterval(30 * 60);
+					Cookie userNameC = new Cookie("userNAME", userName);
+					response.addCookie(userNameC);
+					String encodedURL = response
+							.encodeRedirectURL("faculty.jsp");
+					response.sendRedirect(encodedURL);
+				}else if(userType.equals("student")){
+					System.out.println("student");
+					HttpSession user_session = request.getSession(true);
+					user_session.setMaxInactiveInterval(30 * 60);
+					Cookie userNameC = new Cookie("userNAME", userName);
+					response.addCookie(userNameC);
+					String encodedURL = response
+							.encodeRedirectURL("student.jsp");
+					response.sendRedirect(encodedURL);
+				}
+			}
+//			
 //			} else {
 //				if (approvalflag == 0) {
 //					response.sendRedirect("confirmation_page.jsp");
@@ -105,9 +140,9 @@ public class LoginController extends HttpServlet {
 //					user_session.setAttribute("userType","admin");
 //				}
 //			}
-//		} catch (SQLException e) {
-//			System.out.println("issue with connectivity" + e);
-//		}
+		} catch (SQLException e) {
+			System.out.println("issue with connectivity" + e);
+		}
 //	}
 		
 		
