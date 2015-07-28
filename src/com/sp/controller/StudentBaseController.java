@@ -29,7 +29,6 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String COUNTRY="country";
 	public static final String ACTION="action";
 	public static final String STUDENTDASHBOARDLIST = "studentDashboardList";
-	public static final String FILTER_LIST = "filterList";
 	
 	public static final String APPLICATION = "application";
 
