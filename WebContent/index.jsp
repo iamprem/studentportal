@@ -55,7 +55,7 @@
 This is a test!
 
 </div>
-<div>
+<div id = "footer">
 <%@ include file="footer.jsp"%>
 </div>
 

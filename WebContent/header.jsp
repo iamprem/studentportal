@@ -4,11 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>StudentRecSystem</title>
 <!-- JS Files -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/validator.js"></script>
 
 <!-- CSS Files-->
@@ -33,17 +35,10 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
-        <a href="#">Home <span class="sr-only">(current)</span></a>
+        <a href="/StudentPortalWebApp/">Home <span class="sr-only">(current)</span></a>
         </li>
         <li><a href="#">Admissions</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">UNCC Departments <span class="caret"></span></a>
-          <ul id = "departments" class="dropdown-menu" role="menu">
-            <li><a href="#">Computer Science</a></li>
-            <li><a href="#">Electrical</a></li>
-            <li><a href="#">Arts</a></li>
-          </ul>
-        </li>
+        <li><a href="/StudentPortalWebApp/DepartmentController">Departments</a></li>
      <li>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">

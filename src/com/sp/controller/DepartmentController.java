@@ -34,7 +34,7 @@ public class DepartmentController extends StudentBaseController {
 		// TODO Auto-generated method stub
 		HttpSession session =request.getSession();
 		request.setAttribute(DEPT_LIST, DepartmentDAO.getDepartmentList());
-		RequestDispatcher dispatcher = request.getRequestDispatcher("department.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("departments.jsp");
 		dispatcher.forward(request, response);
 
 		return;

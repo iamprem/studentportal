@@ -34,6 +34,7 @@ public class DegreeController extends StudentBaseController {
 		String deptId =  request.getParameter(DEPT_ID);
 		request.setAttribute(DEPT_ID,deptId);
 		request.setAttribute(DEGREE_LIST, DepartmentDAO.getDegreeList(deptId));
+		request.setAttribute(DEPT_DATA, DepartmentDAO.getDepartmentData(deptId));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("degree.jsp");
 		dispatcher.forward(request, response);
 

@@ -41,3 +41,13 @@ html,body {
   height: 60px;
   background-color: #f5f5f5;
 } 
+
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+}
+
+#container_color_grey{
+	background-color:#FAFAFA;
+}

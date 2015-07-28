@@ -58,6 +58,46 @@ public class DepartmentDAO {
 		return departmentList;
 	}
 
+	public static Department getDepartmentData(String deptId) {
+		Department department = null;
+
+		Statement stmt = null;
+		DbConnection conn = null;
+		try {
+			conn = new DbConnection();
+			String sql;
+			sql = "SELECT * FROM department WHERE dept_id ='"+deptId+"';";
+			stmt = conn.DbConnectionForPreparedStatement(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				String deptID = rs.getString("dept_id");
+				String deptName = rs.getString("dept_name");
+				String researchDesc = rs.getString("research_description");
+				int managerID = rs.getInt("manager_id");
+				String imageUrl = rs.getString("imageURl");
+				department = new Department(deptID, deptName, researchDesc, managerID, imageUrl);
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+			}
+			if (conn != null)
+				conn.close();
+		}
+		return department;
+	}
+	
+	
+	
 	public static List<Degree> getDegreeList(String deptID) {
 		degreeList = new ArrayList<Degree>();
 

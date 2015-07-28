@@ -31,6 +31,14 @@ public class Department {
 		return imageUrl;
 	}
 
+	public String getShortDescription(){
+		String tempDesc = this.researchDesc;
+		if(this.researchDesc.length() > 170){
+			tempDesc = this.researchDesc.substring(0, 170)+"...";
+		}
+		return tempDesc;
+		
+	}
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
@@ -70,6 +78,12 @@ public List<Degree> getAll(String deptID)
 {
 	return degrees;
 	
+}
+
+@Override
+public String toString() {
+	return "Department [deptID=" + deptID + ", degrees=" + degrees + ", deptName=" + deptName + ", researchDesc="
+			+ researchDesc + ", managerID=" + managerID + ", imageUrl=" + imageUrl + "]";
 }
 	
 
