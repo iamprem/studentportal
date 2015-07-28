@@ -56,7 +56,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-		<a href="#" class="col-sm-3 col-md-offset-2">Forgot Password</a>
+		<a href="forgotPwd.jsp" class="col-sm-3 col-md-offset-2">Forgot Password</a>
 		<a href="register.jsp">Register</a><br>
 		</div>
 
