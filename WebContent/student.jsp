@@ -8,6 +8,12 @@
 <%@include file="student_header.jsp" %>
 </head>
 <body>
+
+
+<%= session.getAttribute("userName") %>
+
+
+
 Student Login Successful!
 <%@include file="footer.jsp" %>
 </body>

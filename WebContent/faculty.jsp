@@ -8,6 +8,7 @@
 <%@include file="faculty_header.jsp" %>
 </head>
 <body>
+<%= session.getAttribute("userName") %>
 Staff Logged In
 <%@include file="footer.jsp" %>
 </body>
