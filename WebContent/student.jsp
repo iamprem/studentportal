@@ -5,8 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Student Dashboard</title>
+<%@include file="student_header.jsp" %>
 </head>
 <body>
 Student Login Successful!
+<%@include file="footer.jsp" %>
 </body>
 </html>

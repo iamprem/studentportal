@@ -76,6 +76,7 @@ public class LoginController extends HttpServlet {
 				}
 			}else{
 				System.out.println("User Not Found");
+				
 			}
 			if(!passcode.equals(passCode)){
 				request.setAttribute("error","Invalid Username or Password"); 
