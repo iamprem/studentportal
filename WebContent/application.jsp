@@ -17,7 +17,7 @@
 	<br />
 	<div class="col-md-offset-3">
 	<form class="form-horizontal" id="enrollform" method="POST"
-		action="/enrollServlet">
+		action="/ApplicationController">
 		<div class="form-group">
 
 			<label for="firstName" class="col-sm-2 control-label">First Name</label>

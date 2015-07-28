@@ -15,6 +15,9 @@
 
 
 Student Login Successful!
+
+Take data from requestScope.studentDashboardList
+
 <%@include file="footer.jsp" %>
 </body>
 </html>

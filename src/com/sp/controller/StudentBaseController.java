@@ -20,13 +20,14 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String CREDIT_HOURS="creditHours";
 	public static final String MESSAGE = "Message";	
 	public static final String COURSE="course";
-	public static final String	ACTION="action";
 	public static final String PGM_APPLIED="pgmApplied";
 	public static final String GENDER="gender";
 	public static final String GRE="gre";
 	public static final String GPA="gpa";
 	public static final String COUNTRY="country";
-	
+	public static final String ACTION="action";
+	public static final String STUDENTDASHBOARDLIST = "studentDashboardList";
+
 	@Override
 	protected abstract void doGet(HttpServletRequest req,
 			HttpServletResponse resp) throws ServletException, IOException;

@@ -5,6 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration</title>
+<script type="text/javascript" src="js/register.js"></script>
 <%@ include file="header.jsp"%>
 </head>
 <body>
@@ -32,7 +33,7 @@
 		<div class="form-group">
 			<label for="userEmail" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-6">
-				<input type="email" class="form-control" id="userEmail"
+				<input type="email" class="form-control" id="userEmail focusout="validateEmail()"
 					name="userEmail" placeholder="Recipient's username"
 					aria-describedby="basic-addon2" required>
 			</div>
