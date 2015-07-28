@@ -71,7 +71,7 @@ public class LoginController extends HttpServlet {
 				passcode = rs.getString("user_stud_pwd");
 				System.out.println("Retrived"+passcode);
 				}else{
-					passcode=rs.getString("user_staff_pwd");
+					passcode=rs.getString("user_staf_pwd");
 					System.out.println("Retrived"+passcode);
 				}
 			}else{
@@ -82,7 +82,7 @@ public class LoginController extends HttpServlet {
 				RequestDispatcher rd=request.getRequestDispatcher("/login.jsp"); 
 				rd.include(request, response);
 			}else{
-				if(userType == "faculty"){
+				if(userType.equals("faculty")){
 					System.out.println("Fac");
 					HttpSession user_session = request.getSession(true);
 					user_session.setMaxInactiveInterval(30 * 60);
