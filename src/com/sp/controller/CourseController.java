@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sp.dao.CourseDAO;
 import com.sp.dao.DepartmentDAO;
@@ -32,6 +33,7 @@ public class CourseController extends StudentBaseController {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session =request.getSession();
 		String deptID =  request.getParameter(DEPT_ID);
 		String degID =  request.getParameter(DEG_ID);
 		request.setAttribute(DEPT_ID,deptID);
@@ -48,7 +50,29 @@ public class CourseController extends StudentBaseController {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action = request.getParameter(ACTION);
+		String deptID =  request.getParameter(DEPT_ID);
+		String degID =  request.getParameter(DEG_ID);
+		if ("Submit".equalsIgnoreCase(action)) {
+				String coursesID= request.getParameter(COURSE_ID);
+				int iD=Integer.parseInt(coursesID);
+				String courseName= request.getParameter(COURSE_NAME);
+				String insMethod= request.getParameter(INS_METHOD);
+				String credHrs= request.getParameter(CREDIT_HOURS);
+				int hrs=Integer.parseInt(credHrs);
+			CourseDAO.updateCourse(iD,courseName,insMethod,hrs);
+
+		} else if ("Cancel".equalsIgnoreCase(action)) {
+		} else if ("Delete".equalsIgnoreCase(action)) {
+			String coursesID= request.getParameter(COURSE_ID);
+			int courseID=Integer.parseInt(coursesID);
+			CourseDAO.deleteCourseByCode(courseID);
+		}
+		request.setAttribute(DEPT_ID,deptID);
+		request.setAttribute(DEG_ID,degID);
+		request.setAttribute(COURSE_LIST, CourseDAO.getCourseList(deptID, degID));
+		RequestDispatcher dispatcher = request.getRequestDispatcher("course.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

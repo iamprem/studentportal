@@ -25,7 +25,7 @@
 					 
 						<tr>
 						<td>
-						<form action="CourseController" method="post">
+						<form action="CourseController" >
 										<input type="hidden" name="degID" value="${degrees.degID}" /> <input
 											type="hidden" name="deptID"
 											value="${requestScope.deptID}" /> <input
@@ -33,10 +33,6 @@
 											style="margin-top: 20px;" />
 									</form></td>
 						
-						
-						
-						<%-- <a href="CourseController?degID=${degrees.degID} & deptID=${requestScope.deptID}"
-							id="logo"><b>${degrees.degID }</b></a></td> --%>
 						<td><b>${degrees.springDL }</b></td>
 						<td><b>${degrees.fallDL }</b></td>
 						<td><b>${degrees.summerDL }</b></td>

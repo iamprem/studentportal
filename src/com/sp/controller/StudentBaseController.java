@@ -14,6 +14,13 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String DEPT_ID = "deptID";
 	public static final String DEGREE_LIST="degreeList";
 	public static final String DEG_ID="degID";
+	public static final String COURSE_ID="courseID";
+	public static final String COURSE_NAME="courseName";
+	public static final String INS_METHOD="insMethod";
+	public static final String CREDIT_HOURS="creditHours";
+	public static final String MESSAGE = "Message";	
+	public static final String COURSE="course";
+	public static final String	ACTION="action";
 	
 	
 	@Override
