@@ -9,6 +9,7 @@
 </head>
 <body>
 <%= session.getAttribute("userName") %>
+<%= session.getAttribute("userType") %>
 Staff Logged In
 <%@include file="footer.jsp" %>
 </body>

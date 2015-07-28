@@ -11,6 +11,8 @@
 
 
 <%= session.getAttribute("userName") %>
+<%= session.getAttribute("userType") %>
+
 
 
 

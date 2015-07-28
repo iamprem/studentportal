@@ -92,6 +92,7 @@ public class LoginController extends HttpServlet {
 					String encodedURL = response.encodeRedirectURL("faculty.jsp");
 					response.sendRedirect(encodedURL);
 					user_session.setAttribute("userName", userName);
+					user_session.setAttribute("userType", userType);
 				}else if(userType.equals("student")){
 					System.out.println("student");
 					HttpSession user_session = request.getSession(true);
@@ -102,6 +103,7 @@ public class LoginController extends HttpServlet {
 							.encodeRedirectURL("student.jsp");
 					response.sendRedirect(encodedURL);
 					user_session.setAttribute("userName", userName);
+					user_session.setAttribute("userType", userType);
 				}
 			}
 //			
