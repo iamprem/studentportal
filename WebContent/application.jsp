@@ -17,7 +17,7 @@
 	<br />
 	<div class="col-md-offset-3">
 	<form class="form-horizontal" id="enrollform" method="POST"
-		action="/enrollServlet">
+		action="/ApplicationController">
 		<div class="form-group">
 
 			<label for="firstName" class="col-sm-2 control-label">First Name</label>
@@ -47,6 +47,29 @@
 				</label>
 			</div>
 		</div>
+		
+		 
+        <div class="form-group">
+        <label for="gender" class="col-sm-2 control-label">Date Of Birth</label>
+        <div class="col-sm-4 col-xs-4">
+            <div class='input-group date' id='datetimepicker10'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar">
+                    </span>
+                </span>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker10').datetimepicker({
+                viewMode: 'years',
+                format: 'YYYY/MM/DD'
+            });
+        });
+    </script>
 
 
 		<div class="form-group">
@@ -59,7 +82,9 @@
 		</div>
 
 
-		<div class="form-group">
+
+
+			<div class="form-group">
 			<label for="ssn" class="col-sm-2 control-label">SSN</label>
 			<div class="col-sm-4 col-xs-4">
 				<input type="text" class="form-control" id="ssn"

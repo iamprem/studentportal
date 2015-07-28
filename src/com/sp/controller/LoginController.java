@@ -76,6 +76,7 @@ public class LoginController extends HttpServlet {
 				}
 			}else{
 				System.out.println("User Not Found");
+				
 			}
 			if(!passcode.equals(passCode)){
 				request.setAttribute("error","Invalid Username or Password"); 
@@ -88,9 +89,10 @@ public class LoginController extends HttpServlet {
 					user_session.setMaxInactiveInterval(30 * 60);
 					Cookie userNameC = new Cookie("userNAME", userName);
 					response.addCookie(userNameC);
-					String encodedURL = response
-							.encodeRedirectURL("faculty.jsp");
+					String encodedURL = response.encodeRedirectURL("faculty.jsp");
 					response.sendRedirect(encodedURL);
+					user_session.setAttribute("userName", userName);
+					user_session.setAttribute("userType", userType);
 				}else if(userType.equals("student")){
 					System.out.println("student");
 					HttpSession user_session = request.getSession(true);
@@ -100,6 +102,8 @@ public class LoginController extends HttpServlet {
 					String encodedURL = response
 							.encodeRedirectURL("student.jsp");
 					response.sendRedirect(encodedURL);
+					user_session.setAttribute("userName", userName);
+					user_session.setAttribute("userType", userType);
 				}
 			}
 //			

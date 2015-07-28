@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sp.dao.StudentDAO;
-
 /**
- * Servlet implementation class RegisterController
+ * Servlet implementation class ApplicationController
  */
-@WebServlet("/RegisterController")
-public class RegisterController extends HttpServlet {
+@WebServlet("/ApplicationController")
+public class ApplicationController extends StudentBaseController {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegisterController() {
+    public ApplicationController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,11 +26,9 @@ public class RegisterController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameterMap().containsKey("emailid")){
-			String emailID = request.getParameter("emailid");
-			System.out.println("EmailID received "+emailID);
-		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+	
 	}
 
 	/**
@@ -40,13 +36,7 @@ public class RegisterController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Reached");
-		String userEmail = request.getParameter("userEmail");
-//		System.out.println(userEmail);
-		String password = request.getParameter("confirmPassword");
-//		System.out.println(password);
-		StudentDAO.addStudent(userEmail, password);
-//		doGet(request, response);
+		doGet(request, response);
 	}
 
 }

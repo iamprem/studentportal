@@ -22,6 +22,24 @@ public class Degree {
 	List<Course> courses = new ArrayList<Course>();
 	
 	
+	//Simple Degree Constructor
+	public Degree(String degID, String degName) {
+		super();
+		this.degID = degID;
+		this.degName = degName;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Degree [degID=" + degID + ", degName=" + degName + ", springDL=" + springDL + ", fallDL=" + fallDL
+				+ ", summerDL=" + summerDL + ", instateFee=" + instateFee + ", outstateFee=" + outstateFee
+				+ ", test1Code=" + test1Code + ", test1ReqScore=" + test1ReqScore + ", test2Code=" + test2Code
+				+ ", test2ReqScore=" + test2ReqScore + ", test3Code=" + test3Code + ", test3ReqScore=" + test3ReqScore
+				+ ", reqCriteria=" + reqCriteria + ", courses=" + courses + "]";
+	}
+
+
 	public Degree(String degID,  Date springDL, Date fallDL, Date summerDL, double instateFee,
 			double outstateFee, String test1Code, double test1ReqScore, String test2Code, double test2ReqScore,
 			String test3Code, double test3ReqScore, String reqCriteria) {
@@ -40,6 +58,8 @@ public class Degree {
 		this.test3ReqScore = test3ReqScore;
 		this.reqCriteria = reqCriteria;
 	}
+	
+	
 	public Date getSpringDL() {
 		return springDL;
 	}
