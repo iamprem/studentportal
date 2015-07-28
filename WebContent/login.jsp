@@ -16,7 +16,7 @@
 	<br />
 	<div class="col-md-offset-3">
 	<form class="form-horizontal" id="loginform" method="POST"
-		action="/loginServlet">
+		action="LoginController">
 		<div class="form-group">
 
 			<label for="userName" class="col-sm-2 control-label">UserName</label>
@@ -39,11 +39,11 @@
 			<label for="userEmail" class="col-sm-2 control-label">User
 				Type</label>
 			<div class="col-sm-4 col-xs-4">
-				<label class="radio-inline"> <input type="radio"
-					name="userType">Student
+				<label class="radio-inline"> <input checked type="radio"
+					name="userType" value="student">Student
 				</label> 
 				<label class="radio-inline"> <input type="radio"
-					name="userType">Faculty
+					name="userType" value="faculty">Faculty
 				</label>
 
 			</div>

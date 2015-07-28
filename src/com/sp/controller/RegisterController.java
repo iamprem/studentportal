@@ -1,4 +1,4 @@
-package com.temp.pack;
+package com.sp.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,17 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sp.dao.StudentDAO;
+
 /**
- * Servlet implementation class TempServlet
+ * Servlet implementation class RegisterController
  */
-@WebServlet("/TempServlet")
-public class TempServlet extends HttpServlet {
+@WebServlet("/RegisterController")
+public class RegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TempServlet() {
+    public RegisterController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +30,6 @@ public class TempServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
 	}
 
 	/**
@@ -37,8 +38,11 @@ public class TempServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Reached");
-		String username = request.getParameter("userName");
-//		System.out.println(username);
+		String userEmail = request.getParameter("userEmail");
+//		System.out.println(userEmail);
+		String password = request.getParameter("confirmPassword");
+//		System.out.println(password);
+		StudentDAO.addStudent(userEmail, password);
 //		doGet(request, response);
 	}
 
