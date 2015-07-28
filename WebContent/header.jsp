@@ -9,13 +9,16 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/validator.js"></script>
 
 <!-- CSS Files-->
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/application.css">
+
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top" >
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -51,12 +54,11 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="login.jsp">Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
+<div class="clear"></div>
 
 
-</body>
-</html>
