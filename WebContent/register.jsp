@@ -28,15 +28,7 @@
 
 		<h4>Enter the Below Details</h4>
 
-		<div class="form-group">
-			<label for="userName" class="col-sm-2 control-label">UserName</label>
-			<div class="col-sm-6">
-				<input type="text" id="userName" class="form-control"
-					name="userName" placeholder="Username"
-					aria-describedby="basic-addon1" required>
-			</div>
-		</div>
-		<br />
+		
 		<div class="form-group">
 			<label for="userEmail" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-6">
@@ -50,8 +42,9 @@
 		<div class="form-group">
 			<label for="password" class="col-sm-2 control-label">Password</label>
 			<div class="col-sm-6">
-				<input type="password" class="form-control" id="password"
+				<input type="password" class="form-control" id="password" name="password"
 					placeholder="Password" aria-describedby="basic-addon1" required>
+					<span class="help-block">Minimum of 6 characters</span>
 			</div>
 		</div>
 		<br />
@@ -60,9 +53,10 @@
 			<label for="confirmPassword" class="col-sm-2 control-label">Confirm
 				Password</label>
 			<div class="col-sm-6">
-				<input type="password" class="form-control" id="confirmPassword"
-					placeholder="Confirm Password" aria-describedby="basic-addon1"
+				<input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
+					data-match="#password"  data-match-error="Whoops, these don't match" placeholder="Confirm Password" aria-describedby="basic-addon1"
 					required>
+					<div class="help-block with-errors"></div>
 			</div>
 		</div>
 		<br />
