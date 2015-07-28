@@ -22,7 +22,7 @@
 		</div>
 	</div>
 
-	<form class="form-horizontal" id="registerUser" action="TempServlet"
+	<form class="form-horizontal" id="registerUser" action="RegisterController"
 		method="POST">
 
 
@@ -68,7 +68,7 @@
 		<br />
 		<div class="form-group">
 			<div class="col-sm-offset-4 col-sm-2">
-				<button type="submit" class="btn btn-primary">Register</button>
+				<input type="submit" class="btn btn-primary" value="Register">
 			</div>
 		</div>
 
