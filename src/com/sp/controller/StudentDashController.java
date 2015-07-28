@@ -48,32 +48,8 @@ public class StudentDashController extends StudentBaseController {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		
-		String action = request.getParameter(ACTION);
-		String deptID =  request.getParameter(DEPT_ID);
-		String degID =  request.getParameter(DEG_ID);
-		if ("Submit".equalsIgnoreCase(action)) {
-				String coursesID= request.getParameter(COURSE_ID);
-				int iD=Integer.parseInt(coursesID);
-				String courseName= request.getParameter(COURSE_NAME);
-				String insMethod= request.getParameter(INS_METHOD);
-				String credHrs= request.getParameter(CREDIT_HOURS);
-				int hrs=Integer.parseInt(credHrs);
-			CourseDAO.updateCourse(iD,courseName,insMethod,hrs);
+		//No Post method needed.
 
-		} else if ("Cancel".equalsIgnoreCase(action)) {
-		} else if ("Delete".equalsIgnoreCase(action)) {
-			String coursesID= request.getParameter(COURSE_ID);
-			int courseID=Integer.parseInt(coursesID);
-			CourseDAO.deleteCourseByCode(courseID);
-		}
-		request.setAttribute(DEPT_ID,deptID);
-		request.setAttribute(DEG_ID,degID);
-		request.setAttribute(COURSE_LIST, CourseDAO.getCourseList(deptID, degID));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("course.jsp");
-		dispatcher.forward(request, response);
-	
 	}
 
 }
