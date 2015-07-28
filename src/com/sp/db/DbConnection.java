@@ -23,7 +23,7 @@ public class DbConnection {
 		Statement ps = null;
 		try {
           Class.forName("com.mysql.jdbc.Driver").newInstance();
-			String url="jdbc:mysql://104.236.243.205:3306/"+this.databaseName;
+			String url="jdbc:mysql://104.236.243.205:3306/"+this.databaseName+"?jdbcCompliantTruncation=false";
 			String username="deepak";
 			String password="rohan";
 			con = DriverManager.getConnection(url,username,password);
