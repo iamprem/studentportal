@@ -38,7 +38,7 @@
 
 <div class="row">
 <div class="col-sm-10 col-md-10 centered" id="container_color_grey">
-<h3>${degrees.degID} Details</h3>
+<h3><a href="CourseController?degID=${degrees.degID}&deptID=${department.deptID}">${degrees.degID} Details</a></h3>
 </div>
 </div>
 
@@ -124,7 +124,6 @@
 
 </c:forEach>
 
-<p>${requestScope.department_data}</p>
 
 	</div>
 </div>		

@@ -8,7 +8,7 @@
 <%@ include file="header.jsp"%>
 </head>
 <body>
-	<div id="loginpage"></div>
+	<div id= "wrap">
 	<br />
 	<br />
 	<br />
@@ -62,6 +62,10 @@
 
 	</form>
 	</div>
-	<%@ include file="footer.jsp"%>
+</div>
+<div id = "footer">
+<%@ include file="footer.jsp"%>
+</div>
+	
 </body>
 </html>
