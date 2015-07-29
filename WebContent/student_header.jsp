@@ -32,7 +32,7 @@
 <body>
 
 <%@include file="header.jsp" %>
-<nav class="navbar navbar-default navbar-fixed-top" >
+<nav class="navbar navbar-default navbar-fixed-top navbar-left" >
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -53,7 +53,7 @@
    
   </ul>
   <ul class="nav navbar-nav navbar-right">
-   <li>Welcome, name here</li>
+   <li>Welcome, <%=session.getAttribute("userName")%></li>
      <li>
      <form action="LogoutController" method="post" id="logout">
 <input type="submit" class="btn btn-danger" value="Logout">

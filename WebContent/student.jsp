@@ -12,39 +12,87 @@
 
 </head>
 <body>
-
-	Hey,
+<div class="container" id="wrap">
+	<!-- Hey,
 	<%=session.getAttribute("userType")%>
 	:
 	<%=session.getAttribute("userName")%>
 	<br> You have Logged in successfully!
 	
+	<br> -->
+	<p>
+	Welcome back. To create a new application, click <a href="/StudentPortalWebApp/application.jsp" alt="Create application">here</a>.
+	</p>
+	<p>For more information on departments, click <a href="/StudentPortalWebApp/DepartmentController">here</a></p>
+	<!--  <button type="Login" onclick="location.href='/StudentPortalWebApp/application.jsp'" class="btn btn-primary">Create Application</button>  -->
 	<br>
-	<button type="Login" onclick="location.href='/StudentPortalWebApp/application.jsp'" class="btn btn-primary">Create Application</button>
 	<br>
-	<br>
-	<table bgcolor="#00FF00" border="5">
-		<tr>
-			<td>Application ID</td>
-			<td>Department Name</td>
-			<td>Degree ID</td>
-			<td>Desired Term</td>
-			<td>Application Status</td>
-		</tr>
-		<c:forEach var="studentDashBoardItem"
+	
+	
+	<div class="container">
+<p>Below is the list of applications you have applied for. Note:Condition for checking if at least one application exits is pending</p>
+
+<div class="row">
+  <div class="col-sm-10 col-md-10 centered" id="container_color_grey">
+  
+	  <div class="row" >
+		  <div class="col-sm-2 col-md-2">
+		  	<p>Application Id</p>
+		  </div>
+		  <div class="col-sm-3 col-md-3">
+		  	<p>Department</p>
+		  </div>
+		  <div class="col-sm-3 col-md-3">
+		  	<p>Degree</p>
+		  </div>
+		  <div class="col-sm-2 col-md-2">
+		  	<p>Enrollment Term</p>
+		  </div>
+		  <div class="col-sm-2 col-md-2">
+		  	<p>Application Status</p>
+		  </div>
+	    </div>
+	</a>
+	</div>
+
+</br>
+</div>
+
+<c:forEach var="studentDashBoardItem"
 			items="${requestScope.studentDashboardList}">
 
-			<tr>
-				<td><b>${studentDashBoardItem.app_id }</b></td>
-				<td><b>${studentDashBoardItem.dept_name }</b></td>
-				<td><b>${studentDashBoardItem.deg_id }</b></td>
-				<td><b>${studentDashBoardItem.desired_term }</b></td>
-				<td><b>${studentDashBoardItem.app_status }</b></td>
-			</tr>
+<div class="row">
+  <div class="col-sm-10 col-md-10 centered" id="container_color_grey">
+  <a href="DegreeController?deptID=${depts.deptID}">
+	  <div class="row" >
+		  <div class="col-sm-2 col-md-2">
+		  	<p>${studentDashBoardItem.app_id}</p>
+		  </div>
+		  <div class="col-sm-3 col-md-3">
+		  	<p>${studentDashBoardItem.dept_name}</p>
+		  </div>
+		  <div class="col-sm-3 col-md-3">
+		  	<p>${studentDashBoardItem.deg_id}</p>
+		  </div>
+		  <div class="col-sm-2 col-md-2">
+		  	<p>${studentDashBoardItem.desired_term}</p>
+		  </div>
+		  <div class="col-sm-2 col-md-2">
+		  	<p>${studentDashBoardItem.app_status}</p>
+		  </div>
+	    </div>
+	</a>
+	</div>
 
-		</c:forEach>
-	</table>
+</br>
+</div>
+</c:forEach>
 
+</div>
+
+</div>
+<div id = "footer">
 	<%@include file="footer.jsp"%>
+</div>
 </body>
 </html>
