@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sp.dao.DepartmentDAO;
 import com.sp.dao.StaffFilterDao;
@@ -42,6 +43,8 @@ public class StaffFilterController extends StudentBaseController {
 		String action = request.getParameter(ACTION);
 		String deptID =  request.getParameter(DEPT_ID);
 		String degID =  request.getParameter(DEG_ID);
+		HttpSession session = request.getSession(true);
+		System.out.println("adfafadfad"+session.getAttribute("STAFF"));
 		
 		if ("Submit".equalsIgnoreCase(action)) {
 				String pgmApplied= request.getParameter("pgmApplied");

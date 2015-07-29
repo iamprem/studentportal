@@ -117,7 +117,7 @@ public class StudentDAO {
 			String sql1 = "SELECT S.student_id, S.firstName,S.lastName, S.gender, S.email, S.dateOfBirth, S.phone, S.ssn,"
 					+ "S.streetAddress, S.apartmentNo, S.city, S.stateOrTeritory, S.country, S.zipcode,"
 					+ "S.degreeEarned, S.gpa, S.major, S.workOrgName, S.yearsWorked, S.keyRole,"
-					+ "A.app_id, A.app_status, A.desired_term, A.decision_date, " + "A.app_status, A.sop_content, "
+					+ "A.app_id, A.app_status, A.desired_term,A.applied_date, A.decision_date, " + "A.app_status, A.sop_content, "
 					+ "D.dept_name, DEG.deg_name, DEG.deg_id, D.dept_id " + "FROM student S "
 					+ "INNER JOIN application_applied A ON S.student_id=A.student_id "
 					+ "INNER JOIN department D ON A.dept_id = D.dept_id "
@@ -153,6 +153,7 @@ public class StudentDAO {
 				String app_status = rs.getString("app_status");
 				String desired_term = rs.getString("desired_term");
 				Date decision_date = rs.getDate("decision_date");
+				Date applied_date = rs.getDate("applied_date");
 				String sop_content = rs.getString("sop_content");
 				// Degree
 				String deg_id = rs.getString("deg_id");
@@ -167,7 +168,7 @@ public class StudentDAO {
 				department = new Department(dept_id, dept_name);
 				degree = new Degree(deg_id, deg_name);
 
-				application = new Application(app_id, app_status, desired_term, decision_date, sop_content);
+				application = new Application(app_id, app_status, desired_term, decision_date, sop_content,applied_date);
 				application.setStudent(student);
 				application.setDegree(degree);
 				application.setDepartment(department);
