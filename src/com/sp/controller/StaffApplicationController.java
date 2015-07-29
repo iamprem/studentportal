@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sp.dao.ApplicationDAO;
+import com.sp.dao.EmailDAO;
 import com.sp.dao.StaffFilterDao;
 import com.sp.dao.StudentDAO;
 
@@ -46,14 +47,17 @@ public class StaffApplicationController extends StudentBaseController {
 		String appID =  request.getParameter(APP_ID);
 		int app=Integer.parseInt(appID);
 		String studentID =  request.getParameter(STUDENT_ID);
-		String deptID =  request.getParameter(DEPT_ID);
-		String degID =  request.getParameter(DEG_ID);
 		int studentId=Integer.parseInt(studentID);
 		String action = request.getParameter(ACTION);
 		String status = request.getParameter(APPLICATION_STATUS);
-		//String email=StudentDAO.getApplication(app).getStudent().getEmail();
+		String email=StudentDAO.getSavedApplication(app).getStudent().getEmail();
+		String dept=StudentDAO.getSavedApplication(app).getDepartment().getDeptName();
+		String degree=StudentDAO.getSavedApplication(app).getDegree().getDegName();
+		String name=StudentDAO.getSavedApplication(app).getStudent().getFullName();
+		System.out.println(email);
 	 if ("Submit".equalsIgnoreCase(action)) {
 		 ApplicationDAO.updateAppStatus( app, status);
+		 EmailDAO.emailStatusSender(email,studentId,dept,degree,name,status,app);
 	 } else if ("Cancel".equalsIgnoreCase(action)) {
 	 } 
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("filter.jsp");

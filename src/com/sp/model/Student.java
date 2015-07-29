@@ -130,6 +130,11 @@ public class Student {
 	public String getLastName() {
 		return lastName;
 	}
+	
+	public String getFullName()
+	{
+		return this.firstName+this.lastName;
+	}
 
 	public void setLastName(String lastName) {
 		this.lastName = lastName;

@@ -203,6 +203,44 @@ public class EmailDAO {
 		return null;
 	}
 
+	public static void emailStatusSender(String email, int studentId, String dept, String degree, String name, String status, int app)
+	{
+		final String username = "studentreguncc@gmail.com";
+		final String password = "student1!";
+		String[] to = { email };
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("gany@gmail.com"));
+			for (int i = 0; i < to.length; i++) {
+				message.addRecipient(Message.RecipientType.TO, new InternetAddress(to[i]));
+			}
+			message.setSubject("Application Status Update");
+			message.setText("Dear "+ name + ",\n\n" + "Please find the status of your Application for "+ dept+ "and  "+degree+" degree"
+					+"\n\nApplication ID: "+app +"\nStudent ID : "+studentId+"\nApplication Status : "+status
+					+"\n\nPlease Visit the site for further details."
+					+ "\n\nRegards," + "\n\nAdmin" + "");
+
+			Transport.send(message);
+
+			System.out.println("Done");
+
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	public static void emailGenerator(String email) {
 		final String username = "studentreguncc@gmail.com";
 		final String password = "student1!";
@@ -226,14 +264,6 @@ public class EmailDAO {
 			for (int i = 0; i < to.length; i++) {
 				message.addRecipient(Message.RecipientType.TO, new InternetAddress(to[i]));
 			}
-			/*
-			 * message.addRecipients(Message.RecipientType.TO,
-			 * InternetAddress.parse
-			 * ("ganeshr131289@gmail.com, ganyz89@gmail.com")); String address =
-			 * ""; InternetAddress[] iAdressArray =
-			 * InternetAddress.parse(address);
-			 * message.setRecipients(Message.RecipientType.BCC, iAdressArray);
-			 */
 			message.setSubject("Password Reset");
 			message.setText("Dear User," + "\n\n" + "Please find below the old password for your account " + email
 					+ "\n\nPassword:" + finder

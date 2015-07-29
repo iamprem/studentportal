@@ -186,7 +186,7 @@ public class StudentDAO {
 			while (rs1.next()) {
 				String testCode = rs1.getString("test_code");
 				Double score = rs1.getDouble("score");
-				Date expiryDate = rs1.getDate("expiryDate");
+				Date expiryDate = rs1.getDate("expiry_date");
 				TestScore testScore = new TestScore(testCode, score, expiryDate);
 				testScoreList.add(testScore);
 			}
