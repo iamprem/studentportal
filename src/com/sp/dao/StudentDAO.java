@@ -100,8 +100,8 @@ public class StudentDAO {
 		return studentDashboardList;
 	}
 
-	// To get the applied application
-	public static Application getApplication(int app_id) {
+	// To get the saved application application
+	public static Application getSavedApplication(int app_id) {
 		Statement stmt = null;
 		DbConnection conn = null;
 		Application application = null;
@@ -111,23 +111,24 @@ public class StudentDAO {
 		Department department = null;
 
 		try {
-			//TODO: Check Query in workbench first
 			conn = new DbConnection();
 			System.out.println("Fetching Student's specific Application");
+			System.out.println("App ID: " +app_id);
 			String sql1 = "SELECT S.student_id, S.firstName,S.lastName, S.gender, S.email, S.dateOfBirth, S.phone, S.ssn,"
 					+ "S.streetAddress, S.apartmentNo, S.city, S.stateOrTeritory, S.country, S.zipcode,"
-					+ "S.degreeEarned, S.gpa, S.major, S.workOrgName, S.yearsWorked, S.keyRole"
+					+ "S.degreeEarned, S.gpa, S.major, S.workOrgName, S.yearsWorked, S.keyRole,"
 					+ "A.app_id, A.app_status, A.desired_term, A.decision_date, " + "A.app_status, A.sop_content, "
-					+ "D.dept_name, DEG.deg_name, DEG.deg_id, D.dept_id, " + "FROM student S "
+					+ "D.dept_name, DEG.deg_name, DEG.deg_id, D.dept_id " + "FROM student S "
 					+ "INNER JOIN application_applied A ON S.student_id=A.student_id "
 					+ "INNER JOIN department D ON A.dept_id = D.dept_id "
-					+ "INNER JOIN degree DEG ON A.deg_id = DEG.deg_id " + "WHERE A.app_id = '" + app_id + "';";
+					+ "INNER JOIN degree DEG ON A.deg_id = DEG.deg_id " + "WHERE A.app_id = "+ app_id +";";
 
 			stmt = conn.DbConnectionForPreparedStatement(sql1);
 			ResultSet rs = stmt.executeQuery(sql1);
-
+			System.out.println("2");
 			while (rs.next()) {
 				// Student Profile
+				System.out.println("1");
 				int student_id = rs.getInt("student_id");
 				String firstName = rs.getString("firstName");
 				String lastName = rs.getString("lastName");
@@ -142,7 +143,7 @@ public class StudentDAO {
 				String stateOrTeritory = rs.getString("stateOrTeritory");
 				String country = rs.getString("country");
 				String zipcode = rs.getString("zipcode");
-				String degreeEarned = rs.getString("degreeEarend");
+				String degreeEarned = rs.getString("degreeEarned");
 				Double gpa = rs.getDouble("gpa");
 				String major = rs.getString("major");
 				String workOrgName = rs.getString("workOrgName");
@@ -172,10 +173,11 @@ public class StudentDAO {
 				application.setDepartment(department);
 			}
 
+			System.out.println(application.toString());
 			// Get the student id from the previous query output
 			int sql2_studId = application.getStudent().getStudent_id();
 
-			String sql2 = "SELECT test_code, score, expiry_date" + "FROM student_test_taken" + "WHERE student_id = '"
+			String sql2 = "SELECT test_code, score, expiry_date" + "FROM student_taken_test" + "WHERE student_id = '"
 					+ sql2_studId + "';";
 			stmt.close();
 			stmt = conn.DbConnectionForPreparedStatement(sql2);
