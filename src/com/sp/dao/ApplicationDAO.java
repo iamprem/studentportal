@@ -4,22 +4,15 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.sp.db.DbConnection;
 import com.sp.model.Application;
-import com.sp.model.Course;
-import com.sp.model.Degree;
-import com.sp.model.Department;
-import com.sp.model.Staff;
-import com.sp.model.Student;
 
 public class ApplicationDAO {
 
 	
 	
-		public static Application retrieveApp(String appID) {
+		public static Application retrieveApp(int appID) {
 			Application app=null;
 		Statement stmt = null;
 		DbConnection conn = null;
@@ -64,6 +57,34 @@ public class ApplicationDAO {
 
 	}
 
+
+public static void updateAppStatus(int appID,String status) {
+	Statement stmt = null;
+	DbConnection conn = null;
+
+	try{
+			conn = new DbConnection();
+		String sql;
+		sql = "UPDATE application_applied SET app_status ='"+status+"'where app_id='"+appID+"';";
+		stmt = conn.DbConnectionForStatement();
+		stmt.execute(sql);
+	    stmt.close();
+		conn.close();
+	}catch(SQLException se){
+		se.printStackTrace();
+	}catch(Exception e){
+		e.printStackTrace();
+	}finally{
+		try{
+			if(stmt!=null)
+				stmt.close();
+		}catch(SQLException se2){
+		}		if(conn!=null)
+			conn.close();
+	}   
+	
+}	
+		
 
 	
 }
