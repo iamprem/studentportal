@@ -100,9 +100,10 @@ public class LoginController extends HttpServlet {
 					Cookie userNameC = new Cookie("userNAME", userName);
 					response.addCookie(userNameC);
 					String encodedURL = response
-							.encodeRedirectURL("student.jsp");
+							.encodeRedirectURL("StudentDashController");
 					response.sendRedirect(encodedURL);
 					user_session.setAttribute("userName", userName);
+					user_session.setAttribute("userEmail", userName);
 					user_session.setAttribute("userType", userType);
 				}
 			}
@@ -117,7 +118,7 @@ public class LoginController extends HttpServlet {
 //					user_session.setMaxInactiveInterval(30 * 60);
 //					Cookie userName = new Cookie("userNAME", username);
 //					response.addCookie(userName);
-//					String encodedURL = response
+//					String encodedURL = responseStudent Login Successful! Take data from
 //							.encodeRedirectURL("student_home.jsp");
 //					response.sendRedirect(encodedURL);
 //					user_session.setAttribute("userName", username);

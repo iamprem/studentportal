@@ -55,18 +55,19 @@ public class StudentDAO {
 
 		Statement stmt = null;
 		DbConnection conn = null;
+		studentDashboardList = new ArrayList<StudentDashboard>();
 		try {
 
 			conn = new DbConnection();
 			System.out.println("Fetching Student's all Application overview");
 			String sql1 = "SELECT S.firstName,S.lastName, A.app_id, A.deg_id, D.dept_name, A.desired_term, A.app_status "
-					+ "FROM student S " + "INNER JOIN application_applied A ON S.student_id=A.app_id "
-					+ "INNER JOIN department D ON A.dept_id = D.dept_id" + "WHERE S.email = '" + email + "';";
+					+ "FROM student S " + "INNER JOIN application_applied A ON S.student_id=A.student_id "
+					+ "INNER JOIN department D ON A.dept_id = D.dept_id" + " WHERE S.email = '" + email + "';";
 			stmt = conn.DbConnectionForPreparedStatement(sql1);
 			ResultSet rs = stmt.executeQuery(sql1);
 
 			while (rs.next()) {
-				int app_id = rs.getInt("course_id");
+				int app_id = rs.getInt("app_id");
 				String firstName = rs.getString("firstName");
 				String lastName = rs.getString("lastName");
 				String deg_id = rs.getString("deg_id");
@@ -75,6 +76,7 @@ public class StudentDAO {
 				String app_status = rs.getString("app_status");
 				StudentDashboard studentDashboard = new StudentDashboard(firstName, lastName, email, app_id, dept_name,
 						deg_id, app_status, desired_term);
+				System.out.println("Before Null POint"+studentDashboard.toString());
 				studentDashboardList.add(studentDashboard);
 			}
 			rs.close();
@@ -109,7 +111,7 @@ public class StudentDAO {
 		Department department = null;
 
 		try {
-
+			//TODO: Check Query in workbench first
 			conn = new DbConnection();
 			System.out.println("Fetching Student's specific Application");
 			String sql1 = "SELECT S.student_id, S.firstName,S.lastName, S.gender, S.email, S.dateOfBirth, S.phone, S.ssn,"
@@ -117,7 +119,7 @@ public class StudentDAO {
 					+ "S.degreeEarned, S.gpa, S.major, S.workOrgName, S.yearsWorked, S.keyRole"
 					+ "A.app_id, A.app_status, A.desired_term, A.decision_date, " + "A.app_status, A.sop_content, "
 					+ "D.dept_name, DEG.deg_name, DEG.deg_id, D.dept_id, " + "FROM student S "
-					+ "INNER JOIN application_applied A ON S.student_id=A.app_id "
+					+ "INNER JOIN application_applied A ON S.student_id=A.student_id "
 					+ "INNER JOIN department D ON A.dept_id = D.dept_id "
 					+ "INNER JOIN degree DEG ON A.deg_id = DEG.deg_id " + "WHERE A.app_id = '" + app_id + "';";
 

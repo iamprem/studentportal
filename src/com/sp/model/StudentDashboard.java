@@ -2,6 +2,8 @@ package com.sp.model;
 
 public class StudentDashboard {
 	
+
+
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -92,6 +94,11 @@ public class StudentDashboard {
 		this.desired_term = desired_term;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "StudentDashboard [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", app_id="
+				+ app_id + ", dept_name=" + dept_name + ", deg_id=" + deg_id + ", app_status=" + app_status
+				+ ", desired_term=" + desired_term + "]";
+	}
 	
 }

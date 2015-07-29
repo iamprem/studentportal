@@ -19,36 +19,40 @@ import com.sp.dao.StudentDAO;
 @WebServlet("/StudentDashController")
 public class StudentDashController extends StudentBaseController {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public StudentDashController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session =request.getSession();
-		String email =  (String) session.getAttribute("email");
+	public StudentDashController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("userEmail");
+		System.out.println("Session Email"+email);
 		request.setAttribute(STUDENTDASHBOARDLIST, StudentDAO.getStudentDash(email));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("student.jsp");
 		dispatcher.forward(request, response);
 		return;
-		//TODO Prem
-	
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//No Post method needed.
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// No Post method needed.
 
 	}
 
