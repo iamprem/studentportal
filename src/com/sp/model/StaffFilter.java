@@ -2,6 +2,7 @@ package com.sp.model;
 
 public class StaffFilter {
 	private String lastName;
+	private String testCodes;
 	private Double gre;
 	private Double gpa;
 	private String firstName;
@@ -9,11 +10,15 @@ public class StaffFilter {
 	private String country;
 	private int studentID;
 	private int appID;
+	private String deptID;
 
-	public StaffFilter(String lastName, Double gre, Double gpa, String firstName, String gender, String country,
-			int studentID, int appID) {
+
+
+	public StaffFilter(String lastName, String testCodes, Double gre, Double gpa, String firstName, String gender,
+			String country, int studentID, int appID, String deptID) {
 		super();
 		this.lastName = lastName;
+		this.testCodes = testCodes;
 		this.gre = gre;
 		this.gpa = gpa;
 		this.firstName = firstName;
@@ -21,6 +26,25 @@ public class StaffFilter {
 		this.country = country;
 		this.studentID = studentID;
 		this.appID = appID;
+		this.deptID = deptID;
+	}
+
+	public String getDeptID() {
+		return deptID;
+	}
+
+	public void setDeptID(String deptID) {
+		this.deptID = deptID;
+	}
+
+
+
+	public String getTestCodes() {
+		return testCodes;
+	}
+
+	public void setTestCodes(String testCodes) {
+		this.testCodes = testCodes;
 	}
 
 	public String getLastName() {

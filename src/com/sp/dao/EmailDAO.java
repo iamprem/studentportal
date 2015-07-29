@@ -133,7 +133,7 @@ public class EmailDAO {
 				message.addRecipient(Message.RecipientType.TO, new InternetAddress(students.get(i)));
 			}
 			message.setSubject("New Course Update");
-			message.setText("Dear "+ deptID +" User," + "\n\n" + "A new Course has been addded to the degree "+degID
+			message.setText("Dear "+ deptID +" User," + "\n\n" + "A new Course has been added/Modified to the degree "+degID
 					+ "\n\nPlease find the details below:\n\n"
 					+"Course ID: "+iD +"\nCourseName : "+courseName+"\nInstruction Method : "+insMethod+"\nCredit Hours : "+credHrs
 					+"\n\nPlease Visit the site for further details."

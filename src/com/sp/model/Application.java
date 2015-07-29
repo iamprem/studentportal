@@ -14,6 +14,47 @@ public class Application {
 	private Department department;
 	private Staff reviewer;
 	private String sop_content;
+	private int studentID;
+	public Application(int app_id, String app_status, String desired_term, Date applied_date, Date decision_date,
+			String sop_content, int studentID, String deptId, String degId) {
+		super();
+		this.app_id = app_id;
+		this.app_status = app_status;
+		this.desired_term = desired_term;
+		this.applied_date = applied_date;
+		this.decision_date = decision_date;
+		this.sop_content = sop_content;
+		this.studentID = studentID;
+		this.deptId = deptId;
+		this.degId = degId;
+	}
+
+	public int getStudentID() {
+		return studentID;
+	}
+
+	public void setStudentID(int studentID) {
+		this.studentID = studentID;
+	}
+
+	public String getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
+	}
+
+	public String getDegId() {
+		return degId;
+	}
+
+	public void setDegId(String degId) {
+		this.degId = degId;
+	}
+
+	private String deptId;
+	private String degId;
 
 	public Application(int app_id, String app_status, String desired_term, Date applied_date, Date decision_date,
 			Student student, Degree degree, Department department, Staff reviewer, String sop_content) {

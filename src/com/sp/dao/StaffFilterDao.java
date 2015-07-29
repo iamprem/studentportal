@@ -14,26 +14,18 @@ import com.sp.model.StaffFilter;
 public class StaffFilterDao {
 	private static List<StaffFilter> filterList;
 
-	public static List filterList(String pgmApplied, String gender, String gre, String gpa, String country) {
+	public static List<StaffFilter> filterList(String pgmApplied, String gender, String testCode, String scoreOp, String score, String gpaOp, String gpa, String country) {
 		filterList = new ArrayList<StaffFilter>();
-
+		
 		Statement stmt = null;
 		DbConnection conn = null;
 		try {
 			conn = new DbConnection();
 			String sql;
-			sql = "SELECT * FROM student s,application_applied a,student_taken_test b where s.student_id=a.student_id and s.student_id=b.student_id and a.dept_id= '"
-					+ pgmApplied
-					
-					+ "'and s.gender='"
-					+ gender
-					
-					+ "'and s.country='" + country + "';";
+			sql="select S.student_id,S.firstName, S.lastName,S.email,S.gender,S.country,S.gpa,A.app_id,A.app_status,A.applied_date,A.decision_date,A.dept_id,T.test_code,T.score,T.expiry_date from student S INNER JOIN application_applied A on S.student_id=A.student_id INNER JOIN student_taken_test T on S.student_id=T.student_id "
+					+ "WHERE A.dept_id like '" + pgmApplied + "' AND T.test_code like '" + testCode + "' AND S.country like '" + country + "' AND S.gender like '"+ gender+"' AND S.gpa  "+gpaOp+ gpa +" AND T.score " + scoreOp+score + ";";
 			
-			/*+ "'and s.score'"
-			+ gre
-			+ "'and s.gpa'"
-			+ gpa*/
+			System.out.println(sql);
 			stmt = conn.DbConnectionForPreparedStatement(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
@@ -43,11 +35,13 @@ public class StaffFilterDao {
 				String lastName = rs.getString("lastName");
 				String genders = rs.getString("gender");
 				Double gpas = rs.getDouble("gpa");
+				String testCodes=rs.getString("test_code");
 				Double gres = rs.getDouble("score");
 				String countrys = rs.getString("country");
+				String deptId = rs.getString("dept_id");
 				int appID = rs.getInt("app_id");
-				StaffFilter staffFilters = new StaffFilter(lastName, gres, gpas, firstName, genders, countrys,
-						studentID, appID);
+				StaffFilter staffFilters = new StaffFilter(lastName,testCodes, gres, gpas, firstName, genders, countrys,
+						studentID, appID,deptId);
 				filterList.add(staffFilters);
 			}
 			rs.close();
@@ -70,5 +64,4 @@ public class StaffFilterDao {
 		return filterList;
 
 	}
-
 }

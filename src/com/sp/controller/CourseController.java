@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sp.dao.CourseDAO;
 import com.sp.dao.DepartmentDAO;
+import com.sp.dao.EmailDAO;
 
 /**
  * Servlet implementation class CourseController
@@ -61,6 +62,7 @@ public class CourseController extends StudentBaseController {
 				String credHrs= request.getParameter(CREDIT_HOURS);
 				int hrs=Integer.parseInt(credHrs);
 			CourseDAO.updateCourse(iD,courseName,insMethod,hrs);
+			EmailDAO.UpdateEmailTrigger(deptID, degID, iD, courseName, insMethod, credHrs);
 
 		} else if ("Cancel".equalsIgnoreCase(action)) {
 		} else if ("Delete".equalsIgnoreCase(action)) {
