@@ -19,7 +19,8 @@
 
 </head>
 <body>
-
+<%@include file="header.jsp" %>
+<%--
 <nav class="navbar navbar-default navbar-fixed-top" >
   <div class="container-fluid">
     <div class="navbar-header">
@@ -61,6 +62,8 @@
     </div>
   </div>
 </nav>
+ --%>
+
 <div class="clear"></div>
 <%
 String userName = null;
