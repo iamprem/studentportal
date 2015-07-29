@@ -46,20 +46,34 @@
 					</tr>
 					
 					<tr>
-						<td><label for="gre">GRE</label></td>
-						<td><select name="gre" id="gre" >.<option value="ALL" selected>All</option>
-								<option value=">300" >> 300</option>
-								<option value="<300">< 300</option>
+						<td><label for="testType">Test Type</label></td>
+						<td><select name="testType" id="testType" >.<option value="ALL" selected>All</option>
+								<option value="GRE" >GRE</option>
+								<option value="TOFEL">TOFEL</option>
+								<option value="GMAT">GMAT</option>
+								<option value="SAT">SAT</option>
+								<option value="ACT">ACT</option>
 						</select> <br></td>
 
 
 					</tr>
-<tr>
+					
+					<tr>
+						<td><label for="score">Score</label></td>
+						<td><input type="radio" name="op"  checked value="="/>=
+						<input type="radio" name="op" id="op" value="<="><=
+						<input type="radio" name="op" id="op"  value=">=">>=
+						<input type="radio" name="op" id="op" value=">"/>>
+						<input type="radio" name="op" id="op" value="<"/><
+						<input type="text" name="score" id="score"> <br/>
+						
 						<td><label for="gpa">GPA</label></td>
-						<td><select name="gpa" id="gpa" >.<option value="ALL" selected>All</option>
-								<option value=">3.5" >> 3.5</option>
-								<option value="<3.5">< 3.5</option>
-						</select> <br></td>
+						<td><input type="radio" name="gpaop" id="gpaop" checked value="="/>=
+						<input type="radio" name="gpaop" id="gpaop" value="<="><=
+						<input type="radio" name="gpaop" id="gpaop" value=">=">>=
+						<input type="radio" name="gpaop" id="gpaop" value=">"/>>
+						<input type="radio" name="gpaop" id="gpaop" value="<"/><
+						<input type="text" name="gpa" id="gpa"> <br></td>
 
 
 					</tr>					
