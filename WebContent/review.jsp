@@ -15,7 +15,7 @@
 					 <table style="background-color: #F6F6EE;">
 						<tr>
 						<td><label>Student ID</label></td>
-						<td><input type="text" id="studentId" name="studentId" value="${app.Student.studentID}"
+						<td><input type="text" id="studentId" name="studentId" value="${app.studentID}"
 							size="21"  readonly /><br></td>
 					</tr>
 					 
