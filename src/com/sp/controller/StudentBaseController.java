@@ -17,7 +17,8 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String DEPT_DATA="department_data";
 	public static final String FILTER_LIST="filterList";
 	public static final String DEG_ID="degID";
-	public static final String COURSE_ID="courseID";
+	public static final String COURSE_ID="courseID"; 
+	public static final String STUDENT_ID="studentID";
 	public static final String COURSE_NAME="courseName";
 	public static final String INS_METHOD="insMethod";
 	public static final String CREDIT_HOURS="creditHours";
@@ -31,7 +32,7 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String COUNTRY="country";
 	public static final String ACTION="action";
 	public static final String STUDENTDASHBOARDLIST = "studentDashboardList";
-	
+	public static final String APPLICATION_STATUS="appStatus";
 	public static final String APPLICATION = "application";
 
 	@Override
