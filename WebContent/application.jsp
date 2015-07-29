@@ -210,7 +210,7 @@
 
 		<div class="form-group">
 			<div class="col-sm-offset-3 col-sm-10">
-				<button type="Login" class="btn btn-primary">Login</button>
+				<button type="Login" class="btn btn-primary">Create Application</button>
 			</div>
 		</div>
 		

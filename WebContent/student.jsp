@@ -18,6 +18,10 @@
 	:
 	<%=session.getAttribute("userName")%>
 	<br> You have Logged in successfully!
+	
+	<br>
+	<button type="Login" onclick="location.href='/StudentPortalWebApp/application.jsp'" class="btn btn-primary">Create Application</button>
+	<br>
 	<br>
 	<table bgcolor="#00FF00" border="5">
 		<tr>
