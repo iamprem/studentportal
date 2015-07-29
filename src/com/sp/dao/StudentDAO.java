@@ -177,8 +177,8 @@ public class StudentDAO {
 			// Get the student id from the previous query output
 			int sql2_studId = application.getStudent().getStudent_id();
 
-			String sql2 = "SELECT test_code, score, expiry_date" + "FROM student_taken_test" + "WHERE student_id = '"
-					+ sql2_studId + "';";
+			String sql2 = "SELECT test_code, score, expiry_date " + "FROM student_taken_test" + " WHERE student_id = "
+					+ sql2_studId + ";";
 			stmt.close();
 			stmt = conn.DbConnectionForPreparedStatement(sql2);
 			ResultSet rs1 = stmt.executeQuery(sql2);

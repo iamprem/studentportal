@@ -36,8 +36,9 @@ public class ApplicationController extends StudentBaseController {
 
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("userEmail");
-		//int appID = (int) request.getAttribute("appID");
-		int appID = 1;
+		System.out.println(request.getParameter("appID"));
+		int appID = Integer.parseInt(request.getParameter("appID"));
+		System.out.println("Incomming AppID: "+appID);
 		request.setAttribute(APPLICATION, StudentDAO.getSavedApplication(appID));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("application_filled.jsp");
 		dispatcher.forward(request, response);
