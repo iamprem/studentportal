@@ -3,6 +3,10 @@ package com.sp.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Message;
@@ -14,9 +18,10 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import com.sp.db.DbConnection;
-import com.sp.model.Course;
+import com.sp.model.Student;
 
 public class EmailDAO {
+	private static List<String> studentList;
 
 	public static int getUserByID(String email) {
 		Statement stmt = null;
@@ -68,6 +73,81 @@ public class EmailDAO {
 
 	}
 
+	public static List<String> getStudentList() {
+		studentList = new ArrayList<String>();
+
+		Statement stmt = null;
+		DbConnection conn = null;
+		try {
+			conn = new DbConnection();
+			String sql;
+			sql = "SELECT * FROM user_student;";
+			stmt = conn.DbConnectionForPreparedStatement(sql);
+			ResultSet rs = stmt.executeQuery(sql);
+			while (rs.next()) {
+				String emailId = rs.getString("user_stud_email");
+				studentList.add(emailId);
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+			}
+			if (conn != null)
+				conn.close();
+		}
+
+		return studentList;
+
+	}
+
+	public static void UpdateEmailTrigger(String deptID, String degID, int iD, String courseName, String insMethod, String credHrs) {
+		final String username = "studentreguncc@gmail.com";
+		final String password = "student1!";
+		List<String> students = getStudentList();
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+		Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+			protected PasswordAuthentication getPasswordAuthentication() {
+				return new PasswordAuthentication(username, password);
+			}
+		});
+
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("gany@gmail.com"));
+			for (int i = 0; i < students.size(); i++) {
+
+				message.addRecipient(Message.RecipientType.TO, new InternetAddress(students.get(i)));
+			}
+			message.setSubject("New Course Update");
+			message.setText("Dear "+ deptID +" User," + "\n\n" + "A new Course has been addded to the degree "+degID
+					+ "\n\nPlease find the details below:\n\n"
+					+"Course ID: "+iD +"\nCourseName : "+courseName+"\nInstruction Method : "+insMethod+"\nCredit Hours : "+credHrs
+					+"\n\nPlease Visit the site for further details."
+					+ "\n\nRegards," + "\n\nAdmin" + "");
+
+			Transport.send(message);
+
+			System.out.println("Done");
+
+		} catch (MessagingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
 	public static String passwordFinder(String email) {
 		Statement stmt = null;
 		Statement stmt1 = null;
@@ -85,7 +165,7 @@ public class EmailDAO {
 			while (rs.next()) {
 				studPassword = rs.getString("user_stud_pwd");
 			}
-			
+
 			stmt1 = conn.DbConnectionForPreparedStatement(sql1);
 			ResultSet rs1 = stmt1.executeQuery(sql1);
 			while (rs1.next()) {
@@ -156,8 +236,9 @@ public class EmailDAO {
 			 */
 			message.setSubject("Password Reset");
 			message.setText("Dear User," + "\n\n" + "Please find below the old password for your account " + email
-					+ "\n\nPassword:" + finder + "\n\nKindly Change your password after logging in for security details."
-					+ "\n\nRegards," + "\n\nAdmin" + "");
+					+ "\n\nPassword:" + finder
+					+ "\n\nKindly Change your password after logging in for security details." + "\n\nRegards,"
+					+ "\n\nAdmin" + "");
 
 			Transport.send(message);
 

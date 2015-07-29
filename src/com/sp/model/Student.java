@@ -114,6 +114,11 @@ public class Student {
 				+ workOrgName + ", yearsWorked=" + yearsWorked + ", keyRole=" + keyRole + "]";
 	}
 
+	public Student(String email) {
+		super();
+		this.email = email;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

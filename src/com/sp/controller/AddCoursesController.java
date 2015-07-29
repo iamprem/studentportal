@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sp.dao.CourseDAO;
+import com.sp.dao.EmailDAO;
 import com.sp.model.Course;
 
 /**
@@ -65,6 +66,7 @@ public class AddCoursesController extends StudentBaseController {
 				
 				
 			CourseDAO.addCourse(deptID, degID, iD, courseName, insMethod, credHrs);
+			EmailDAO.UpdateEmailTrigger(deptID, degID, iD, courseName, insMethod, credHrs);
 			}  
 
 			else {
