@@ -55,13 +55,10 @@
       </form>
      </li>
      <li><a href="#">About UNCC</a></li>
-        <li><a href="login.jsp">Logout</a></li>
-    
        </ul>
     </div>
   </div>
 </nav>
-<div class="clear"></div>
 <%
 String userName = null;
 String sessionID = null;
@@ -79,3 +76,7 @@ if (session.getAttribute("userName") == null){
 	}
 }
 %>
+<div class="clear"></div>
+<form action="LogoutController" method="post" id="logout">
+<input type="submit" class="btn btn-danger col-md-offset-11" value="Logout">
+</form>
