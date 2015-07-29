@@ -12,8 +12,11 @@
 <%@ include file="header.jsp"%>
 </head>
 <body>
-	<h1>${requestScope.deptID}</h1>
-	<h1>${requestScope.degID}</h1>
+<div id = "wrap">
+	<div class="col-sm-10 col-md-10 centered" id="container_color_grey">
+	<h1>${requestScope.deptID} - ${requestScope.degID}</h1>
+	</div>
+	
 
 	<form name="dd" action="Addcourse.jsp">
 		<c:set var="deptID" scope="session" value="${requestScope.deptID}" /> 
@@ -23,33 +26,22 @@
 			id="addCourse" type="submit" value="Addcourse" class="button"
 			style="margin-top: 20px;" />
 	</form>
-	<table bgcolor="#00FF00" border="5">
-		<tr>
-			<td>Course ID</td>
-			<td>Course Name</td>
-			<td>Instruction Method</td>
-			<td>Credit Hours</td>
-		</tr>
-		<c:forEach var="courses" items="${requestScope.courseList}">
+<c:forEach var="courses" items="${requestScope.courseList}">
+<div class="row">
+	<div class="col-sm-10 col-md-10 centered" id="container_color_grey">
+		<a href="AddCoursesController?courseID=${courses.courseID}" id="logo">
+		<h4> <b>${courses.courseName } ( ${requestScope.deptID} ${courses.courseID } )	</b></h4>
+		</a>
+		<h5> Instruction Method : ${courses.insMethod }	</h5>
+		<h5> PreRequisites : ${courses.coursePrerequisites }	</h5>
+		<h5> Description :  ${courses.courseDescription } </h5>
+		</br>
+	</div>
+	
+</div>
+</c:forEach>	
+</div>
 
-
-
-
-
-			<tr>
-				<td><a href="AddCoursesController?courseID=${courses.courseID}"
-							id="logo"><b>${courses.courseID }</b></a></td>
-				<td><b>${courses.courseName }</b></td>
-				<td><b>${courses.insMethod }</b></td>
-				<td><b>${courses.creditHours }</b></td>
-				<td></td>
-
-
-
-			</tr>
-
-		</c:forEach>
-	</table>
 
 	<%@ include file="footer.jsp"%>
 </body>

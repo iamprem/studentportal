@@ -32,7 +32,9 @@ public class CourseDAO {
 				String courseName = rs.getString("course_name");
 				String insMethod = rs.getString("instruction_method");
 				int creditHours = rs.getInt("credit_hours");
-				Course course = new Course(courseID,courseName,insMethod,creditHours);
+				String courseDesc = rs.getString("description");
+				String coursePrereq = rs.getString("prerequisite");
+				Course course = new Course(courseID,courseName,insMethod,creditHours,courseDesc,coursePrereq);
 				courseList.add(course);
 			}
 			rs.close();
@@ -72,7 +74,9 @@ public static Course getCourseByID(int courseID) {
 				int creditHours = rs.getInt("credit_hours");
 				String deptID=rs.getString("dept_id");
 				String degID=rs.getString("deg_id");
-				 course = new Course(coursesID,courseName,insMethod,creditHours,deptID,degID);
+				String courseDesc = rs.getString("description");
+				String coursePrereq = rs.getString("prerequisite");
+				course = new Course(coursesID,courseName,insMethod,creditHours,deptID,degID,courseDesc,coursePrereq);
 			}
 			rs.close();
 			stmt.close();
@@ -95,7 +99,7 @@ public static Course getCourseByID(int courseID) {
 
 }
 
-public static void addCourse(String deptID, String degID, int courseID, String courseName, String insMethod, String credHrs) {
+public static void addCourse(String deptID, String degID, int courseID, String courseName, String insMethod, String credHrs, String courseDesc, String PreReq) {
 { 
 	Statement stmt = null;
 	DbConnection conn = null;
@@ -104,7 +108,7 @@ public static void addCourse(String deptID, String degID, int courseID, String c
 			conn = new DbConnection();
 		
 		String sql;
-		sql = "INSERT into course_offered(course_id,dept_id,deg_id,course_name,instruction_method,credit_hours) values(\"" +courseID+ "\",\"" + deptID + "\",\""+degID+"\",\""+courseName+"\",\""+insMethod+"\",\""+credHrs+"\");";
+		sql = "INSERT into course_offered(course_id,dept_id,deg_id,course_name,instruction_method,credit_hours,description,prerequisite) values(\"" +courseID+ "\",\"" + deptID + "\",\""+degID+"\",\""+courseName+"\",\""+insMethod+"\",\""+credHrs+"\",\""+courseDesc+"\",\""+PreReq+"\");";
 		stmt = conn.DbConnectionForStatement();
 		stmt.execute(sql);
 	    stmt.close();
@@ -128,7 +132,7 @@ public static void addCourse(String deptID, String degID, int courseID, String c
 
 
 }
-public static void updateCourse(int iD, String courseName, String insMethod, int hrs) {
+public static void updateCourse(int iD, String courseName, String insMethod, int hrs, String courseDesc, String coursePrereq) {
 	Statement stmt = null;
 	DbConnection conn = null;
 
