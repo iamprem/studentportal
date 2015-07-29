@@ -35,7 +35,7 @@ public class StaffApplicationController extends StudentBaseController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String appID =  request.getParameter(APP_ID);
 		int app=Integer.parseInt(appID);
-		request.setAttribute(APPLICATION,ApplicationDAO.retrieveApp(app));
+		request.setAttribute(APPLICATION,StudentDAO.getSavedApplication(app));
 	RequestDispatcher dispatcher = request.getRequestDispatcher("review.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -65,5 +65,6 @@ public class StaffApplicationController extends StudentBaseController {
 	 
 		
 	}
+	
 
 }
