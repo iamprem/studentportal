@@ -41,32 +41,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img class="navbar-brand" src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
+      <a href="#"><img class="navbar-brand" src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active">
-        <a href="#">Home <span class="sr-only">(current)</span></a>
+        <li>
+        <a href="/StudentPortalWebApp/" target="_blank">UNCC Home</a>
         </li>
-        <li><a href="#">Admissions</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">UNCC Departments <span class="caret"></span></a>
-          <ul id = "departments" class="dropdown-menu" role="menu">
-            <li><a href="#">Computer Science</a></li>
-            <li><a href="#">Electrical</a></li>
-            <li><a href="#">Arts</a></li>
-          </ul>
-        </li>
+        <li><a href="/StudentPortalWebApp/StudentDashController/">Dashboard</a></li>
+   
+  </ul>
+  <ul class="nav navbar-nav navbar-right">
+   <li>Welcome, name here</li>
      <li>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-     </li>
-     <li><a href="#">About UNCC</a></li>
+     <form action="LogoutController" method="post" id="logout">
+<input type="submit" class="btn btn-danger" value="Logout">
+</form>
+</li>
+
        </ul>
     </div>
   </div>
@@ -89,6 +82,4 @@ if (session.getAttribute("userName") == null){
 }
 %>
 <div class="clear"></div>
-<form action="LogoutController" method="post" id="logout">
-<input type="submit" class="btn btn-danger col-md-offset-11" value="Logout">
-</form>
+
