@@ -57,7 +57,7 @@ public class ApplicationDAO {
 
 	}*/
 
-	public static void updateAppStatus(int appID,String status) {
+	public static void updateAppStatus(int appID,String status,int empID) {
 		Statement stmt = null;
 		DbConnection conn = null;
     	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -66,7 +66,7 @@ public class ApplicationDAO {
     	try{
 			conn = new DbConnection();
 			String sql;
-			sql = "UPDATE application_applied SET app_status ='"+status+"' , decision_date='" +decDate +"'where app_id='"+appID+"';";
+			sql = "UPDATE application_applied SET app_status ='"+status+"' , decision_date='" +decDate +"', reviewer_id='" +empID +"'where app_id='"+appID+"';";
 			System.out.println("sssssssssssssss"+sql);
 			stmt = conn.DbConnectionForStatement();
 			stmt.execute(sql);

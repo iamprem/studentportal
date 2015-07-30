@@ -14,77 +14,108 @@
 			<script>alert("${requestScope.Message }");</script>	
 			
 		</c:if>
-<form id="review" method="post" action="StaffApplicationController">	
+    <div class="container">
+<form class="form-horizontal" role="form" id="review" method="post" action="StaffApplicationController">	
 <c:set var="app" value="${requestScope.application}"/>	
 <c:set var="student" value="${app.getStudent()}"/>
 <c:set var="department" value="${app.getDepartment()}"/>
 <c:set var="degree" value="${app.getDegree()}"/>	
-					 <table style="background-color: #F6F6EE;">
-						<tr>
-						<td><label>Student ID</label></td>
-						<td><input type="text" id="studentID" name="studentID" value="${student.student_id}"
-							size="21"  readonly /><br></td>
-					</tr>
-							<td><label>Student Name</label></td>
-						<td><input type="text" id="studentName" name="studentName" value="${student.getFullName()}"
-							size="21"  readonly /><br></td>
-					</tr>
+    
+					 <div class="form-group">
+						<label class="control-label col-sm-4">Student ID</label>
+						<div class="col-sm-8">
+						<input type="text" id="studentID" name="studentID" value="${student.student_id}"
+							size="21"  readonly /><br>
+							</div>
+					</div>
+                    <div class="form-group">
+							<label class="control-label col-sm-4">Student Name</label>
+                        <div class="col-sm-8">
+						<input type="text" id="studentName" name="studentName" value="${student.getFullName()}"
+							size="21"  readonly /><br>
+					   </div>
+					</div>
 					 
-					<tr>
-						<td><label>Application ID</label></td>
-						<td><input type="text" id="appID" name="appID" value="${app.app_id}"
-							size="21"  readonly /><br></td>
-					</tr>
-					<tr>
-						<td><label>Department Name</label></td>
-						<td><input type="text" id="deptID" name="deptID" value="${department.deptName}"
-							size="21"  readonly /><br></td>
-					</tr>
-					<tr>
-						<td><label>Degree Name</label></td>
-						<td><input type="text" id="degID" name="degID" value="${degree.degName}"
-							size="21"  readonly /><br></td>
-					</tr>
-	<tr>
-						<td><label>Desired Term</label></td>
-						<td><input type="text" id="desiredTerm" name="desiredTerm" value="${app.desired_term}"
-							size="21"  readonly /><br></td>
-					</tr>
-						<tr>
-						<td><label>Applied Date</label></td>
-						<td><input type="text" id="appliedDate" name="appliedDate" value="${app.applied_date}"
-							size="21"  readonly /><br></td></tr>
+					<div class="form-group">
+						<label class="control-label col-sm-4">Application ID</label>
+						<div class="col-sm-8">
+						<input type="text" id="appID" name="appID" value="${app.app_id}"
+							size="21"  readonly /><br>
+						</div>
+					</div>
+        
+					<div class="form-group">
+						<label class="control-label col-sm-4">Department Name</label>
+                        <div class="col-sm-8">
+						<input type="text" id="deptID" name="deptID" value="${department.deptName}"
+							size="21"  readonly /><br>
+                        </div>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label col-sm-4">Degree Name</label>
+                        <div class="col-sm-8">
+						<input type="text" id="degID" name="degID" value="${degree.degName}"
+							size="21"  readonly /><br>
+                             </div>
+					</div>
+					
+                      <div class="form-group">
+						<label class="control-label col-sm-4">Desired Term</label>
+                          <div class="col-sm-8">
+						<input type="text" id="desiredTerm" name="desiredTerm" value="${app.desired_term}"
+							size="21"  readonly /><br>
+                              </div>
+					</div>
+					
+						<div class="form-group">
+						<label class="control-label col-sm-4">Applied Date</label>
+                            <div class="col-sm-8">
+						<input type="text" id="appliedDate" name="appliedDate" value="${app.applied_date}"
+							size="21"  readonly /><br>
+                                </div>
+					</div>
 				
-<tr>
-						<td><label for="sop">Statement Of Purpose</label></td>
-						<td>
+                       <div class="form-group">
+						<label class="control-label col-sm-4" for="sop">Statement Of Purpose</label>
+						<div class="col-sm-8">
 						<textarea rows="35" cols="50" id="sop" name="sop" readonly>${app.sop_content}</textarea>
-						<br></td>
-					</tr>
-			<tr>
-						<td><label for="appStatus">Application Status</label></td>
-						<td><select name="appStatus" id="appStatus" >.<option value="Processing" selected>Processing</option>
+						<br>
+					   </div>
+					</div>
+			
+                     <div class="form-group">
+						<label class="control-label col-sm-4" for="appStatus">Application Status</label>
+                         <div class="col-sm-8">
+						<select name="appStatus" id="appStatus" >.<option value="Processing" selected>Processing</option>
 								<option value="Accepted" >Accepted</option>
 								<option value="Declined">Declined</option>
-						</select> <br></td>
+						</select> <br>
+                            </div>
+					</div>
 
 
-					</tr>
+				 <div class="form-group">
+                        <div class="col-sm-4">
+                        </div>
+					<div class="col-sm-8">
 
-					<tr><td colspan="2" style="text-align: center;">
+				
 						<button
-							type="submit" name="action" id="action" value="Submit" class="button">Update</button>
+							type="submit" name="action" id="action" value="Submit" class="btn btn-default" onclick="return confirm('Are you sure?')">Update</button>
 						<button
-							type="submit" name="action" id="action" value="Cancel" class="button">Cancel</button> 
+							type="submit" name="action" id="action" value="Cancel" class="btn btn-default">Cancel</button> 
 							
+							</div>
+							</div>
+						
 							
-						</td>
-					</tr>
-				</table>
+
 
 					 
 			
 			</form>
+    	</div>
 			
 <%@ include file="footer.jsp" %>
 </body>

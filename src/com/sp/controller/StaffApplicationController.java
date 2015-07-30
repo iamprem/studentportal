@@ -54,8 +54,11 @@ public class StaffApplicationController extends StudentBaseController {
 		String action = request.getParameter(ACTION);
 		HttpSession session = request.getSession(true);
 		String staffDept= null;
+		int empID=0;
 		if(null !=session.getAttribute("STAFF")){
-			staffDept= ((Staff) session.getAttribute("STAFF")).getdeptId();}
+			staffDept= ((Staff) session.getAttribute("STAFF")).getdeptId();
+			empID= ((Staff) session.getAttribute("STAFF")).getEmployee_id();
+		}
 	 if ("Submit".equalsIgnoreCase(action)) {
 		 String StudDeptId=StudentDAO.getSavedApplication(app).getDepartment().getDeptID();
 		 if(StudDeptId.equalsIgnoreCase(staffDept)){
@@ -64,7 +67,7 @@ public class StaffApplicationController extends StudentBaseController {
 			 String dept=StudentDAO.getSavedApplication(app).getDepartment().getDeptName();
 			String degree=StudentDAO.getSavedApplication(app).getDegree().getDegName();
 			String name=StudentDAO.getSavedApplication(app).getStudent().getFullName();
-		 ApplicationDAO.updateAppStatus( app, status);
+		 ApplicationDAO.updateAppStatus( app, status,empID);
 		EmailDAO.emailStatusSender(email,studentId,dept,degree,name,status,app);
 		
 		 }else{
