@@ -16,10 +16,10 @@ public class staffDAO {
 
 	private static List<Staff> staffList;
 
-	public static List<Staff> getStaff(String email) {
+	public static Staff getStaff(String email) {
 		Statement stmt = null;
 		DbConnection conn = null;
-		staffList = new ArrayList<Staff>();
+		Staff staff =null;
 		try {
 			conn = new DbConnection();
 			System.out.println("Fetching Staff all Application overview");
@@ -28,7 +28,7 @@ public class staffDAO {
 			stmt = conn.DbConnectionForPreparedStatement(sql1);
 			ResultSet rs = stmt.executeQuery(sql1);
 			while (rs.next()) {
-				int app_id = rs.getInt("app_id");
+				int app_id = rs.getInt("employee_id");
 				String firstName = rs.getString("firstName");
 				String lastName = rs.getString("lastName");
 				String ssn = rs.getString("lastName");
@@ -40,10 +40,8 @@ public class staffDAO {
 				String country = rs.getString("country");
 				String zipcode = rs.getString("zipcode");
 				String dept_id = rs.getString("dept_id");
-				Staff staff = new Staff(app_id, firstName, lastName, ssn, phone, streetAddress, apartmentNo, city,
+				 staff = new Staff(app_id, firstName, lastName, ssn, phone, streetAddress, apartmentNo, city,
 						stateOrTeritory, country, zipcode, dept_id);
-				System.out.println("Before Null POint" + staff.toString());
-				staffList.add(staff);
 			}
 			rs.close();
 			stmt.close();
@@ -61,7 +59,7 @@ public class staffDAO {
 			if (conn != null)
 				conn.close();
 		}
-		return staffList;
+		return staff;
 	}
 
 }
