@@ -15,9 +15,10 @@ public class Staff {
 	private String stateOrUT;
 	private String country;
 	private String zipcode;
+	private String dept_id;
 	
 	public Staff(int employee_id, String firstName, String lastName, String email, String phone, String ssn,
-			String stAddress, String aptNo, String city, String stateOrUT, String country, String zipcode) {
+			String stAddress, String aptNo, String city, String stateOrUT, String country, String zipcode,String dept_id) {
 		super();
 		this.employee_id = employee_id;
 		this.firstName = firstName;
@@ -31,6 +32,7 @@ public class Staff {
 		this.stateOrUT = stateOrUT;
 		this.country = country;
 		this.zipcode = zipcode;
+		this.dept_id = dept_id;
 	}
 
 	public Staff() {
@@ -133,6 +135,13 @@ public class Staff {
 		this.zipcode = zipcode;
 	}
 	
+	public String getdeptId() {
+		return dept_id;
+	}
+
+	public void setdeptID(String dept_id) {
+		this.dept_id = dept_id;
+	}
 	
 	
 	

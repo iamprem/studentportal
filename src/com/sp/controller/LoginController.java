@@ -88,7 +88,7 @@ public class LoginController extends HttpServlet {
 				if(userType.equals("faculty")){
 					System.out.println("Fac");
 					HttpSession user_session = request.getSession(true);
-					user_session.setMaxInactiveInterval(30 * 60);
+					user_session.setMaxInactiveInterval(60 * 60);
 					Cookie userNameC = new Cookie("userNAME", userName);
 					response.addCookie(userNameC);
 					String encodedURL = response.encodeRedirectURL("faculty.jsp");
@@ -99,7 +99,7 @@ public class LoginController extends HttpServlet {
 				}else if(userType.equals("student")){
 					System.out.println("student");
 					HttpSession user_session = request.getSession(true);
-					user_session.setMaxInactiveInterval(30 * 60);
+					user_session.setMaxInactiveInterval(60 * 60);
 					Cookie userNameC = new Cookie("userNAME", userName);
 					response.addCookie(userNameC);
 					String encodedURL = response
