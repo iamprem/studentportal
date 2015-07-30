@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 <title>Registration</title>
 <%@ include file="header.jsp"%>
 </head>
@@ -113,16 +114,19 @@
 							</div>
 			
 			<div class="container">
-							 <table class="table table-bordered" bgcolor="#00FF00" border="5"><tr><td>DeptID</td>
-					 <td>Student ID</td>
-					 <td>Application ID</td>
-					 <td>First Name</td>
-					 <td>Test Type</td>
-					 <td>Score</td>
-					 <td>GPA</td>
-					  <td>Gender</td>
-					  <td>Country</td>
+					<table id="app" class="table table-striped table-bordered" bgcolor="#00FF00" border="5">
+					<thead>
+					 <tr><th>DeptID</th>
+					 <th>Student ID</th>
+					 <th>Application ID</th>
+					 <th>First Name</th>
+					 <th>Test Type</th>
+					 <th>Score</th>
+					 <th>GPA</th>
+					  <th>Gender</th>
+					  <th>Country</th>
 					 </tr>
+					 </thead>
 <c:forEach var="filter" items="${requestScope.filterList}">
 	
 					 
@@ -157,4 +161,14 @@
 			
 <%@ include file="footer.jsp" %>
 </body>
+
+<script type="text/javascript">
+  
+  $(function(){
+	 $("#app").dataTable();
+		
+    
+})
+ 
+</script>
 </html>
