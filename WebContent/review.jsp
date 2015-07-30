@@ -10,6 +10,10 @@
 <%@ include file="header.jsp"%>
 </head>
 <body>
+<c:if test="${not empty requestScope.Message }">
+			<script>alert("${requestScope.Message }");</script>	
+			
+		</c:if>
 <form id="review" method="post" action="StaffApplicationController">	
 <c:set var="app" value="${requestScope.application}"/>	
 <c:set var="student" value="${app.getStudent()}"/>
@@ -77,8 +81,7 @@
 						</td>
 					</tr>
 				</table>
-					 
-					 
+
 					 
 			
 			</form>
