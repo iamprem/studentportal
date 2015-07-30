@@ -88,8 +88,9 @@
 </div>
 </c:forEach>
 
-</div>
 
+</div>
+<input type="hidden" name="studentId" value=${sessionScope.student.getStudent_id()}>
 </div>
 <div id = "footer">
 	<%@include file="footer.jsp"%>

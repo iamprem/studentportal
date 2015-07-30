@@ -63,7 +63,7 @@
 		<br />
 		<div class="form-group">
 			<div class="col-sm-offset-4 col-sm-2">
-				<input type="submit" class="btn btn-primary" value="Register">
+				<input type="submit"  onclick="return confirm('Are you sure?')" class="btn btn-primary" value="Register">
 			</div>
 		</div>
 
