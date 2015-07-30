@@ -53,7 +53,9 @@ public class StaffApplicationController extends StudentBaseController {
 		int studentId=Integer.parseInt(studentID);
 		String action = request.getParameter(ACTION);
 		HttpSession session = request.getSession(true);
-		String staffDept=((Staff) session.getAttribute("STAFF")).getdeptId();
+		String staffDept= null;
+		if(null !=session.getAttribute("STAFF")){
+			staffDept= ((Staff) session.getAttribute("STAFF")).getdeptId();}
 	 if ("Submit".equalsIgnoreCase(action)) {
 		 String StudDeptId=StudentDAO.getSavedApplication(app).getDepartment().getDeptID();
 		 if(StudDeptId.equalsIgnoreCase(staffDept)){
