@@ -139,9 +139,9 @@
 		<div class="btn-group ">
 			 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
 			 Select a Country
-			 <span class="caret"></span>
+			 <span class="caret" ></span>
 			 </button>
-			 <ul class="dropdown-menu col-sm-2">
+			 <ul class="dropdown-menu col-sm-2" id="country_label">
 			 <li><a>United States</a></li>
 			 <li><a>India</a></li>
 			 <li><a>China</a></li>
@@ -191,16 +191,71 @@
 			</div>
 		</div>
 
-		<div class="form-group ">
+ <div class="form-group ">
+<label for="country" class="col-sm-2 control-label">Enrollment Term</label>
+	<div class="col-sm-4 col-xs-4">
+		<div class="btn-group ">
+			 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+			 Select a Term
+			 <span class="caret" ></span>
+			 </button>
+			 <ul class="dropdown-menu col-sm-2" id="enroll_term_label">
+			 <li><a>Spring 2016</a></li>
+			 </ul> 
+  </div>
+  </div>
+ </div>
+ 
+ 
+<div class="form-group ">
+<label for="country" class="col-sm-2 control-label">Applying for</label>
+	<div class="col-sm-4 col-xs-4">
+		<div class="btn-group ">
+			 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+			 Select a Department
+			 <span class="caret" ></span>
+			 </button>
+			 <ul class="dropdown-menu col-sm-2" id="department_label">
+			 <li><a>ACCF</a></li>
+			 <li><a>ECGR</a></li>
+			 <li><a>GEOS</a></li>
+			 <li><a>ITCS</a></li>
+			 <li><a>ITIS</a></li>
+			 </ul> 
+  </div>
+  </div>
+ </div>
+ 
+ <div class="form-group ">
+<label for="country" class="col-sm-2 control-label">Applying degree</label>
+	<div class="col-sm-4 col-xs-4">
+		<div class="btn-group ">
+			 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+			 Select a Degree
+			 <span class="caret" ></span>
+			 </button>
+			 <ul class="dropdown-menu col-sm-2" id="degree_label">
+			 <li><a>BS</a></li>
+			 <li><a>MS</a></li>
+			 <li><a>PHD</a></li>
+			 <li><a>CERT</a></li>
+			 </ul> 
+  </div>
+  </div>
+ </div>
+ 
+ 
+
+		<div class="form-group">
 		<div class="col-sm-3 col-xs-3">
 		<div class="row">
 		<div class="col-sm-8 col-xs-8">
-			<div class="btn-group ">
-				 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+			<div class="btn-group">
+				 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown" >
 				 Select a Test type
 				 <span class="caret"></span>
 				 </button>
-				 <ul class="dropdown-menu col-sm-2">
+				 <ul class="dropdown-menu col-sm-2" id="test_gre_gmat_label">
 				 <li><a>GRE</a></li>
 				 <li><a>GMAT</a></li>
 				 </ul> 
@@ -226,7 +281,7 @@
 				 Select a Test type
 				 <span class="caret"></span>
 				 </button>
-				 <ul class="dropdown-menu col-sm-2">
+				 <ul class="dropdown-menu col-sm-2" id="test_toefl_ielts_label">
 				 <li><a>TOEFL</a></li>
 				 <li><a>IELTS</a></li>
 				 </ul> 
@@ -294,21 +349,33 @@
 
 
 </div>
-<label id="test_toefl_ielts_label" style="visibility:hidden"></label>
-<label id="test_gre_gmat_label" style="visibility:hidden"></label>
+<label id="test_toefl_ielts_lb" style="visibility:hidden"></label>
+<label id="test_gre_gmat_lb" style="visibility:hidden"></label>
+<label id="country_lb" style="visibility:hidden"></label>
+<label id="department_lb" style="visibility:hidden"></label>
+<label id="degree_lb" style="visibility:hidden"></label>
+<label id="enroll_term_lb" style="visibility:hidden"></label>
 <script>
 $('.dropdown-toggle').dropdown()
 $(".dropdown-menu li a").click(function(){
+idComp = $(this).parent().parent().attr('id');
  var selText = $(this).text();
- if(selText=="GRE" || selText =="GMAT"){
-	$("#test_gre_gmat_label").text(selText);	 
- }else if(selText=="TOEFL" || selText =="IELTS"){
-	$("#test_toefl_ielts_label").text(selText);	 
- }else{
-	 $("#test_gre_gmat_label").text("null");
-	 $("#test_toefl_ielts_label").text("null");	 
+ if(idComp == "test_gre_gmat_label"){
+	 $("#test_gre_gmat_lb").text(selText);
+ }else if(idComp == "test_toefl_ielts_label"){
+	$("#test_toefl_ielts_lb").text(selText);	 
+ }else if(idComp == "country_label"){
+	$("#country_lb").text(selText);	 
+ }else if(idComp == "department_label"){
+	$("#department_lb").text(selText);	 
+ }else if(idComp == "degree_label"){
+	$("#degree_lb").text(selText);	 
+ }else if(idComp == "enroll_term_label"){
+	$("#enroll_term_lb").text(selText);	 
  }
-
+ 
+ enroll_term_label
+ 
  $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
 });
 </script>
