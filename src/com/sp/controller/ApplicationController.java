@@ -53,8 +53,10 @@ public class ApplicationController extends StudentBaseController {
 		String email = (String) session.getAttribute("userEmail");
 		System.out.println(request.getParameter("appID"));
 		int appID;
+		String appStatus = null;
 		try {
 			appID = Integer.parseInt(request.getParameter("appID"));
+			appStatus = request.getParameter("appStatus");
 		} catch (Exception e) {
 			appID = 0;
 		}
@@ -62,10 +64,13 @@ public class ApplicationController extends StudentBaseController {
 		if (appID == 0) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("application.jsp");
 			dispatcher.forward(request, response);
-		} else {
+		} else if (appStatus != null && appStatus.equals("Saved")) {
 			session.setAttribute(APPLICATION, StudentDAO.getSavedApplication(appID));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("application_filled.jsp");
 			dispatcher.forward(request, response);
+		} else{
+			String encodedURL = response.encodeRedirectURL("StudentDashController");
+			response.sendRedirect(encodedURL);
 		}
 
 		return;
@@ -191,10 +196,12 @@ public class ApplicationController extends StudentBaseController {
 				StudentDAO.updateApplication(application);
 			}
 		}
-
+		System.out.println("Before calling studentDashboard");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("StudentDashController");
-		dispatcher.forward(request, response);
-
+		String encodedURL = response.encodeRedirectURL("StudentDashController");
+		response.sendRedirect(encodedURL);
+		System.out.println("Here again");
+		return;
 	}
 
 }
