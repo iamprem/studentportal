@@ -122,7 +122,13 @@
 						<td><b>${filter.testCodes }</b></td>
 						<td><b>${filter.gre }</b></td>
 						<td><b>${filter.gpa }</b></td>
-						<td><b>${filter.gender }</b></td>
+						<c:if test="${filter.gender==1 }">
+						<c:set var="gender" value="Male"/>
+						</c:if>
+						<c:if test="${filter.gender==0 }">
+						<c:set var="gender" value="Female"/>
+						</c:if>
+						<td><b>${gender}</b></td>
 						<td><b>${filter.country }</b></td>
 						</tr>
 						</c:forEach>
