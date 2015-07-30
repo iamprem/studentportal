@@ -9,15 +9,24 @@
 <%@ include file="header.jsp"%>
 </head>
 <body>
-<form id="emailForm" action="EmailController" method="post">
-<table><tr><td><label for="email">Email Address:</label></td><td>  </td>
-						<td>
-						<input type="text" id="email" name="email" required placeholder="Please Enter Email Address"  size="51"/></td></tr></table><br/>
-						<input
-							type="submit" value="SUBMIT" class="button" />
-						</form>
-						
-						${requestScope.Message }
+<div id = "wrap" class = "container">
+<p>To reset your password, submit your email address.</p>
+<p class="text-danger">${requestScope.Message }</p>
+<form class="form-inline" role="form" id="emailForm" action="EmailController" method="post">
+  <div class="form-group centered">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email" required placeholder="Enter your email address">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+	
+	</div>
+</div>
+
+</div>
+<div id = "footer">
 <%@ include file="footer.jsp" %>
+</div>
 </body>
 </html>

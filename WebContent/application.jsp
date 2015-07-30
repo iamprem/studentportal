@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<br /> <br /> <br /> <br /> <br />
+		<br /> <br /> <br />
 		<div class="col-md-offset-3">
 			<form class="form-horizontal" id="enrollform" method="POST"
 				action="ApplicationController">
@@ -133,9 +133,9 @@
 				<div class="form-group ">
 					<label for="country" class="col-sm-2 control-label">Country</label>
 					<div class="col-sm-4 col-xs-4">
-						<div class="btn-group ">
+						<div class="btn-group">
 							<button class="btn dropdown-toggle" name="recordinput"
-								data-toggle="dropdown">
+								data-toggle="dropdown" required>
 								Select a Country <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu col-sm-2" id="country_label">
@@ -176,7 +176,7 @@
 					<label for="major" class="col-sm-2 control-label">Major</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="major" name="major"
-							placeholder="City" aria-describedby="basic-addon2" required>
+							placeholder="Degree of highest Major" aria-describedby="basic-addon2" required>
 					</div>
 				</div>
 
