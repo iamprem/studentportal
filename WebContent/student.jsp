@@ -59,7 +59,7 @@
 </div>
 
 <c:forEach var="studentDashBoardItem"
-			items="${requestScope.studentDashboardList}">
+			items="${sessionScope.studentDashboardList}">
 
 <div class="row">
   <div class="col-sm-10 col-md-10 centered" id="container_color_grey">

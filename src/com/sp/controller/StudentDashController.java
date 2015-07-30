@@ -38,7 +38,7 @@ public class StudentDashController extends StudentBaseController {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("userEmail");
 		System.out.println("Session Email"+email);
-		request.setAttribute(STUDENTDASHBOARDLIST, StudentDAO.getStudentDash(email));
+		session.setAttribute(STUDENTDASHBOARDLIST, StudentDAO.getStudentDash(email));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("student.jsp");
 		dispatcher.forward(request, response);
 		return;

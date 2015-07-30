@@ -62,7 +62,7 @@ public class StudentDAO {
 
 			conn = new DbConnection();
 			System.out.println("Fetching Student's all Application overview");
-			String sql1 = "SELECT S.firstName,S.lastName, A.app_id, A.deg_id, D.dept_name, A.desired_term, A.app_status "
+			String sql1 = "SELECT S.student_id, S.firstName,S.lastName, A.app_id, A.deg_id, D.dept_name, A.desired_term, A.app_status "
 					+ "FROM student S " + "INNER JOIN application_applied A ON S.student_id=A.student_id "
 					+ "INNER JOIN department D ON A.dept_id = D.dept_id" + " WHERE S.email = '" + email + "';";
 			stmt = conn.DbConnectionForPreparedStatement(sql1);
@@ -78,7 +78,7 @@ public class StudentDAO {
 				String app_status = rs.getString("app_status");
 				StudentDashboard studentDashboard = new StudentDashboard(firstName, lastName, email, app_id, dept_name,
 						deg_id, app_status, desired_term);
-				System.out.println("Before Null POint"+studentDashboard.toString());
+				System.out.println("Before Null POint" + studentDashboard.toString());
 				studentDashboardList.add(studentDashboard);
 			}
 			rs.close();
@@ -115,15 +115,15 @@ public class StudentDAO {
 		try {
 			conn = new DbConnection();
 			System.out.println("Fetching Student's specific Application");
-			System.out.println("App ID: " +app_id);
+			System.out.println("App ID: " + app_id);
 			String sql1 = "SELECT S.student_id, S.firstName,S.lastName, S.gender, S.email, S.dateOfBirth, S.phone, S.ssn,"
 					+ "S.streetAddress, S.apartmentNo, S.city, S.stateOrTeritory, S.country, S.zipcode,"
 					+ "S.degreeEarned, S.gpa, S.major, S.workOrgName, S.yearsWorked, S.keyRole,"
-					+ "A.app_id, A.app_status, A.desired_term,A.applied_date, A.decision_date, " + "A.app_status, A.sop_content, "
-					+ "D.dept_name, DEG.deg_name, DEG.deg_id, D.dept_id " + "FROM student S "
-					+ "INNER JOIN application_applied A ON S.student_id=A.student_id "
+					+ "A.app_id, A.app_status, A.desired_term,A.applied_date, A.decision_date, "
+					+ "A.app_status, A.sop_content, " + "D.dept_name, DEG.deg_name, DEG.deg_id, D.dept_id "
+					+ "FROM student S " + "INNER JOIN application_applied A ON S.student_id=A.student_id "
 					+ "INNER JOIN department D ON A.dept_id = D.dept_id "
-					+ "INNER JOIN degree DEG ON A.deg_id = DEG.deg_id " + "WHERE A.app_id = "+ app_id +";";
+					+ "INNER JOIN degree DEG ON A.deg_id = DEG.deg_id " + "WHERE A.app_id = " + app_id + ";";
 
 			stmt = conn.DbConnectionForPreparedStatement(sql1);
 			ResultSet rs = stmt.executeQuery(sql1);
@@ -170,7 +170,8 @@ public class StudentDAO {
 				department = new Department(dept_id, dept_name);
 				degree = new Degree(deg_id, deg_name);
 
-				application = new Application(app_id, app_status, desired_term, decision_date, sop_content,applied_date);
+				application = new Application(app_id, app_status, desired_term, decision_date, sop_content,
+						applied_date);
 				application.setStudent(student);
 				application.setDegree(degree);
 				application.setDepartment(department);
@@ -199,6 +200,69 @@ public class StudentDAO {
 			rs.close();
 			rs1.close();
 			conn.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+
+			}
+			if (conn != null)
+				conn.close();
+		}
+		System.out.println("****" + application.toString());
+		return application;
+
+	}
+
+	//TODO Remove student ID hardcoded
+	public void createApplication(Application application){
+		
+		Statement stmt = null;
+		DbConnection conn = null;
+		Application app = application;
+		Student student = app.getStudent();
+		ArrayList<TestScore> testScore = student.getTestScoreList();
+		
+		try {
+			conn = new DbConnection();
+			System.out.println("Create Student's Application");
+			
+			String sql1 = "INSERT INTO application_applied "
+					+ " (desired_term, applied_date, student_id, deg_id, dept_id, app_status, sop_content)"
+					+ " VALUES ('Spring 2016', CURDATE(), 800000000, 'MS', 'ITCS', 'Saved', `"+app.getSop_content()+"`);";
+			stmt = conn.DbConnectionForStatement();
+			stmt.execute(sql1);
+			
+			String sql2 = "UPDATE student SET "
+					+ "firstName = "+student.getFirstName()+
+					", lastName = "+student.getLastName()+
+					", gender = "+student.getGender()+
+					", dateOfBirth="+student.getDob()+
+					", phone="+student.getPhone()+
+					", ssn="+student.getSsn()+
+					", streetAddress="+student.getStAddress()+
+					", apartmentNo="+student.getApartmentNo()+
+					", city="+student.getCity()+
+					", stateOrTeritory="+student.getStateOrTeritory()+
+					", country="+student.getCountry()+
+					", zipcode="+student.getZipcode()+
+					", degreeEarned="+student.getDegreeEarned()+
+					"' gpa="+student.getGpa()+
+					", major="+student.getMajor()+
+					", workOrgName="+student.getWorkOrgName()+
+					", yearsWorked="+student.getYearsWorked()+
+					", keyRole="+student.getKeyRole()+
+					" WHERE student_id="+student.getStudent_id()+";";
+			stmt.execute(sql2);
+			
+			
+			
+		    stmt.close();
+			conn.close();
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -212,9 +276,28 @@ public class StudentDAO {
 			if (conn != null)
 				conn.close();
 		}
-		System.out.println("****"+application.toString());
-		return application;
+		
+	}
 
+	public void updateApplication(Application application) {
+
+		Statement stmt = null;
+		DbConnection conn = null;
+		Application app = application;
+		try {
+			conn = new DbConnection();
+			System.out.println("Updating Student's specific Application");
+
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+
+			}
+			if (conn != null)
+				conn.close();
+		}
 	}
 	
 	public static StudentLogin getStudent(String email){
@@ -270,4 +353,7 @@ public class StudentDAO {
 		return student;
 	}
 
+	public void submitApplication(Application application) {
+
+	}
 }

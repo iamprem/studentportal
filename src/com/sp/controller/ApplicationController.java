@@ -65,8 +65,13 @@ public class ApplicationController extends StudentBaseController {
 
 		String action = request.getParameter(ACTION);
 		System.out.println(request.getParameter("appID"));
-		int appID = Integer.parseInt(request.getParameter("appID"));
-
+		int appID;
+		try {
+			appID = Integer.parseInt(request.getParameter("appID"));
+		} catch (Exception e) {
+			appID = 0;
+		}
+		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String gender = request.getParameter("gender");
@@ -101,9 +106,23 @@ public class ApplicationController extends StudentBaseController {
 		
 		if ("Submit".equalsIgnoreCase(action)) {
 			//Insert or Update application table
-			System.out.println("On Submit application"+appID);
+			if (appID == 0) {
+				System.out.println("On Submit newly created application"+appID);
+				
+				
+				
+			} else{
+				System.out.println("On Submit retrived application"+appID);
+			}
+			
 		} else if ("Save".equalsIgnoreCase(action)) {
 			//Insert or Update Application table
+			
+			if (appID == 0) {
+				System.out.println("On Save new application"+appID);
+			} else {
+				System.out.println("On Save retrived application"+appID);
+			}
 		} 
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("StudentDashController");

@@ -3,7 +3,6 @@ package com.sp.model;
 public class StudentDashboard {
 	
 
-
 	private String firstName;
 	private String lastName;
 	private String email;
@@ -100,5 +99,5 @@ public class StudentDashboard {
 				+ app_id + ", dept_name=" + dept_name + ", deg_id=" + deg_id + ", app_status=" + app_status
 				+ ", desired_term=" + desired_term + "]";
 	}
-	
+
 }
