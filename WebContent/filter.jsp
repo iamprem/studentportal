@@ -33,7 +33,7 @@
 						<div class="col-sm-8">   
 						<select name="gender" id="gender" ><option value="%" selected>All</option>
 								<option value="1" ${param.gender == '1' ? 'selected' : ''} >Male</option>
-								<option value="2" ${param.gender == '2' ? 'selected' : ''}>Female</option>
+								<option value="0" ${param.gender == '0' ? 'selected' : ''}>Female</option>
 						</select> <br>
 					     </div>
                    </div>
@@ -64,12 +64,12 @@
 					
 						<label class="control-label col-sm-4" for="score">Score</label>
 						<div class="col-sm-8">
-						<input type="radio" name="op"   value="=">=
-						<input type="radio" name="op" id="op" value="<="><=
-						<input type="radio" name="op" id="op"  value=">=">>=
-						<input type="radio" name="op" id="op" checked value=">">>
-						<input type="radio" name="op" id="op" value="<"><
-						<input type="text" name="score" id="score" value="${scoreVal}"> <br/>
+						<input type="radio" name="op"   value="=" ${param.op == '=' ? 'checked' : ''}>=
+						<input type="radio" name="op" id="op" value="<=" ${param.op == '<=' ? 'checked' : ''}><=
+						<input type="radio" name="op" id="op"  value=">=" ${param.op == '>=' ? 'checked' : ''}>>=
+						<input type="radio" name="op" id="op"  value=">"${param.op == '>' ? 'checked' : ''}>>
+						<input type="radio" name="op" id="op" ${param.op == '<' ? 'checked' : ''} value="<"><
+						<input type="text" name="score" id="score" value="${scoreVal}" required> <br/>
 						</div>
                    </div>
                   <c:choose>
@@ -84,12 +84,12 @@
                    <div class="form-group">
 						<label class="control-label col-sm-4" for="gpa">GPA</label>
 						<div class="col-sm-8">
-						<input type="radio" name="gpaop" id="gpaop"  value="="/>=
-						<input type="radio" name="gpaop" id="gpaop" value="<="><=
-						<input type="radio" name="gpaop" id="gpaop" value=">=">>=
-						<input type="radio" name="gpaop" id="gpaop" checked value=">"/>>
-						<input type="radio" name="gpaop" id="gpaop" value="<"/><
-						<input type="text" name="gpa" id="gpa" value="${gpaVal}"> <br>
+						<input type="radio" name="gpaop" id="gpaop"  value="="  ${param.gpaop == '=' ? 'checked' : ''}>=
+						<input type="radio" name="gpaop" id="gpaop" value="<="  ${param.gpaop == '<=' ? 'checked' : ''}><=
+						<input type="radio" name="gpaop" id="gpaop" value=">="  ${param.gpaop == '>=' ? 'checked' : ''}>>=
+						<input type="radio" name="gpaop" id="gpaop"  value=">"  ${param.gpaop == '>' ? 'checked' : ''}>>
+						<input type="radio" name="gpaop" id="gpaop"  ${param.gpaop == '<' ? 'checked' : ''} value="<"><
+						<input type="text" name="gpa" id="gpa" value="${gpaVal}" required> <br>
 				        </div>
                    </div>
 		
