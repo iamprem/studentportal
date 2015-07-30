@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="com.sp.model.Student"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,10 +12,17 @@
 <body>
 <form id="review" method="post" action="StaffApplicationController">	
 <c:set var="app" value="${requestScope.application}"/>	
+<c:set var="student" value="${app.getStudent()}"/>
+<c:set var="department" value="${app.getDepartment()}"/>
+<c:set var="degree" value="${app.getDegree()}"/>	
 					 <table style="background-color: #F6F6EE;">
 						<tr>
 						<td><label>Student ID</label></td>
-						<td><input type="text" id="studentID" name="studentID" value="${app.studentID}"
+						<td><input type="text" id="studentID" name="studentID" value="${student.student_id}"
+							size="21"  readonly /><br></td>
+					</tr>
+							<td><label>Student Name</label></td>
+						<td><input type="text" id="studentName" name="studentName" value="${student.getFullName()}"
 							size="21"  readonly /><br></td>
 					</tr>
 					 
@@ -25,13 +32,13 @@
 							size="21"  readonly /><br></td>
 					</tr>
 					<tr>
-						<td><label>Department ID</label></td>
-						<td><input type="text" id="deptID" name="deptID" value="${app.deptId}"
+						<td><label>Department Name</label></td>
+						<td><input type="text" id="deptID" name="deptID" value="${department.deptName}"
 							size="21"  readonly /><br></td>
 					</tr>
 					<tr>
-						<td><label>Degree ID</label></td>
-						<td><input type="text" id="degID" name="degID" value="${app.degId}"
+						<td><label>Degree Name</label></td>
+						<td><input type="text" id="degID" name="degID" value="${degree.degName}"
 							size="21"  readonly /><br></td>
 					</tr>
 	<tr>

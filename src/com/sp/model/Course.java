@@ -7,8 +7,11 @@ public class Course {
 	private int creditHours;
 	private String deptID;
 	private String degID;
+	private String courseDescription;
+	private String coursePrerequisites;
 	
-	public Course(int courseID, String courseName, String insMethod, int creditHours, String deptID, String degID) {
+	
+	public Course(int courseID, String courseName, String insMethod, int creditHours, String deptID, String degID, String courseDescription, String coursePrerequisites) {
 		super();
 		this.courseID = courseID;
 		this.courseName = courseName;
@@ -16,13 +19,17 @@ public class Course {
 		this.creditHours = creditHours;
 		this.deptID = deptID;
 		this.degID = degID;
+		this.courseDescription = courseDescription;
+		this.coursePrerequisites = coursePrerequisites;
 	}
-	public Course(int courseID, String courseName, String insMethod, int creditHours) {
+	public Course(int courseID, String courseName, String insMethod, int creditHours, String courseDescription, String coursePrerequisites) {
 		super();
 		this.courseID = courseID;
 		this.courseName = courseName;
 		this.insMethod = insMethod;
 		this.creditHours = creditHours;
+		this.courseDescription = courseDescription;
+		this.coursePrerequisites = coursePrerequisites;
 	}
 	public String getDeptID() {
 		return deptID;
@@ -63,7 +70,17 @@ public class Course {
 	public void setCreditHours(int creditHours) {
 		this.creditHours = creditHours;
 	}
+	public String getCourseDescription() {
+		return courseDescription;
+	}
+	public void setCourseDescription(String courseDescription) {
+		this.courseDescription = courseDescription;
+	}
+	public String getCoursePrerequisites() {
+		return coursePrerequisites;
+	}
+	public void setCoursePrerequisites(String coursePrerequisites) {
+		this.coursePrerequisites = coursePrerequisites;
+	}
 	
-	
-
 }

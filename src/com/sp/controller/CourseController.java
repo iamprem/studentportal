@@ -60,8 +60,10 @@ public class CourseController extends StudentBaseController {
 				String courseName= request.getParameter(COURSE_NAME);
 				String insMethod= request.getParameter(INS_METHOD);
 				String credHrs= request.getParameter(CREDIT_HOURS);
+				String courseDesc = request.getParameter(COURSE_DESC);
+				String coursePrereq = request.getParameter(COURSE_PREREQ);
 				int hrs=Integer.parseInt(credHrs);
-			CourseDAO.updateCourse(iD,courseName,insMethod,hrs);
+			CourseDAO.updateCourse(iD,courseName,insMethod,hrs,courseDesc,coursePrereq);
 			EmailDAO.UpdateEmailTrigger(deptID, degID, iD, courseName, insMethod, credHrs);
 
 		} else if ("Cancel".equalsIgnoreCase(action)) {

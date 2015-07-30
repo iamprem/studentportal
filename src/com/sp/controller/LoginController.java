@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.Statement;
+import com.sp.dao.StudentDAO;
+import com.sp.dao.staffDAO;
 import com.sp.db.DbConnection;
 
 /**
@@ -93,6 +95,7 @@ public class LoginController extends HttpServlet {
 					response.sendRedirect(encodedURL);
 					user_session.setAttribute("userName", userName);
 					user_session.setAttribute("userType", userType);
+					user_session.setAttribute("STAFF", staffDAO.getStaff(userName));
 				}else if(userType.equals("student")){
 					System.out.println("student");
 					HttpSession user_session = request.getSession(true);
@@ -105,6 +108,7 @@ public class LoginController extends HttpServlet {
 					user_session.setAttribute("userName", userName);
 					user_session.setAttribute("userEmail", userName);
 					user_session.setAttribute("userType", userType);
+					user_session.setAttribute("STUDENT", StudentDAO.getStudentDash(userName));
 				}
 			}
 //			

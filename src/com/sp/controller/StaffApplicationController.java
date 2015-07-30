@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.sp.dao.ApplicationDAO;
+import com.sp.dao.EmailDAO;
 import com.sp.dao.StaffFilterDao;
 import com.sp.dao.StudentDAO;
 
@@ -34,7 +35,7 @@ public class StaffApplicationController extends StudentBaseController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String appID =  request.getParameter(APP_ID);
 		int app=Integer.parseInt(appID);
-		request.setAttribute(APPLICATION,ApplicationDAO.retrieveApp(app));
+		request.setAttribute(APPLICATION,StudentDAO.getSavedApplication(app));
 	RequestDispatcher dispatcher = request.getRequestDispatcher("review.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -46,14 +47,17 @@ public class StaffApplicationController extends StudentBaseController {
 		String appID =  request.getParameter(APP_ID);
 		int app=Integer.parseInt(appID);
 		String studentID =  request.getParameter(STUDENT_ID);
-		String deptID =  request.getParameter(DEPT_ID);
-		String degID =  request.getParameter(DEG_ID);
 		int studentId=Integer.parseInt(studentID);
 		String action = request.getParameter(ACTION);
-		String status = request.getParameter(APPLICATION_STATUS);
-		//String email=StudentDAO.getApplication(app).getStudent().getEmail();
+
 	 if ("Submit".equalsIgnoreCase(action)) {
+			String status = request.getParameter(APPLICATION_STATUS);
+			String email=StudentDAO.getSavedApplication(app).getStudent().getEmail();
+			String dept=StudentDAO.getSavedApplication(app).getDepartment().getDeptName();
+			String degree=StudentDAO.getSavedApplication(app).getDegree().getDegName();
+			String name=StudentDAO.getSavedApplication(app).getStudent().getFullName();
 		 ApplicationDAO.updateAppStatus( app, status);
+		EmailDAO.emailStatusSender(email,studentId,dept,degree,name,status,app);
 	 } else if ("Cancel".equalsIgnoreCase(action)) {
 	 } 
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("filter.jsp");
@@ -61,5 +65,6 @@ public class StaffApplicationController extends StudentBaseController {
 	 
 		
 	}
+	
 
 }

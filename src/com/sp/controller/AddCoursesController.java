@@ -63,9 +63,11 @@ public class AddCoursesController extends StudentBaseController {
 				String insMethod= request.getParameter(INS_METHOD);
 				String credHrs= request.getParameter(CREDIT_HOURS);
 				int hrs=Integer.parseInt(credHrs);
+				String courseDesc = request.getParameter(COURSE_DESC);
+				String coursePreReq = request.getParameter(COURSE_PREREQ);
 				
 				
-			CourseDAO.addCourse(deptID, degID, iD, courseName, insMethod, credHrs);
+			CourseDAO.addCourse(deptID, degID, iD, courseName, insMethod, credHrs,courseDesc,coursePreReq);
 			EmailDAO.UpdateEmailTrigger(deptID, degID, iD, courseName, insMethod, credHrs);
 			}  
 
@@ -91,6 +93,4 @@ public class AddCoursesController extends StudentBaseController {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("course.jsp");
 			dispatcher.forward(request, response);
 	}
-
-
 }

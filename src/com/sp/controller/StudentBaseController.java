@@ -22,6 +22,8 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String COURSE_NAME="courseName";
 	public static final String INS_METHOD="insMethod";
 	public static final String CREDIT_HOURS="creditHours";
+	public static final String COURSE_DESC = "courseDescription";
+	public static final String COURSE_PREREQ = "coursePrerequisites";
 	public static final String MESSAGE = "Message";	
 	public static final String COURSE="course";
 	public static final String PGM_APPLIED="pgmApplied";
@@ -34,6 +36,7 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String STUDENTDASHBOARDLIST = "studentDashboardList";
 	public static final String APPLICATION_STATUS="appStatus";
 	public static final String APPLICATION = "application";
+	
 
 	@Override
 	protected abstract void doGet(HttpServletRequest req,
