@@ -60,6 +60,11 @@ public class Degree {
 	}
 	
 	
+	public Degree() {
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Date getSpringDL() {
 		return springDL;
 	}

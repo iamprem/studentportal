@@ -364,7 +364,7 @@
 				<label for="sop" class="col-sm-2 control-label">Statement Of
 					Purpose</label>
 				<div class="col-sm-4 col-xs-4">
-					<textarea class="form-control" rows="5" id="sop_content" name="sop"
+					<textarea class="form-control" rows="5" id="sop_content" name="sop_content"
 						placeholder="Brief Statement of Purpose in 300 Words"
 						aria-describedby="basic-addon2">${sessionScope.application.getSop_content()}</textarea>
 				</div>

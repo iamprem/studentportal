@@ -333,7 +333,7 @@
 					<label for="sop" class="col-sm-2 control-label">Statement
 						Of Purpose</label>
 					<div class="col-sm-4 col-xs-4">
-						<textarea class="form-control" rows="5" id="comment" name="sop"
+						<textarea class="form-control" rows="5" id="comment" name="sop_content"
 							placeholder="Brief Statement of Purpose in 300 Words"
 							aria-describedby="basic-addon2"></textarea>
 					</div>
@@ -355,12 +355,12 @@
 
 
 	</div>
-	<label id="test_toefl_ielts_lb" style="visibility: hidden"></label>
-	<label id="test_gre_gmat_lb" style="visibility: hidden"></label>
-	<label id="country_lb" style="visibility: hidden"></label>
-	<label id="department_lb" style="visibility: hidden"></label>
-	<label id="degree_lb" style="visibility: hidden"></label>
-	<label id="enroll_term_lb" style="visibility: hidden"></label>
+	<label name="test_toefl_ielts_lb" id="test_toefl_ielts_lb" style="visibility: hidden"></label>
+	<label name="test_gre_gmat_lb" id="test_gre_gmat_lb" style="visibility: hidden"></label>
+	<label name="country_lb" id="country_lb" style="visibility: hidden"></label>
+	<label name="department_lb" id="department_lb" style="visibility: hidden"></label>
+	<label name="degree_lb" id="degree_lb" style="visibility: hidden"></label>
+	<label name="enroll_term_lb" id="enroll_term_lb" style="visibility: hidden"></label>
 	<script>
 		$('.dropdown-toggle').dropdown()
 		$(".dropdown-menu li a").click(
