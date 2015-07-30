@@ -11,8 +11,10 @@ import com.sp.db.DbConnection;
 import com.sp.model.Application;
 import com.sp.model.Degree;
 import com.sp.model.Department;
+import com.sp.model.Staff;
 import com.sp.model.Student;
 import com.sp.model.StudentDashboard;
+import com.sp.model.StudentLogin;
 import com.sp.model.TestScore;
 
 public class StudentDAO {
@@ -213,6 +215,59 @@ public class StudentDAO {
 		System.out.println("****"+application.toString());
 		return application;
 
+	}
+	
+	public static StudentLogin getStudent(String email){
+		StudentLogin student = null;
+		Statement stmt = null;
+		DbConnection conn = null;
+		try {
+			conn = new DbConnection();
+			System.out.println("Fetching Student all Application overview");
+			String sql1 = "SELECT student_id,firstName,lastName,gender,email,dateOfBirth,phone,streetAddress,apartmentNo,city,stateOrTeritory,country,zipcode,degreeEarned,gpa,major,workOrgName,yearsWorked,keyRole WHERE S.email='"
+					+ email + "';";
+			stmt = conn.DbConnectionForPreparedStatement(sql1);
+			ResultSet rs = stmt.executeQuery(sql1);
+			while (rs.next()) {
+				int student_id = rs.getInt("student_id");
+				String firstName = rs.getString("firstName");
+				String lastName = rs.getString("lastName");
+				String gender = rs.getString("gender");
+				String emailUser = rs.getString("email");
+				Date dateOfBirth = rs.getDate("dateOfBirth");
+				String phone = rs.getString("phone");
+				String streetAddress = rs.getString("streetAddress");
+				String apartmentNo = rs.getString("apartmentNo");
+				String city = rs.getString("city");
+				String stateOrTeritory = rs.getString("stateOrTeritory");
+				String country = rs.getString("country");
+				String zipcode = rs.getString("zipcode");
+				String degreeEarned = rs.getString("degreeEarned");
+				Double gpa = rs.getDouble("gpa");
+				String major = rs.getString("major");
+				String workOrgName = rs.getString("workOrgName");
+				Double yearsWorked = rs.getDouble("yearsWorked");
+				String keyRole = rs.getString("keyRole");
+				 student = new StudentLogin(student_id, firstName, lastName,gender,emailUser,dateOfBirth, phone, streetAddress, apartmentNo, city,
+						stateOrTeritory, country, zipcode, degreeEarned,gpa,major,workOrgName,yearsWorked,keyRole);
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+			}
+			if (conn != null)
+				conn.close();
+		}
+		return student;
 	}
 
 }

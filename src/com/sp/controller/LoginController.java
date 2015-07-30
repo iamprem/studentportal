@@ -108,7 +108,7 @@ public class LoginController extends HttpServlet {
 					user_session.setAttribute("userName", userName);
 					user_session.setAttribute("userEmail", userName);
 					user_session.setAttribute("userType", userType);
-					user_session.setAttribute("STUDENT", StudentDAO.getStudentDash(userName));
+					user_session.setAttribute("STUDENT", StudentDAO.getStudent(userName));
 				}
 			}
 //			
