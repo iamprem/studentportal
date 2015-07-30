@@ -28,7 +28,7 @@
 					<tr>
 						<td><label for="courseName">Course Name</label></td>
 						<td><input type="text" id="courseName" name="courseName" value="${course.courseName}"
-							 placeholder="Course Name" /><br></td>
+							 placeholder="Course Name" readonly/><br></td>
 					</tr>
 
 
@@ -48,9 +48,18 @@
 						<td><input type="text" id="insMethod" name="insMethod" value="${course.insMethod}"
 							 placeholder="Instruction Method" /><br></td>
 					</tr>
-
-
-
+					
+					<tr>
+						<td><label for="courseDescription">Course Description</label></td>
+						<td><input type="text" id="courseDescription" name="courseDescription" value="${course.courseDescription}"
+							 placeholder="Course Description" /><br></td>
+					</tr>
+					
+					<tr>
+						<td><label for="coursePrerequisites">Course Prerequisites</label></td>
+						<td><input type="text" id="coursePrerequisites" name="coursePrerequisites" value="${course.coursePrerequisites}"
+							 placeholder="Course Prerequisites" /><br></td>
+					</tr>
 
 
 						<tr>
