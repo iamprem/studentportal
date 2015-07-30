@@ -13,6 +13,27 @@
 		<form class="form-horizontal" id="profile" method="POST"
 			action="ProfileEdit">
 			<div class="form-group">
+					<label for="firstName" class="col-sm-2 control-label">First
+						Name</label>
+					<div class="col-sm-4 col-xs-4">
+						<input type="text" id="firstName" class="form-control"
+							name="firstName" placeholder="First Name"
+							aria-describedby="basic-addon1" value="${student.getFirstName()}"
+							required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="lastName" class="col-sm-2 control-label">Last
+						Name</label>
+					<div class="col-sm-4 col-xs-4">
+						<input type="text" class="form-control" id="lastName"
+							name="lastName" placeholder="Last Name"
+							aria-describedby="basic-addon2" value="${student.getLastName()}"
+							required>
+					</div>
+				</div>
+			
+			<div class="form-group">
 				<label for="phoneNumber" class="col-sm-2 control-label">Phone
 					Number</label>
 				<div class="col-sm-4 col-xs-4">
@@ -84,38 +105,8 @@
 						placeholder="Zip Code" aria-describedby="basic-addon2" required>
 				</div>
 			</div>
-			<div class="form-group">
-				<label for="workOrgName" class="col-sm-2 control-label">Work
-					Organisation Name</label>
-				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="workOrgName"
-						name="workOrgName"
-						value="${sessionScope.student.getWorkOrgName()}"
-						placeholder="Work Organisation Name<"
-					aria-describedby="
-						basic-addon2" required>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="yearsWorked" class="col-sm-2 control-label">Years
-					Worked</label>
-				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="yearsWorked"
-						name="yearsWorked" placeholder="Years Worked"
-						value="${sessionScope.student.getYearsWorked()}"
-						aria-describedby="basic-addon2" required>
-				</div>
-			</div>
-			<div class="form-group">
-				<label for="role" class="col-sm-2 control-label">Role</label>
-				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="role" name="role"
-						value="${sessionScope.student.getKeyRole()}"
-						placeholder="Role" aria-describedby="basic-addon2" required>
-				</div>	
-			</div>
-		</form>
-	</div>
+			
+	</form>
 	<div id="footer">
 		<%@include file="footer.jsp"%>
 	</div>
