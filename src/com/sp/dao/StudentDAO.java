@@ -307,8 +307,12 @@ public class StudentDAO {
 		try {
 			conn = new DbConnection();
 			System.out.println("Fetching Student all Application overview");
-			String sql1 = "SELECT student_id,firstName,lastName,gender,email,dateOfBirth,phone,streetAddress,apartmentNo,city,stateOrTeritory,country,zipcode,degreeEarned,gpa,major,workOrgName,yearsWorked,keyRole WHERE S.email='"
-					+ email + "';";
+			System.out.println("Email: "+email);
+			String sql1 = "SELECT student_id, firstName, lastName, gender, email, dateOfBirth, phone, "
+					+ "streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned, "
+					+ "gpa, major, workOrgName, yearsWorked, keyRole "
+					+ "FROM student S WHERE S.email='"
+					+email+"';";
 			stmt = conn.DbConnectionForPreparedStatement(sql1);
 			ResultSet rs = stmt.executeQuery(sql1);
 			while (rs.next()) {
@@ -334,6 +338,7 @@ public class StudentDAO {
 				 student = new StudentLogin(student_id, firstName, lastName,gender,emailUser,dateOfBirth, phone, streetAddress, apartmentNo, city,
 						stateOrTeritory, country, zipcode, degreeEarned,gpa,major,workOrgName,yearsWorked,keyRole);
 			}
+			System.out.println(student.toString());
 			rs.close();
 			stmt.close();
 			conn.close();

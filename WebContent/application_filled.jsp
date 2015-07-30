@@ -6,10 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Continue Application</title>
-<%@include file="header.jsp"%>
+<%@include file="student_header.jsp"%>
 </head>
 <body>
-	<div id="personel"></div>
+	<div id="wrap"></div>
 	<br />
 	<br />
 	<br />
@@ -19,7 +19,6 @@
 		<form class="form-horizontal" id="enrollform" method="POST"
 			action="ApplicationController">
 			<div class="form-group">
-
 				<label for="firstName" class="col-sm-2 control-label">First
 					Name</label>
 				<div class="col-sm-4 col-xs-4">
@@ -40,26 +39,26 @@
 				</div>
 			</div>
 
-				<div class="form-group">
+			<div class="form-group">
 				<label for="gender" class="col-sm-2 control-label">Gender</label>
 				<div class="col-sm-4 col-xs-4">
 
 					<c:choose>
 						<c:when
 							test="${sessionScope.application.getStudent().getGender()=='1'}">
-							<label class="radio-inline"> <input id= "gender" type="radio"
-								value="1" checked name="userType">Male
+							<label class="radio-inline"> <input id="gender"
+								type="radio" value="1" checked name="gender">Male
 							</label>
-							<label class="radio-inline"> <input id= "gender" type="radio"
-								value="0" name="userType">Female
+							<label class="radio-inline"> <input id="gender"
+								type="radio" value="0" name="gender">Female
 							</label>
 						</c:when>
 						<c:otherwise>
-							<label class="radio-inline"> <input id= "gender" type="radio"
-								value="1"  name="userType">Male
+							<label class="radio-inline"> <input id="gender"
+								type="radio" value="1" name="gender">Male
 							</label>
-							<label class="radio-inline"> <input id= "gender" type="radio"
-								value="0" checked name="userType">Female
+							<label class="radio-inline"> <input id="gender"
+								type="radio" value="0" checked name="gender">Female
 							</label>
 						</c:otherwise>
 					</c:choose>
@@ -72,9 +71,10 @@
 					Birth</label>
 				<div class="col-sm-4 col-xs-4">
 					<div class='input-group date' id='datetimepicker10'>
-						<input type='text' name="dateOfBirth" id="dateOfBirth" class="form-control"
-							value="${sessionScope.application.getStudent().getDob()}" /> <span
-							class="input-group-addon"> <span
+						<input type='text' name="dateOfBirth" id="dateOfBirth"
+							class="form-control"
+							value="${sessionScope.application.getStudent().getDob()}"
+							required /> <span class="input-group-addon"> <span
 							class="glyphicon glyphicon-calendar"> </span>
 						</span>
 					</div>
@@ -98,7 +98,7 @@
 					<input type="text" class="form-control" id="phoneNumber"
 						name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX"
 						value="${sessionScope.application.getStudent().getPhone()}"
-						aria-describedby="basic-addon2">
+						aria-describedby="basic-addon2" required>
 				</div>
 			</div>
 
@@ -158,6 +158,25 @@
 			</div>
 			<!-- ***********************COUNTRY********************************* -->
 
+			<div class="form-group ">
+				<label for="country" class="col-sm-2 control-label">Country</label>
+				<div class="col-sm-4 col-xs-4">
+					<div class="btn-group ">
+						<button class="btn dropdown-toggle" name="recordinput"
+							data-toggle="dropdown">
+							Select a Country <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu col-sm-2" id="country_label">
+							<li><a>United States</a></li>
+							<li><a>India</a></li>
+							<li><a>China</a></li>
+							<li><a>Canada</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
 			<div class="form-group">
 				<label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
 				<div class="col-sm-4 col-xs-4">
@@ -196,7 +215,116 @@
 						placeholder="GPA" aria-describedby="basic-addon2" required>
 				</div>
 			</div>
-			
+
+			<div class="form-group ">
+				<label for="country" class="col-sm-2 control-label">Enrollment
+					Term</label>
+				<div class="col-sm-4 col-xs-4">
+					<div class="btn-group ">
+						<button class="btn dropdown-toggle" name="recordinput"
+							data-toggle="dropdown">
+							Select a Term <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu col-sm-2" id="enroll_term_label">
+							<li><a>Spring 2016</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="form-group ">
+				<label for="country" class="col-sm-2 control-label">Applying
+					for</label>
+				<div class="col-sm-4 col-xs-4">
+					<div class="btn-group ">
+						<button class="btn dropdown-toggle" name="recordinput"
+							data-toggle="dropdown">
+							Select a Department <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu col-sm-2" id="department_label">
+							<li><a>ACCF</a></li>
+							<li><a>ECGR</a></li>
+							<li><a>GEOS</a></li>
+							<li><a>ITCS</a></li>
+							<li><a>ITIS</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group ">
+				<label for="country" class="col-sm-2 control-label">Applying
+					degree</label>
+				<div class="col-sm-4 col-xs-4">
+					<div class="btn-group ">
+						<button class="btn dropdown-toggle" name="recordinput"
+							data-toggle="dropdown">
+							Select a Degree <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu col-sm-2" id="degree_label">
+							<li><a>BS</a></li>
+							<li><a>MS</a></li>
+							<li><a>PHD</a></li>
+							<li><a>CERT</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="form-group">
+				<div class="col-sm-3 col-xs-3">
+					<div class="row">
+						<div class="col-sm-8 col-xs-8">
+							<div class="btn-group">
+								<button class="btn dropdown-toggle" name="recordinput"
+									data-toggle="dropdown">
+									Select a Test type <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu col-sm-2" id="test_gre_gmat_label">
+									<li><a>GRE</a></li>
+									<li><a>GMAT</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-sm-4 col-xs-4">
+							<input type="text" class="form-control" id="test_gre_gmat"
+								name="test_gre_gmat" aria-describedby="basic-addon2" required>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="form-group ">
+				<div class="col-sm-3 col-xs-3">
+					<div class="row">
+						<div class="col-sm-8 col-xs-8">
+							<div class="btn-group ">
+								<button class="btn dropdown-toggle" name="recordinput"
+									data-toggle="dropdown">
+									Select a Test type <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu col-sm-2" id="test_toefl_ielts_label">
+									<li><a>TOEFL</a></li>
+									<li><a>IELTS</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-sm-4 col-xs-4">
+							<input type="text" class="form-control" id="test_toefl_ielts"
+								name="test_toefl_ielts" aria-describedby="basic-addon2" required>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+
 
 			<div class="form-group">
 				<label for="workOrgName" class="col-sm-2 control-label">Work
@@ -245,9 +373,12 @@
 
 			<div class="form-group">
 				<div class="col-sm-offset-3 col-sm-10">
-					<input type="hidden" id="appID" name="appID" value="${sessionScope.application.getApp_id()}">
-					<button type="submit" class="btn btn-primary" id="action" name="action" value="Save">Save</button>
-					<button type="submit" class="btn btn-primary" id="action" name="action" value="Submit">Submit Application</button>
+					<input type="hidden" id="appID" name="appID"
+						value="${sessionScope.application.getApp_id()}">
+					<button type="submit" class="btn btn-primary" id="action"
+						name="action" value="Save">Save</button>
+					<button type="submit" class="btn btn-primary" id="action"
+						name="action" value="Submit">Submit Application</button>
 				</div>
 			</div>
 
