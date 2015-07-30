@@ -51,8 +51,9 @@
 					<div class="col-sm-4 col-xs-4">
 						<div class='input-group date' id='datetimepicker10'>
 							<input type='text' name="dateOfBirth" id="dateOfBirth"
-								class="form-control" required /> <span class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"> </span>
+								class="form-control" required /> <span
+								class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"> </span>
 							</span>
 						</div>
 					</div>
@@ -333,7 +334,8 @@
 					<label for="sop" class="col-sm-2 control-label">Statement
 						Of Purpose</label>
 					<div class="col-sm-4 col-xs-4">
-						<textarea class="form-control" rows="5" id="comment" name="sop_content"
+						<textarea class="form-control" rows="5" id="comment"
+							name="sop_content"
 							placeholder="Brief Statement of Purpose in 300 Words"
 							aria-describedby="basic-addon2"></textarea>
 					</div>
@@ -349,18 +351,20 @@
 					</div>
 				</div>
 
-
+				<input type="hidden" name="test_toefl_ielts_lb" value=""
+					id="test_toefl_ielts_lb"></input> <input type="hidden"
+					name="test_gre_gmat_lb" value="" id="test_gre_gmat_lb"></input> <input
+					type="hidden" name="country_lb" value="" id="country_lb"></input> <input
+					type="hidden" name="department_lb" value="something"
+					id="department_lb"></input> <input type="hidden" name="degree_lb"
+					value="" id="degree_lb"></input> <input type="hidden"
+					name="enroll_term_lb" value="" id="enroll_term_lb"></input>
 			</form>
 		</div>
 
 
 	</div>
-	<input type ="hidden" name="test_toefl_ielts_lb" id="test_toefl_ielts_lb"></input>
-	<input type ="hidden" name="test_gre_gmat_lb" id="test_gre_gmat_lb"></input>
-	<input type ="hidden" name="country_lb" id="country_lb"></input>
-	<input type ="hidden" name="department_lb" id="department_lb"></input>
-	<input type ="hidden" name="degree_lb" id="degree_lb"></input>
-	<input type ="hidden" name="enroll_term_lb" id="enroll_term_lb"></input>
+
 	<script>
 		$('.dropdown-toggle').dropdown()
 		$(".dropdown-menu li a").click(

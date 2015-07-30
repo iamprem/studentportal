@@ -113,9 +113,8 @@ public class ApplicationController extends StudentBaseController {
 		String apartmentNo = request.getParameter("aptNumber");
 		String city = request.getParameter("city");
 		String stateOrTeritory = request.getParameter("state");
-		String country = request.getParameter("country");
+		String country = request.getParameter("country_lb");
 		System.out.println("country" + country);
-		country = "USA";
 
 		String zipcode = request.getParameter("zipCode");
 		String degreeEarned = request.getParameter("degreeEarned");
@@ -125,8 +124,9 @@ public class ApplicationController extends StudentBaseController {
 		Double yearsWorked = Double.parseDouble(request.getParameter("yearsWorked"));
 		String keyRole = request.getParameter("role");
 		// Application
-		// String desiredTerm = request.getParameter("desiredTerm");
-		String desiredTerm = "Spring 2016";
+		String desiredTerm = request.getParameter("enroll_term_lb");
+		System.out.println("Term : "+desiredTerm);
+		// String desiredTerm = "Spring 2016";
 		String sopContent = request.getParameter("sop_content");
 		String appStatus = null;
 		if ("Submit".equalsIgnoreCase(action)) {
@@ -136,10 +136,11 @@ public class ApplicationController extends StudentBaseController {
 		}
 
 		// Dept and Deg
-		// String deptID = request.getParameter("deptID");
-		// String degID = request.getParameter("degID");
-		String deptID = "ITCS";
-		String degID = "MS";
+		String deptID = request.getParameter("department_lb");
+		String degID = request.getParameter("degree_lb");
+		System.out.println("Dept : " + deptID + " Deg : " + degID);
+		// String deptID = "ITCS";
+		// String degID = "MS";
 		Degree degree = new Degree();
 		Department department = new Department();
 		degree.setDegID(degID);
@@ -149,11 +150,16 @@ public class ApplicationController extends StudentBaseController {
 		ArrayList<TestScore> testScoreList = new ArrayList<TestScore>();
 		Double testToeflIelts = Double.parseDouble(request.getParameter("test_toefl_ielts"));
 		Double testGreGmat = Double.parseDouble(request.getParameter("test_gre_gmat"));
-		// String testToaflIeltsLb =
-		// request.getParameter("test_toefl_ielts_lb");
-		// String testGreGmatLb = request.getParameter("test_gre_gmat_lb");
-		testScoreList.add(new TestScore("GRE", testGreGmat, new Date()));
-		testScoreList.add(new TestScore("TOEFL", testToeflIelts, new Date()));
+		String testToeflIeltCode = request.getParameter("test_toefl_ielts_lb");
+		String testGreGmatCode = request.getParameter("test_gre_gmat_lb");
+		if (testToeflIeltCode != "") {
+			testScoreList.add(new TestScore(testToeflIeltCode, testToeflIelts, new Date()));
+		}
+		if (testGreGmatCode != "") {
+			testScoreList.add(new TestScore(testGreGmatCode, testGreGmat, new Date()));
+		}
+		
+		
 		// TODO
 		Student studForApplication = new Student(student_id, firstName, lastName, gender, email, dateOfBirth, phone,
 				ssn, streetAddress, testScoreList, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned,
@@ -169,10 +175,12 @@ public class ApplicationController extends StudentBaseController {
 			// Insert or Update application table
 			if (appID == 0) {
 				System.out.println("On Submit newly created application" + appID);
-				StudentDAO.createApplication(application);
+				// StudentDAO.createApplication(application);
+				// >>>>>>>>>>>>>>>>>>>>>>>>
 
 			} else {
 				System.out.println("On Submit retrived application" + appID);
+				// Update APplication submit
 			}
 
 		} else if ("Save".equalsIgnoreCase(action)) {

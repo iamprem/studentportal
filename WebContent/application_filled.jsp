@@ -364,7 +364,8 @@
 				<label for="sop" class="col-sm-2 control-label">Statement Of
 					Purpose</label>
 				<div class="col-sm-4 col-xs-4">
-					<textarea class="form-control" rows="5" id="sop_content" name="sop_content"
+					<textarea class="form-control" rows="5" id="sop_content"
+						name="sop_content"
 						placeholder="Brief Statement of Purpose in 300 Words"
 						aria-describedby="basic-addon2">${sessionScope.application.getSop_content()}</textarea>
 				</div>
@@ -381,14 +382,46 @@
 						name="action" value="Submit">Submit Application</button>
 				</div>
 			</div>
-
+			<input type="hidden" name="test_toefl_ielts_lb" value=""
+				id="test_toefl_ielts_lb"></input> <input type="hidden"
+				name="test_gre_gmat_lb" value="" id="test_gre_gmat_lb"></input> <input
+				type="hidden" name="country_lb" value="" id="country_lb"></input> <input
+				type="hidden" name="department_lb" value="something"
+				id="department_lb"></input> <input type="hidden" name="degree_lb"
+				value="" id="degree_lb"></input> <input type="hidden"
+				name="enroll_term_lb" value="" id="enroll_term_lb"></input>
 
 		</form>
 	</div>
 
 
 
+	<script>
+		$('.dropdown-toggle').dropdown()
+		$(".dropdown-menu li a").click(
+				function() {
+					idComp = $(this).parent().parent().attr('id');
+					var selText = $(this).text();
+					if (idComp == "test_gre_gmat_label") {
+						$("#test_gre_gmat_lb").val(selText);
+					} else if (idComp == "test_toefl_ielts_label") {
+						$("#test_toefl_ielts_lb").val(selText);
+					} else if (idComp == "country_label") {
+						$("#country_lb").val(selText);
+					} else if (idComp == "department_label") {
+						$("#department_lb").val(selText);
+					} else if (idComp == "degree_label") {
+						$("#degree_lb").val(selText);
+					} else if (idComp == "enroll_term_label") {
+						$("#enroll_term_lb").val(selText);
+					}
 
+					enroll_term_label
+
+					$(this).parents('.btn-group').find('.dropdown-toggle')
+							.html(selText + ' <span class="caret"></span>');
+				});
+	</script>
 	<%@include file="footer.jsp"%>
 </body>
 </html>
