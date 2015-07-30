@@ -132,6 +132,14 @@
 				</div>
 			</div>
 			
+			<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-2">
+			<div class="row">
+				<input type="submit"  onclick="return confirm('Are you sure?')" class="btn btn-primary" value="Register">
+				<a href="student.jsp" class="btn btn-danger" role="button">Cancel</a>
+			</div>
+			</div>
+		</div>
 			
 			
 	</form>
