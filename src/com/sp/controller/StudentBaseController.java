@@ -36,7 +36,7 @@ public abstract class StudentBaseController extends HttpServlet {
 	public static final String STUDENTDASHBOARDLIST = "studentDashboardList";
 	public static final String APPLICATION_STATUS="appStatus";
 	public static final String APPLICATION = "application";
-	
+	public static final String STUDENT = "student";
 
 	@Override
 	protected abstract void doGet(HttpServletRequest req,

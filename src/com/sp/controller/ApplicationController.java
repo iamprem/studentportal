@@ -19,6 +19,7 @@ import com.sp.dao.ApplicationDAO;
 import com.sp.dao.CourseDAO;
 import com.sp.dao.EmailDAO;
 import com.sp.dao.StudentDAO;
+import com.sp.model.StudentLogin;
 
 /**
  * Servlet implementation class ApplicationController
@@ -45,11 +46,22 @@ public class ApplicationController extends StudentBaseController {
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("userEmail");
 		System.out.println(request.getParameter("appID"));
-		int appID = Integer.parseInt(request.getParameter("appID"));
+		int appID;
+		try {
+			appID = Integer.parseInt(request.getParameter("appID"));
+		} catch (Exception e) {
+			appID = 0;
+		}
 		System.out.println("Incomming AppID: " + appID);
-		session.setAttribute(APPLICATION, StudentDAO.getSavedApplication(appID));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("application_filled.jsp");
-		dispatcher.forward(request, response);
+		if (appID == 0) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("application.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			session.setAttribute(APPLICATION, StudentDAO.getSavedApplication(appID));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("application_filled.jsp");
+			dispatcher.forward(request, response);
+		}
+		
 		return;
 
 	}
@@ -71,6 +83,9 @@ public class ApplicationController extends StudentBaseController {
 		} catch (Exception e) {
 			appID = 0;
 		}
+		
+		StudentLogin student = (StudentLogin) session.getAttribute(STUDENT);
+		
 		
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");

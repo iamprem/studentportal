@@ -300,15 +300,15 @@ public class StudentDAO {
 		}
 	}
 	
-	public static StudentLogin getStudent(String email){
-		StudentLogin student = null;
+	public static Student getStudent(String email){
+		Student student = null;
 		Statement stmt = null;
 		DbConnection conn = null;
 		try {
 			conn = new DbConnection();
 			System.out.println("Fetching Student all Application overview");
 			System.out.println("Email: "+email);
-			String sql1 = "SELECT student_id, firstName, lastName, gender, email, dateOfBirth, phone, "
+			String sql1 = "SELECT student_id, firstName, lastName, gender, email, dateOfBirth, phone, ssn, "
 					+ "streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned, "
 					+ "gpa, major, workOrgName, yearsWorked, keyRole "
 					+ "FROM student S WHERE S.email='"
@@ -323,6 +323,7 @@ public class StudentDAO {
 				String emailUser = rs.getString("email");
 				Date dateOfBirth = rs.getDate("dateOfBirth");
 				String phone = rs.getString("phone");
+				String ssn = rs.getString("ssn");
 				String streetAddress = rs.getString("streetAddress");
 				String apartmentNo = rs.getString("apartmentNo");
 				String city = rs.getString("city");
@@ -335,8 +336,10 @@ public class StudentDAO {
 				String workOrgName = rs.getString("workOrgName");
 				Double yearsWorked = rs.getDouble("yearsWorked");
 				String keyRole = rs.getString("keyRole");
-				 student = new StudentLogin(student_id, firstName, lastName,gender,emailUser,dateOfBirth, phone, streetAddress, apartmentNo, city,
-						stateOrTeritory, country, zipcode, degreeEarned,gpa,major,workOrgName,yearsWorked,keyRole);
+				
+				student = new Student(student_id, firstName, lastName, gender, emailUser, dateOfBirth, phone, ssn,
+						 streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned,
+						 gpa, major, workOrgName, yearsWorked, keyRole);
 			}
 			System.out.println(student.toString());
 			rs.close();
