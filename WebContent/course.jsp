@@ -17,15 +17,18 @@
 	<h1>${requestScope.deptID} - ${requestScope.degID}</h1>
 	</div>
 	
-
+	<div class="col-sm-10 col-md-10 centered" id="container_color_grey">
 	<form name="dd" action="Addcourse.jsp">
 		<c:set var="deptID" scope="session" value="${requestScope.deptID}" /> 
 		<c:set var="degID" scope="session" value="${requestScope.degID}" /> 
 		
 		 <input
-			id="addCourse" type="submit" value="Addcourse" class="button"
+			id="addCourse" type="submit" value="Add Course" class="button"
 			style="margin-top: 20px;" />
 	</form>
+	</br>
+	</div>
+	
 <c:forEach var="courses" items="${requestScope.courseList}">
 <div class="row">
 	<div class="col-sm-10 col-md-10 centered" id="container_color_grey">
