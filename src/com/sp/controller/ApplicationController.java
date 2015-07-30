@@ -92,7 +92,6 @@ public class ApplicationController extends StudentBaseController {
 		}
 
 		Student student = (Student) session.getAttribute(STUDENT);
-
 		int student_id = student.getStudent_id();
 		System.out.println("From session student object: " + student_id);
 		String firstName = request.getParameter("firstName");

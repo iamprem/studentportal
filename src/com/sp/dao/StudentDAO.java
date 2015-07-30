@@ -218,77 +218,62 @@ public class StudentDAO {
 
 	}
 
-	// TODO Remove student ID hardcoded
-	public static void createApplication(Application application){
-		
+	public static void createApplication(Application application) {
+
 		Statement stmt = null;
 		DbConnection conn = null;
 		Application app = application;
 		Student student = app.getStudent();
 		ArrayList<TestScore> testScoreList = student.getTestScoreList();
-		
+
 		try {
 			conn = new DbConnection();
 			System.out.println("Create Student's Application");
 			stmt = conn.DbConnectionForStatement();
-			
+
 			String sql1 = "INSERT INTO application_applied "
 					+ " (desired_term, applied_date, student_id, deg_id, dept_id, app_status, sop_content)"
-					+ " VALUES ('"
-							+ app.getDesired_term()+"',  CURDATE(), "
-							+ student.getStudent_id()+", '"+app.getDegree().getDegID()+"', '"
-							+ app.getDepartment().getDeptID()+"', '"+app.getApp_status()+"', '"
-							+ app.getSop_content()+"');";
+					+ " VALUES ('" + app.getDesired_term() + "',  CURDATE(), " + student.getStudent_id() + ", '"
+					+ app.getDegree().getDegID() + "', '" + app.getDepartment().getDeptID() + "', '"
+					+ app.getApp_status() + "', '" + app.getSop_content() + "');";
 			stmt.execute(sql1);
 			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
 			String dob = sdf.format(student.getDob());
+			System.out.println(dob);
 			System.out.println("sql1 complete");
-			String sql2 = "UPDATE student SET "
-					+ "firstName = '"+student.getFirstName()+
-					"', lastName = '"+student.getLastName()+
-					"', gender = '"+student.getGender()+
-					"', dateOfBirth="+dob+
-					", phone='"+student.getPhone()+
-					"', ssn='"+student.getSsn()+
-					"', streetAddress='"+student.getStAddress()+
-					"', apartmentNo='"+student.getApartmentNo()+
-					"', city='"+student.getCity()+
-					"', stateOrTeritory='"+student.getStateOrTeritory()+
-					"', country='"+student.getCountry()+
-					"', zipcode='"+student.getZipcode()+
-					"', degreeEarned='"+student.getDegreeEarned()+
-					"', gpa="+student.getGpa()+
-					", major='"+student.getMajor()+
-					"', workOrgName='"+student.getWorkOrgName()+
-					"', yearsWorked="+student.getYearsWorked()+
-					", keyRole='"+student.getKeyRole()+
-					"' WHERE student_id="+student.getStudent_id()+";";
+			String sql2 = "UPDATE student SET " + "firstName = '" + student.getFirstName() + "', lastName = '"
+					+ student.getLastName() + "', gender = '" + student.getGender() + "', dateOfBirth='" + dob
+					+ "', phone='" + student.getPhone() + "', ssn='" + student.getSsn() + "', streetAddress='"
+					+ student.getStAddress() + "', apartmentNo='" + student.getApartmentNo() + "', city='"
+					+ student.getCity() + "', stateOrTeritory='" + student.getStateOrTeritory() + "', country='"
+					+ student.getCountry() + "', zipcode='" + student.getZipcode() + "', degreeEarned='"
+					+ student.getDegreeEarned() + "', gpa=" + student.getGpa() + ", major='" + student.getMajor()
+					+ "', workOrgName='" + student.getWorkOrgName() + "', yearsWorked=" + student.getYearsWorked()
+					+ ", keyRole='" + student.getKeyRole() + "' WHERE student_id=" + student.getStudent_id() + ";";
 			stmt.execute(sql2);
-			
+
 			String sql3 = null;
 			for (TestScore testScoreItem : testScoreList) {
-				
+				System.out.println(testScoreItem.toString());
 				try {
-					sql3 = "INSERT INTO student_taken_test (student_id, test_code, score, expiry_date) "
-							+ "value("
-							+ student.getStudent_id()+", '"
-							+ testScoreItem.getTestCode()+"', "
-							+ testScoreItem.getScore()+", "
-							+ "2016-12-30);";
+					System.out.println("Inside try testscore");
+					sql3 = "INSERT INTO student_taken_test (student_id, test_code, score, expiry_date) " + "value("
+							+ student.getStudent_id() + ", '" + testScoreItem.getTestCode() + "', "
+							+ testScoreItem.getScore() + ", " + "'2016-12-30');";
 					stmt.execute(sql3);
 				} catch (SQLException e) {
-					sql3 = "UPDATE student_taken_test SET "
-							+ "score="+testScoreItem.getScore()+
-							", expiry_date=2016-12-30"+
-							" WHERE student_id="+student.getStudent_id()+
-							" AND test_code="+testScoreItem.getTestCode()+";";
+					System.out.println("Inside catch testscore");
+					sql3 = "UPDATE student_taken_test SET " + "score=" + testScoreItem.getScore()
+							+ ", expiry_date='2016-12-30'" + " WHERE student_id=" + student.getStudent_id()
+							+ " AND test_code='" + testScoreItem.getTestCode() + "';";
+					stmt.execute(sql3);
+					// e.printStackTrace();
 				}
-				
+
 			}
-			
-		    stmt.close();
+			stmt.close();
 			conn.close();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -296,12 +281,12 @@ public class StudentDAO {
 				if (stmt != null)
 					stmt.close();
 			} catch (SQLException se2) {
-				
+
 			}
 			if (conn != null)
 				conn.close();
 		}
-		
+
 	}
 
 	public void updateApplication(Application application) {
