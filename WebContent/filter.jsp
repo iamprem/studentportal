@@ -64,7 +64,7 @@
 					
 						<label class="control-label col-sm-4" for="score">Score</label>
 						<div class="col-sm-8">
-						<input type="radio" name="op"   value="=" ${param.op == '=' ? 'checked' : ''}>=
+						<input type="radio" name="op" id="op"  value="=" ${param.op == '=' ? 'checked' : ''}>=
 						<input type="radio" name="op" id="op" value="<=" ${param.op == '<=' ? 'checked' : ''}><=
 						<input type="radio" name="op" id="op"  value=">=" ${param.op == '>=' ? 'checked' : ''}>>=
 						<input type="radio" name="op" id="op"  value=">"${param.op == '>' ? 'checked' : ''}>>
@@ -108,11 +108,16 @@
                         <div class="col-sm-4">
                         </div>
                         <div class="col-sm-8">
-					<button type="submit" name="action" id="action" value="Submit" class="btn btn-default">Filter</button>
+					<button type="submit" name="action" id="action" value="Submit" class="btn btn-default" onclick="myFunction()">Filter</button>
 					    </div>
 							</div></form>
 							</div>
-			
+			<script>
+function myFunction() {
+    document.getElementById("op").required = true;
+    document.getElementById("gpaop").required = true;
+}
+</script>
 			<div class="container">
 					<table id="app" class="table table-striped table-bordered" bgcolor="#00FF00" border="5">
 					<thead>
