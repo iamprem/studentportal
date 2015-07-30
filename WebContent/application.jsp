@@ -5,11 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Apply for Application</title>
-<%@include file="header.jsp" %>
+<%@include file="student_header.jsp" %>
 </head>
 <body>
 
-<div id="personel"></div>
+<div id="wrap">
 	<br />
 	<br />
 	<br />
@@ -133,6 +133,27 @@
 		</div>
 		<!-- ***********************COUNTRY********************************* -->
 
+<div class="form-group ">
+<label for="country" class="col-sm-2 control-label">Country</label>
+	<div class="col-sm-4 col-xs-4">
+		<div class="btn-group ">
+			 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+			 Select a Country
+			 <span class="caret"></span>
+			 </button>
+			 <ul class="dropdown-menu col-sm-2">
+			 <li><a>United States</a></li>
+			 <li><a>India</a></li>
+			 <li><a>China</a></li>
+			 <li><a>Canada</a></li>
+			 </ul> 
+  </div>
+  </div>
+ </div>
+
+
+
+
 		<div class="form-group">
 			<label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
 			<div class="col-sm-4 col-xs-4">
@@ -170,9 +191,62 @@
 			</div>
 		</div>
 
-
+		<div class="form-group ">
+		<div class="col-sm-3 col-xs-3">
+		<div class="row">
+		<div class="col-sm-8 col-xs-8">
+			<div class="btn-group ">
+				 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+				 Select a Test type
+				 <span class="caret"></span>
+				 </button>
+				 <ul class="dropdown-menu col-sm-2">
+				 <li><a>GRE</a></li>
+				 <li><a>GMAT</a></li>
+				 </ul> 
+		  </div>
+		  </div>
+	  <div class="col-sm-4 col-xs-4">
+	  	<input type="text" class="form-control" id="test_gre_gmat"
+				name="test_gre_gmat"
+				aria-describedby="basic-addon2" required>
+	  </div>
+		  </div>
+		  
+		 </div>
+		 </div>
+		 
+		 
+		 <div class="form-group ">
+		<div class="col-sm-3 col-xs-3">
+		<div class="row">
+		<div class="col-sm-8 col-xs-8">
+			<div class="btn-group ">
+				 <button class="btn dropdown-toggle" name="recordinput" data-toggle="dropdown">
+				 Select a Test type
+				 <span class="caret"></span>
+				 </button>
+				 <ul class="dropdown-menu col-sm-2">
+				 <li><a>TOEFL</a></li>
+				 <li><a>IELTS</a></li>
+				 </ul> 
+		  </div>
+		  </div>
+	  <div class="col-sm-4 col-xs-4">
+	  	<input type="text" class="form-control" id="test_toefl_ielts"
+				name="test_toefl_ielts"
+				aria-describedby="basic-addon2" required>
+				
+	  </div>
+		  </div>
+		  
+		 </div>
+		 </div>
+		 
+		 
+ 
 		<div class="form-group">
-			<label for="workOrgName" class="col-sm-2 control-label">Work Organisation Name</label>
+			<label for="workOrgName" class="col-sm-2 control-label">Work Organization Name</label>
 			<div class="col-sm-4 col-xs-4">
 				<input type="text" class="form-control" id="workOrgName"
 					name="workOrgName" placeholder="Work Organisation Name<"
@@ -219,8 +293,28 @@
 	</div>
 
 
+</div>
+<label id="test_toefl_ielts_label" style="visibility:hidden"></label>
+<label id="test_gre_gmat_label" style="visibility:hidden"></label>
+<script>
+$('.dropdown-toggle').dropdown()
+$(".dropdown-menu li a").click(function(){
+ var selText = $(this).text();
+ if(selText=="GRE" || selText =="GMAT"){
+	$("#test_gre_gmat_label").text(selText);	 
+ }else if(selText=="TOEFL" || selText =="IELTS"){
+	$("#test_toefl_ielts_label").text(selText);	 
+ }else{
+	 $("#test_gre_gmat_label").text("null");
+	 $("#test_toefl_ielts_label").text("null");	 
+ }
 
-
+ $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+});
+</script>
+<div id="footer">
 <%@include file="footer.jsp" %>
+</div>
+
 </body>
 </html>
