@@ -8,7 +8,7 @@
 <%@include file="student_header.jsp"%>
 </head>
 <body>
-	<div id="wrap"></div>
+	<div id="wrap">
 	<div class="col-md-offset-3">
 	
 		<form class="form-horizontal" id="profile" method="POST"
@@ -141,6 +141,7 @@
 			
 			
 	</form>
+	</div>
 	</div>
 	<div id="footer">
 		<%@include file="footer.jsp"%>
