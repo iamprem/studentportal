@@ -292,7 +292,7 @@ public class StudentDAO {
 	}
 
 	//Update Applciation and SUBMIT
-	public void updateApplication(Application application) {
+	public static void updateApplication(Application application) {
 
 		Statement stmt = null;
 		DbConnection conn = null;
@@ -423,7 +423,4 @@ public class StudentDAO {
 		return student;
 	}
 
-	public void submitApplication(Application application) {
-
-	}
 }
