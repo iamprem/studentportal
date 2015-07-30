@@ -1,23 +1,17 @@
 package com.sp.dao;
 
-import java.sql.Date;
-import java.sql.ResultSet;
+import java.util.Date;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import com.sp.db.DbConnection;
-import com.sp.model.Application;
-import com.sp.model.Course;
-import com.sp.model.Degree;
-import com.sp.model.Department;
-import com.sp.model.Staff;
-import com.sp.model.Student;
-import com.sp.model.TestScore;
 
 
 public class ApplicationDAO {
 
-	public static Application retrieveApp(int appID) {
+	/*public static Application retrieveApp(int appID) {
 		Application app=null;
 
 		Statement stmt = null;
@@ -61,16 +55,19 @@ public class ApplicationDAO {
 
 		return app;
 
-	}
+	}*/
 
 	public static void updateAppStatus(int appID,String status) {
 		Statement stmt = null;
 		DbConnection conn = null;
-
-		try{
+    	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+    	Date date = new java.util.Date();
+    String decDate=	dateFormat.format(date);
+    	try{
 			conn = new DbConnection();
 			String sql;
-			sql = "UPDATE application_applied SET app_status ='"+status+"'where app_id='"+appID+"';";
+			sql = "UPDATE application_applied SET app_status ='"+status+"' , decision_date='" +decDate +"'where app_id='"+appID+"';";
+			System.out.println("sssssssssssssss"+sql);
 			stmt = conn.DbConnectionForStatement();
 			stmt.execute(sql);
 			stmt.close();

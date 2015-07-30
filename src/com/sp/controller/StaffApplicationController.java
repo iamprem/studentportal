@@ -49,15 +49,15 @@ public class StaffApplicationController extends StudentBaseController {
 		String studentID =  request.getParameter(STUDENT_ID);
 		int studentId=Integer.parseInt(studentID);
 		String action = request.getParameter(ACTION);
-		String status = request.getParameter(APPLICATION_STATUS);
-		String email=StudentDAO.getSavedApplication(app).getStudent().getEmail();
-		String dept=StudentDAO.getSavedApplication(app).getDepartment().getDeptName();
-		String degree=StudentDAO.getSavedApplication(app).getDegree().getDegName();
-		String name=StudentDAO.getSavedApplication(app).getStudent().getFullName();
-		System.out.println(email);
+
 	 if ("Submit".equalsIgnoreCase(action)) {
+			String status = request.getParameter(APPLICATION_STATUS);
+			String email=StudentDAO.getSavedApplication(app).getStudent().getEmail();
+			String dept=StudentDAO.getSavedApplication(app).getDepartment().getDeptName();
+			String degree=StudentDAO.getSavedApplication(app).getDegree().getDegName();
+			String name=StudentDAO.getSavedApplication(app).getStudent().getFullName();
 		 ApplicationDAO.updateAppStatus( app, status);
-		 EmailDAO.emailStatusSender(email,studentId,dept,degree,name,status,app);
+		EmailDAO.emailStatusSender(email,studentId,dept,degree,name,status,app);
 	 } else if ("Cancel".equalsIgnoreCase(action)) {
 	 } 
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("filter.jsp");

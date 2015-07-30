@@ -40,7 +40,7 @@
 </c:forEach>
 
 </div>
-
+</div>
 <div id = "footer">
 <%@ include file = "footer.jsp" %>
 </div>
