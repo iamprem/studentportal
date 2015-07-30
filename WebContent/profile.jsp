@@ -10,8 +10,22 @@
 <body>
 	<div id="wrap"></div>
 	<div class="col-md-offset-3">
+	
 		<form class="form-horizontal" id="profile" method="POST"
 			action="ProfileEdit">
+			
+			<div class="form-group">
+					<label for="email" class="col-sm-2 control-label">Email
+						</label>
+					<div class="col-sm-4 col-xs-4">
+						<input type="text" id="email" class="form-control"
+							name="email" placeholder="Email"
+							aria-describedby="basic-addon1" value="${student.getEmail()}"
+							disabled>
+					</div>
+				</div>
+			
+			
 			<div class="form-group">
 					<label for="firstName" class="col-sm-2 control-label">First
 						Name</label>
@@ -106,7 +120,10 @@
 				</div>
 			</div>
 			
+			
+			
 	</form>
+	</div>
 	<div id="footer">
 		<%@include file="footer.jsp"%>
 	</div>
