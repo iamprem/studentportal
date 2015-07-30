@@ -355,12 +355,12 @@
 
 
 	</div>
-	<label name="test_toefl_ielts_lb" id="test_toefl_ielts_lb" style="visibility: hidden"></label>
-	<label name="test_gre_gmat_lb" id="test_gre_gmat_lb" style="visibility: hidden"></label>
-	<label name="country_lb" id="country_lb" style="visibility: hidden"></label>
-	<label name="department_lb" id="department_lb" style="visibility: hidden"></label>
-	<label name="degree_lb" id="degree_lb" style="visibility: hidden"></label>
-	<label name="enroll_term_lb" id="enroll_term_lb" style="visibility: hidden"></label>
+	<input type ="hidden" name="test_toefl_ielts_lb" id="test_toefl_ielts_lb"></input>
+	<input type ="hidden" name="test_gre_gmat_lb" id="test_gre_gmat_lb"></input>
+	<input type ="hidden" name="country_lb" id="country_lb"></input>
+	<input type ="hidden" name="department_lb" id="department_lb"></input>
+	<input type ="hidden" name="degree_lb" id="degree_lb"></input>
+	<input type ="hidden" name="enroll_term_lb" id="enroll_term_lb"></input>
 	<script>
 		$('.dropdown-toggle').dropdown()
 		$(".dropdown-menu li a").click(
@@ -368,17 +368,17 @@
 					idComp = $(this).parent().parent().attr('id');
 					var selText = $(this).text();
 					if (idComp == "test_gre_gmat_label") {
-						$("#test_gre_gmat_lb").text(selText);
+						$("#test_gre_gmat_lb").val(selText);
 					} else if (idComp == "test_toefl_ielts_label") {
-						$("#test_toefl_ielts_lb").text(selText);
+						$("#test_toefl_ielts_lb").val(selText);
 					} else if (idComp == "country_label") {
-						$("#country_lb").text(selText);
+						$("#country_lb").val(selText);
 					} else if (idComp == "department_label") {
-						$("#department_lb").text(selText);
+						$("#department_lb").val(selText);
 					} else if (idComp == "degree_label") {
-						$("#degree_lb").text(selText);
+						$("#degree_lb").val(selText);
 					} else if (idComp == "enroll_term_label") {
-						$("#enroll_term_lb").text(selText);
+						$("#enroll_term_lb").val(selText);
 					}
 
 					enroll_term_label
