@@ -49,7 +49,7 @@
         <a href="/StudentPortalWebApp/" target="_blank">UNCC Home</a>
         </li>
         <li><a href="/StudentPortalWebApp/StudentDashController/">Dashboard</a></li>
-        <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}">Edit Profile</a></li>
+        <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}&userType=student">Edit Profile</a></li>
    
   </ul>
   <ul class="nav navbar-nav navbar-right">

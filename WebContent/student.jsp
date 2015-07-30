@@ -63,7 +63,7 @@
 
 <div class="row">
   <div class="col-sm-10 col-md-10 centered" id="container_color_grey">
-  <a href="ApplicationController?appID=${studentDashBoardItem.app_id}">
+  <a href="ApplicationController?appID=${studentDashBoardItem.app_id}&appStatus=${studentDashBoardItem.app_status}">
 	  <div class="row" >
 		  <div class="col-sm-2 col-md-2">
 		  	<p>${studentDashBoardItem.app_id}</p>

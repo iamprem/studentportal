@@ -82,7 +82,10 @@ public class LoginController extends StudentBaseController {
 				}
 			} else {
 				System.out.println("User Not Found");
-
+				request.setAttribute("error", "User Not Found");
+				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+				rd.include(request, response);
+				return;
 			}
 			if (!passcode.equals(passCode)) {
 				request.setAttribute("error", "Invalid Username or Password");

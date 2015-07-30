@@ -33,10 +33,20 @@ public class ProfileEditController extends StudentBaseController {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
 		String email=request.getParameter(EMAIL);
+		String userType = request.getParameter("userType");
 		System.out.println("User email received" +email);
+		System.out.println("User Type"+userType);
+		if(userType.equals("student")){
 		request.setAttribute(STUDENT,StudentDAO.getStudent(email));
 		RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
 		dispatcher.forward(request, response);
+		return;
+		}
+		else if(userType.equals("faculty")){
+			request.setAttribute("STAFF",StudentDAO.getStudent(email));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("staff_profile.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 
 	/**

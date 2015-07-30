@@ -9,12 +9,8 @@
 <%@include file="student_header.jsp"%>
 </head>
 <body>
-	<div id="wrap"></div>
-	<br />
-	<br />
-	<br />
-	<br />
-	<br />
+	<div id="wrap">
+	<br /> <br /> <br />
 	<div class="col-md-offset-3">
 		<form class="form-horizontal" id="enrollform" method="POST"
 			action="ApplicationController">
@@ -351,7 +347,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="role" class="col-sm-2 control-label">Role</label>
+				<label for="role" class="col-sm-2 ApplicationControllercontrol-label">Role</label>
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="role" name="role"
 						value="${sessionScope.application.getStudent().getKeyRole()}"
@@ -393,7 +389,7 @@
 		</form>
 	</div>
 
-
+</div>
 
 	<script>
 		$('.dropdown-toggle').dropdown()
@@ -421,6 +417,7 @@
 							.html(selText + ' <span class="caret"></span>');
 				});
 	</script>
+	
 	<%@include file="footer.jsp"%>
 </body>
 </html>

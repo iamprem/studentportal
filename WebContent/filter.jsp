@@ -30,9 +30,9 @@
 					
 						<label class="control-label col-sm-4" for="gender">Gender</label>
 						<div class="col-sm-8">   
-						<select name="gender" id="gender" >.<option value="%" selected>All</option>
-								<option value="1" >Male</option>
-								<option value="2">Female</option>
+						<select name="gender" id="gender" ><option value="%" selected>All</option>
+								<option value="1" ${param.gender == '1' ? 'selected' : ''} >Male</option>
+								<option value="2" ${param.gender == '2' ? 'selected' : ''}>Female</option>
 						</select> <br>
 					     </div>
                    </div>
@@ -43,26 +43,42 @@
 						<div class="col-sm-8">
 						<select name="testCode" id="testCode" >
 								<option value="GRE" selected>GRE</option>
-								<option value="TOEFL">TOEFL</option>
-								<option value="GMAT">GMAT</option>
-								<option value="SAT">SAT</option>
-								<option value="ACT">ACT</option>
+								<option value="TOEFL" ${param.testCode == 'TOEFL' ? 'selected' : ''}>TOEFL</option>
+								<option value="GMAT" ${param.testCode == 'GMAT' ? 'selected' : ''}>GMAT</option>
+								<option value="SAT" ${param.testCode == 'SAT' ? 'selected' : ''}>SAT</option>
+								<option value="ACT" ${param.testCode == 'ACT' ? 'selected' : ''}>ACT</option>
 						</select> <br>
 						</div>
                    </div>
-
+ 				 <c:choose>
+                   <c:when test="${param.score eq null}">
+                   <c:set var="scoreVal" value="0"/>
+                   </c:when>
+                   <c:otherwise>
+                   <c:set var="scoreVal" value="${param.score}"/>
+                   </c:otherwise></c:choose>
+                   
+                   
 					<div class="form-group">
 					
 						<label class="control-label col-sm-4" for="score">Score</label>
 						<div class="col-sm-8">
-						<input type="radio" name="op"   value="="/>=
+						<input type="radio" name="op"   value="=">=
 						<input type="radio" name="op" id="op" value="<="><=
 						<input type="radio" name="op" id="op"  value=">=">>=
-						<input type="radio" name="op" id="op" checked value=">"/>>
-						<input type="radio" name="op" id="op" value="<"/><
-						<input type="text" name="score" id="score" value="0"> <br/>
+						<input type="radio" name="op" id="op" checked value=">">>
+						<input type="radio" name="op" id="op" value="<"><
+						<input type="text" name="score" id="score" value="${scoreVal}"> <br/>
 						</div>
                    </div>
+                  <c:choose>
+                   <c:when test="${param.gpa eq null}">
+                   <c:set var="gpaVal" value="0"/>
+                   </c:when>
+                   <c:otherwise>
+                   <c:set var="gpaVal" value="${param.gpa}"/>
+                   </c:otherwise></c:choose> 
+                 
                    
                    <div class="form-group">
 						<label class="control-label col-sm-4" for="gpa">GPA</label>
@@ -72,18 +88,18 @@
 						<input type="radio" name="gpaop" id="gpaop" value=">=">>=
 						<input type="radio" name="gpaop" id="gpaop" checked value=">"/>>
 						<input type="radio" name="gpaop" id="gpaop" value="<"/><
-						<input type="text" name="gpa" id="gpa" value="0"> <br>
+						<input type="text" name="gpa" id="gpa" value="${gpaVal}"> <br>
 				        </div>
                    </div>
 		
 		           <div class="form-group">
 						<label class="control-label col-sm-4" for="country">Country</label>
 						<div class="col-sm-8">
-						<select name="country" id="country" >.<option value="%" selected>All</option>
-								<option value="USA" >USA</option>
-								<option value="India">India</option>
-								<option value="China">China</option>
-								<option value="Japan">Japan</option>
+						<select name="country" id="country" ><option value="%" selected>All</option>
+								<option value="USA" ${param.country == 'USA' ? 'selected' : ''}>USA</option>
+								<option value="India"${param.country == 'India' ? 'selected' : ''}>India</option>
+								<option value="China"${param.country == 'China' ? 'selected' : ''}>China</option>
+								<option value="Japan"${param.country == 'Japan' ? 'selected' : ''}>Japan</option>
 						</select> <br>
 						</div>
                    </div>
@@ -122,7 +138,13 @@
 						<td><b>${filter.testCodes }</b></td>
 						<td><b>${filter.gre }</b></td>
 						<td><b>${filter.gpa }</b></td>
-						<td><b>${filter.gender }</b></td>
+						<c:if test="${filter.gender==1 }">
+						<c:set var="gender" value="Male"/>
+						</c:if>
+						<c:if test="${filter.gender==0 }">
+						<c:set var="gender" value="Female"/>
+						</c:if>
+						<td><b>${gender}</b></td>
 						<td><b>${filter.country }</b></td>
 						</tr>
 						</c:forEach>

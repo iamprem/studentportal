@@ -230,7 +230,7 @@ public class StudentDAO {
 
 		try {
 			conn = new DbConnection();
-			System.out.println("Create Student's Application and Submit");
+			System.out.println("Create Student's Application");
 			stmt = conn.DbConnectionForStatement();
 
 			String sql1 = "INSERT INTO application_applied "
@@ -302,7 +302,7 @@ public class StudentDAO {
 
 		try {
 			conn = new DbConnection();
-			System.out.println("Update Student's Application and Submit");
+			System.out.println("Update Student's Application");
 			stmt = conn.DbConnectionForStatement();
 
 			String sql1 = "UPDATE application_applied SET "
@@ -310,7 +310,7 @@ public class StudentDAO {
 					+ "applied_date=CURDATE(), deg_id='"+app.getDegree().getDegID()+"', "
 					+ "dept_id='"+app.getDepartment().getDeptID()+"', "
 					+ "app_status='"+app.getApp_status()+"', "
-					+ "sop_content='`"+app.getSop_content()+"`' WHERE app_id="+app.getApp_id()+";";
+					+ "sop_content='"+app.getSop_content()+"' WHERE app_id="+app.getApp_id()+";";
 					
 			stmt.execute(sql1);
 			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
