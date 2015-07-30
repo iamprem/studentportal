@@ -55,6 +55,7 @@
       </form>
      </li>
      <li><a href="#">About UNCC</a></li>
+     <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}&&userType=faculty">Edit Profile</a></li>
        </ul>
     </div>
   </div>
