@@ -16,6 +16,12 @@ public class Application {
 	private String sop_content;
 	private int studentID;
 	
+	
+
+	public Application() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Application(int app_id, String app_status, String desired_term, Date applied_date, Date decision_date,
 			Student student, Degree degree, Department department, Staff reviewer, String sop_content) {
@@ -32,6 +38,19 @@ public class Application {
 		this.sop_content = sop_content;
 	}
 
+	//To create application
+	public Application(int app_id, String app_status, String desired_term, Student student, Degree degree,
+			Department department, String sop_content) {
+		super();
+		this.app_id = app_id;
+		this.app_status = app_status;
+		this.desired_term = desired_term;
+		this.student = student;
+		this.degree = degree;
+		this.department = department;
+		this.sop_content = sop_content;
+	}
+
 	//Simple Constructor
 	public Application(int app_id, String app_status, String desired_term, Date decision_date, String sop_content, Date applied_date) {
 		super();
@@ -42,7 +61,6 @@ public class Application {
 		this.sop_content = sop_content;
 		this.applied_date = applied_date;
 	}
-	
 	
 
 	@Override
@@ -131,6 +149,14 @@ public class Application {
 
 	public void setSop_content(String sop_content) {
 		this.sop_content = sop_content;
+	}
+
+	public int getStudentID() {
+		return studentID;
+	}
+
+	public void setStudentID(int studentID) {
+		this.studentID = studentID;
 	}
 
 }

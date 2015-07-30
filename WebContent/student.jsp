@@ -21,7 +21,7 @@
 	
 	<br> -->
 	<p>
-	Welcome back. To create a new application, click <a href="/StudentPortalWebApp/application.jsp" alt="Create application">here</a>.
+	Welcome back. To create a new application, click <a href="/StudentPortalWebApp/ApplicationController" alt="Create application">here</a>.
 	</p>
 	<p>For more information on departments, click <a href="/StudentPortalWebApp/DepartmentController" target="_blank">here</a></p>
 	<!--  <button type="Login" onclick="location.href='/StudentPortalWebApp/application.jsp'" class="btn btn-primary">Create Application</button>  -->
@@ -59,7 +59,7 @@
 </div>
 
 <c:forEach var="studentDashBoardItem"
-			items="${requestScope.studentDashboardList}">
+			items="${sessionScope.studentDashboardList}">
 
 <div class="row">
   <div class="col-sm-10 col-md-10 centered" id="container_color_grey">

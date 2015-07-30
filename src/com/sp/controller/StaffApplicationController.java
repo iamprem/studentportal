@@ -8,11 +8,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sp.dao.ApplicationDAO;
 import com.sp.dao.EmailDAO;
 import com.sp.dao.StaffFilterDao;
 import com.sp.dao.StudentDAO;
+import com.sp.model.Department;
+import com.sp.model.Staff;
 
 /**
  * Servlet implementation class StaffApplicationController
@@ -49,20 +52,29 @@ public class StaffApplicationController extends StudentBaseController {
 		String studentID =  request.getParameter(STUDENT_ID);
 		int studentId=Integer.parseInt(studentID);
 		String action = request.getParameter(ACTION);
-
+		HttpSession session = request.getSession(true);
+		String staffDept= null;
+		if(null !=session.getAttribute("STAFF")){
+			staffDept= ((Staff) session.getAttribute("STAFF")).getdeptId();}
 	 if ("Submit".equalsIgnoreCase(action)) {
+		 String StudDeptId=StudentDAO.getSavedApplication(app).getDepartment().getDeptID();
+		 if(StudDeptId.equalsIgnoreCase(staffDept)){
 			String status = request.getParameter(APPLICATION_STATUS);
 			String email=StudentDAO.getSavedApplication(app).getStudent().getEmail();
-			String dept=StudentDAO.getSavedApplication(app).getDepartment().getDeptName();
+			 String dept=StudentDAO.getSavedApplication(app).getDepartment().getDeptName();
 			String degree=StudentDAO.getSavedApplication(app).getDegree().getDegName();
 			String name=StudentDAO.getSavedApplication(app).getStudent().getFullName();
 		 ApplicationDAO.updateAppStatus( app, status);
 		EmailDAO.emailStatusSender(email,studentId,dept,degree,name,status,app);
+		
+		 }else{
+			 request.setAttribute(MESSAGE,"Please Try to Validate "+staffDept+ "application");
+		 }
 	 } else if ("Cancel".equalsIgnoreCase(action)) {
-	 } 
+	 }
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("filter.jsp");
 			dispatcher.forward(request, response);
-	 
+	
 		
 	}
 	

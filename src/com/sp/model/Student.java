@@ -104,6 +104,34 @@ public class Student {
 	
 	
 	
+	public Student(int student_id, String firstName, String lastName, String gender, String email, Date dob,
+			String phone, String ssn, String stAddress, ArrayList<TestScore> testScoreList, String apartmentNo,
+			String city, String stateOrTeritory, String country, String zipcode, String degreeEarned, Double gpa,
+			String major, String workOrgName, Double yearsWorked, String keyRole) {
+		super();
+		this.student_id = student_id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.gender = gender;
+		this.email = email;
+		this.dob = dob;
+		this.phone = phone;
+		this.ssn = ssn;
+		this.stAddress = stAddress;
+		this.testScoreList = testScoreList;
+		this.apartmentNo = apartmentNo;
+		this.city = city;
+		this.stateOrTeritory = stateOrTeritory;
+		this.country = country;
+		this.zipcode = zipcode;
+		this.degreeEarned = degreeEarned;
+		this.gpa = gpa;
+		this.major = major;
+		this.workOrgName = workOrgName;
+		this.yearsWorked = yearsWorked;
+		this.keyRole = keyRole;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [student_id=" + student_id + ", firstName=" + firstName + ", lastName=" + lastName + ", gender="

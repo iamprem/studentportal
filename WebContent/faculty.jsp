@@ -10,7 +10,8 @@
 <body>
 <%= session.getAttribute("userName") %>
 <%= session.getAttribute("userType") %>
-Staff Logged In
+<a href="filter.jsp">Filter</a>
+Staff Logged In  ${sessionScope.STAFF.getFirstName()}
 <%@include file="footer.jsp" %>
 </body>
 </html>

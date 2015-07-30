@@ -14,6 +14,13 @@ public class TestScore {
 		this.expiryDate = expiryDate;
 	}
 
+	
+	@Override
+	public String toString() {
+		return "TestScore [testCode=" + testCode + ", score=" + score + ", expiryDate=" + expiryDate + "]";
+	}
+
+
 	public String getTestCode() {
 		return testCode;
 	}
