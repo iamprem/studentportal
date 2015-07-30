@@ -106,23 +106,21 @@
 				</div>
 			</div>
 			<!-- ***********************COUNTRY********************************* -->
-			<div class="form-group ">
-				<label for="country" class="col-sm-2 control-label">Country</label>
-				<div class="col-sm-4 col-xs-4">
-					<div class="btn-group ">
-						<button class="btn dropdown-toggle" name="recordinput"
-							data-toggle="dropdown">
-							Select a Country <span class="caret"></span>
-						</button>
-						<ul class="dropdown-menu col-sm-2" id="country_label">
-							<li><a>United States</a></li>
-							<li><a>India</a></li>
-							<li><a>China</a></li>
-							<li><a>Canada</a></li>
-						</ul>
+			<div class="form-group">
+
+					<label for="country_label" class="col-sm-2 control-label">Country</label>
+					<div class="col-sm-4 col-xs-4">
+						<select class="form-control sel" id="country_label">
+							<option>United States</option>
+							<option>India</option>
+							<option>China</option>
+							<option>Canada</option>
+						</select>
+
 					</div>
+
 				</div>
-			</div>
+				
 			<div class="form-group">
 				<label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
 				<div class="col-sm-4 col-xs-4">
