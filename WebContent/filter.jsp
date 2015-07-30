@@ -12,9 +12,14 @@
 <body>
 <form id="adds" method="post" action="StaffFilterController">	
 				<table style="background-color: #F6F6EE;">
+	<tr>
+						<td><label>Department ID</label></td>
+						<td><input type="text" id="deptID" name="deptID" value="${sessionScope.STAFF.getdeptId()}"
+							size="21"   disabled /><br></td>
+					</tr>
 
 
-					<tr>
+				<!-- 	<tr>
 						<td><label for="pgmApplied">Program Applied To</label></td>
 						<td><select name="pgmApplied" id="pgmApplied" >
 						<option value="%" selected>All</option>
@@ -30,10 +35,10 @@
 													<option value="PHYS"> Physics</option>
 													
 													
-						</select> <br></td>
+						</select> <br></td> 
+					</tr>-->
 
 
-					</tr>
 					
 					<tr>
 						<td><label for="gender">Gender</label></td>
