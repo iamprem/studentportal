@@ -9,6 +9,7 @@
 <%@include file="student_header.jsp"%>
 </head>
 <body>
+	<c:set var="student" value="${sessionScope.student}" />
 	<div id="wrap">
 		<br /> <br /> <br />
 		<div class="col-md-offset-3">
@@ -20,7 +21,8 @@
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" id="firstName" class="form-control"
 							name="firstName" placeholder="First Name"
-							aria-describedby="basic-addon1" required>
+							aria-describedby="basic-addon1" value="${student.getFirstName()}"
+							required>
 					</div>
 				</div>
 				<div class="form-group">
@@ -29,18 +31,34 @@
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="lastName"
 							name="lastName" placeholder="Last Name"
-							aria-describedby="basic-addon2" required>
+							aria-describedby="basic-addon2" value="${student.getLastName()}"
+							required>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="gender" class="col-sm-2 control-label">Gender</label>
 					<div class="col-sm-4 col-xs-4">
-						<label class="radio-inline"> <input type="radio" value="1"
-							name="gender">Male
-						</label> <label class="radio-inline"> <input type="radio"
-							value="0" name="gender">Female
-						</label>
+
+						<c:choose>
+							<c:when
+								test="${student.getGender()=='1'}">
+								<label class="radio-inline"> <input id="gender"
+									type="radio" value="1" checked name="gender">Male
+								</label>
+								<label class="radio-inline"> <input id="gender"
+									type="radio" value="0" name="gender">Female
+								</label>
+							</c:when>
+							<c:otherwise>
+								<label class="radio-inline"> <input id="gender"
+									type="radio" value="1" name="gender">Male
+								</label>
+								<label class="radio-inline"> <input id="gender"
+									type="radio" value="0" checked name="gender">Female
+								</label>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 
@@ -51,7 +69,9 @@
 					<div class="col-sm-4 col-xs-4">
 						<div class='input-group date' id='datetimepicker10'>
 							<input type='text' name="dateOfBirth" id="dateOfBirth"
-								class="form-control" required /> <span
+								class="form-control"
+								value="${student.getDob()}" required /> 
+								<span
 								class="input-group-addon"> <span
 								class="glyphicon glyphicon-calendar"> </span>
 							</span>
@@ -75,6 +95,7 @@
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="phoneNumber"
 							name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX"
+							value="${student.getPhone()}"
 							aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -86,6 +107,7 @@
 					<label for="ssn" class="col-sm-2 control-label">SSN</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="ssn" name="ssn"
+							value="${student.getSsn()}"
 							placeholder="SSN" aria-describedby="basic-addon2">
 					</div>
 				</div>
@@ -95,6 +117,7 @@
 						Address</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="streetAddress"
+							value="${student.getStAddress()}"
 							name="streetAddress" placeholder="Street Address"
 							aria-describedby="basic-addon2" required>
 					</div>
@@ -107,6 +130,7 @@
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="aptNumber"
 							name="aptNumber" placeholder="Apartment Number"
+							value="${student.getApartmentNo()}"
 							aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -116,6 +140,7 @@
 					<label for="city" class="col-sm-2 control-label">City</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="city" name="city"
+							value="${student.getCity()}"
 							placeholder="City" aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -125,6 +150,7 @@
 					<label for="state" class="col-sm-2 control-label">State</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="state" name="state"
+							value="${student.getStateOrTeritory()}"
 							placeholder="State" aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -156,7 +182,7 @@
 						Code</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="zipCode"
-							name="zipCode" placeholder="Zip Code"
+							name="zipCode" placeholder="Zip Code" value="${student.getZipcode()}"
 							aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -168,6 +194,7 @@
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="degreeEarned"
 							name="degreeEarned" placeholder="Degree Earned"
+							value="${student.getDegreeEarned()}"
 							aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -176,7 +203,10 @@
 					<label for="major" class="col-sm-2 control-label">Major</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="major" name="major"
+
+							value="${student.getMajor()}"
 							placeholder="Degree of highest Major" aria-describedby="basic-addon2" required>
+
 					</div>
 				</div>
 
@@ -184,6 +214,7 @@
 					<label for="gpa" class="col-sm-2 control-label">GPA</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="gpa" name="gpa"
+							value="${student.getGpa()}"
 							placeholder="GPA" aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -304,10 +335,8 @@
 						Organization Name</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="workOrgName"
-							name="workOrgName"
-							placeholder="Work Organisation Name<"
-					aria-describedby="
-							basic-addon2" required>
+							name="workOrgName" value="${student.getWorkOrgName()}"
+							placeholder="Work Organisation Name" aria-describedby="basic-addon2" required>
 					</div>
 				</div>
 
@@ -318,6 +347,7 @@
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="yearsWorked"
 							name="yearsWorked" placeholder="Years Worked"
+							value="${student.getYearsWorked()}"
 							aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -326,6 +356,7 @@
 					<label for="role" class="col-sm-2 control-label">Role</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="role" name="role"
+							value="${student.getKeyRole()}"
 							placeholder="Role" aria-describedby="basic-addon2" required>
 					</div>
 				</div>

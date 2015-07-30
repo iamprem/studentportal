@@ -139,8 +139,6 @@ public class ApplicationController extends StudentBaseController {
 		String deptID = request.getParameter("department_lb");
 		String degID = request.getParameter("degree_lb");
 		System.out.println("Dept : " + deptID + " Deg : " + degID);
-		// String deptID = "ITCS";
-		// String degID = "MS";
 		Degree degree = new Degree();
 		Department department = new Department();
 		degree.setDegID(degID);
@@ -175,12 +173,11 @@ public class ApplicationController extends StudentBaseController {
 			// Insert or Update application table
 			if (appID == 0) {
 				System.out.println("On Submit newly created application" + appID);
-				// StudentDAO.createApplication(application);
-				// >>>>>>>>>>>>>>>>>>>>>>>>
+				StudentDAO.createApplication(application);
 
 			} else {
 				System.out.println("On Submit retrived application" + appID);
-				// Update APplication submit
+				StudentDAO.updateApplication(application);
 			}
 
 		} else if ("Save".equalsIgnoreCase(action)) {
@@ -188,8 +185,10 @@ public class ApplicationController extends StudentBaseController {
 
 			if (appID == 0) {
 				System.out.println("On Save new application" + appID);
+				StudentDAO.createApplication(application);
 			} else {
 				System.out.println("On Save retrived application" + appID);
+				StudentDAO.updateApplication(application);
 			}
 		}
 

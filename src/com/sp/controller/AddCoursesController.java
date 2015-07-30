@@ -68,7 +68,7 @@ public class AddCoursesController extends StudentBaseController {
 				
 				
 			CourseDAO.addCourse(deptID, degID, iD, courseName, insMethod, credHrs,courseDesc,coursePreReq);
-			EmailDAO.UpdateEmailTrigger(deptID, degID, iD, courseName, insMethod, credHrs);
+			//EmailDAO.UpdateEmailTrigger(deptID, degID, iD, courseName, insMethod, credHrs);
 			}  
 
 			else {

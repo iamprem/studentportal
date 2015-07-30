@@ -139,7 +139,7 @@ public static void updateCourse(int iD, String courseName, String insMethod, int
 	try{
 			conn = new DbConnection();
 		String sql;
-		sql = "UPDATE course_offered SET course_id ='"+iD+"',course_name =\""+courseName+"\",instruction_method =\""+ insMethod + "\",credit_hours='"+hrs+"' WHERE course_id = '"+iD+"';";
+		sql = "UPDATE course_offered SET description ='"+courseDesc+"',prerequisite =\""+coursePrereq+"\",instruction_method =\""+ insMethod + "\",credit_hours='"+hrs+"' WHERE course_id = '"+iD+"';";
 		stmt = conn.DbConnectionForStatement();
 		stmt.execute(sql);
 	    stmt.close();

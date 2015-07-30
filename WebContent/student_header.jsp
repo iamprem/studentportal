@@ -31,8 +31,6 @@
 </head>
 
 <body>
-
-<%@include file="header.jsp" %>
 <nav class="navbar navbar-default navbar-fixed-top navbar-left" >
   <div class="container-fluid">
     <div class="navbar-header">
@@ -51,6 +49,7 @@
         <a href="/StudentPortalWebApp/" target="_blank">UNCC Home</a>
         </li>
         <li><a href="/StudentPortalWebApp/StudentDashController/">Dashboard</a></li>
+        <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}">Edit Profile</a></li>
    
   </ul>
   <ul class="nav navbar-nav navbar-right">

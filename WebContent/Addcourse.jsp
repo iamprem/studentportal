@@ -10,6 +10,7 @@
 <%@ include file="header.jsp"%>
 </head>
 <body>
+<div id = "wrap">
 <c:if test="${not empty requestScope.Message }">
 			<script>alert("${requestScope.Message }");</script>	
 			
@@ -62,7 +63,17 @@
 							 placeholder="Instruction Method" /><br></td>
 					</tr>
 
-
+					<tr>
+						<td><label for="courseDescription">Course Description</label></td>
+						<td><input type="text" id="courseDescription" name="courseDescription" value="${courseDescription}"
+							 placeholder="Course Description" /><br></td>
+					</tr>
+					
+					<tr>
+						<td><label for="coursePrerequisites">Course Prerequisites</label></td>
+						<td><input type="text" id="coursePrerequisites" name="coursePrerequisites" value="${coursePrerequisites}"
+							 placeholder="Course Prerequisites" /><br></td>
+					</tr>
 
 
 
@@ -78,6 +89,7 @@
 				</table>
 			</form>
 
+</div>
 <%@ include file="footer.jsp" %>
 </body>
 </html>

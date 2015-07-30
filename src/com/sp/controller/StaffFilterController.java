@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sp.dao.DepartmentDAO;
 import com.sp.dao.StaffFilterDao;
+import com.sp.model.Staff;
 
 /**
  * Servlet implementation class StaffFilterController
@@ -44,7 +45,9 @@ public class StaffFilterController extends StudentBaseController {
 		String deptID =  request.getParameter(DEPT_ID);
 		String degID =  request.getParameter(DEG_ID);
 		HttpSession session = request.getSession(true);
-		System.out.println("adfafadfad"+session.getAttribute("STAFF"));
+		String staffDept= null;
+		if(null !=session.getAttribute("STAFF")){
+			staffDept= ((Staff) session.getAttribute("STAFF")).getdeptId();}
 		
 		if ("Submit".equalsIgnoreCase(action)) {
 				String pgmApplied= request.getParameter("pgmApplied");
@@ -55,8 +58,7 @@ public class StaffFilterController extends StudentBaseController {
 				String gpaOp = request.getParameter("gpaop"); 
 				String gpa= request.getParameter("gpa");
 				String country = request.getParameter("country");
-				request.setAttribute(FILTER_LIST,StaffFilterDao.filterList(pgmApplied,gender,testCode,scoreOp,score,gpaOp,gpa,country));
-				request.setAttribute("pgmApplied", pgmApplied);
+				request.setAttribute(FILTER_LIST,StaffFilterDao.filterList(staffDept,gender,testCode,scoreOp,score,gpaOp,gpa,country));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("filter.jsp");
 				dispatcher.forward(request, response);	
 				
