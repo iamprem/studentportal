@@ -203,7 +203,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="major" name="major"
 						value="${sessionScope.application.getStudent().getMajor()}"
-						placeholder="City" aria-describedby="basic-addon2" required>
+						placeholder="Major" aria-describedby="basic-addon2" required>
 				</div>
 			</div>
 
@@ -333,9 +333,8 @@
 					<input type="text" class="form-control" id="workOrgName"
 						name="workOrgName"
 						value="${sessionScope.application.getStudent().getWorkOrgName()}"
-						placeholder="Work Organisation Name<"
-					aria-describedby="
-						basic-addon2" required>
+						placeholder="Work Organisation Name"
+						aria-describedby="basic-addon2" required>
 				</div>
 			</div>
 
