@@ -17,6 +17,8 @@ import javax.servlet.http.HttpSession;
 
 import com.sp.dao.StudentDAO;
 import com.sp.dao.staffDAO;
+import com.sp.model.Staff;
+import com.sp.model.Student;
 
 /**
  * Servlet implementation class ProfileEdit
@@ -39,8 +41,17 @@ public class ProfileEditController extends StudentBaseController {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 //		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String email=request.getParameter(EMAIL);
-		String userType = request.getParameter("userType");
+		String email=null;
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userType").equals("faculty")){
+			email= ((Staff) session.getAttribute("STAFF")).getEmail();
+			}
+		else if(session.getAttribute("userType").equals("student"))
+		{
+			email= ((Student) session.getAttribute("student")).getEmail();
+		}
+		
+		String userType =(String) session.getAttribute("userType");
 		System.out.println("User email received" +email);
 		System.out.println("User Type"+userType);
 		if(userType.equals("student")){
