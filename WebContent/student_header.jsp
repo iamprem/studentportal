@@ -54,40 +54,6 @@
   </div>
 </nav>
 
-<!-- 
-<nav class="navbar navbar-default navbar-fixed-top navbar-left" >
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="#"><img class="navbar-brand" src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li>
-        <a href="/StudentPortalWebApp/" target="_blank">UNCC Home</a>
-        </li>
-        <li><a href="/StudentPortalWebApp/StudentDashController/">Dashboard</a></li>
-        <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}&userType=student">Edit Profile</a></li>
-   
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-   <li>Welcome, <%=session.getAttribute("userName")%></li>
-     <li>
-     <form action="LogoutController" method="post" id="logout">
-<input type="submit" class="btn btn-danger" value="Logout">
-</form>
-	</li>
-
-       </ul>
-    </div>
-  </div>
-</nav> -->
 <%
 String userName = null;
 String sessionID = null;

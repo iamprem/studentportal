@@ -14,9 +14,9 @@
 <body>
 <div id = "wrap">
 	<div class="col-sm-10 col-md-10 centered" id="container_color_grey">
-	<h1>${requestScope.deptID} - ${requestScope.degID}</h1>
+	<h1>${requestScope.deptID} - ${requestScope.degID} </h1>
 	</div>
-	
+		<c:if test="${sessionScope.userType eq 'faculty'}">
 	<div class="col-sm-10 col-md-10 centered" id="container_color_grey">
 	<form name="dd" action="Addcourse.jsp">
 		<c:set var="deptID" scope="session" value="${requestScope.deptID}" /> 
@@ -28,13 +28,23 @@
 	</form>
 	</br>
 	</div>
-	
+	</c:if>
 <c:forEach var="courses" items="${requestScope.courseList}">
 <div class="row">
 	<div class="col-sm-10 col-md-10 centered" id="container_color_grey">
-		<a href="AddCoursesController?courseID=${courses.courseID}" id="logo">
+	<c:choose>
+	<c:when test="${sessionScope.userType eq 'faculty'}">
+	<a href="AddCoursesController?courseID=${courses.courseID}" id="logo">
 		<h4> <b>${courses.courseName } ( ${requestScope.deptID} ${courses.courseID } )	</b></h4>
 		</a>
+	</c:when>
+	<c:otherwise>
+	<h4> <b>${courses.courseName } ( ${requestScope.deptID} ${courses.courseID } )	</b></h4>
+	</c:otherwise>
+	
+	</c:choose>
+	
+		
 		<h5> Instruction Method : ${courses.insMethod }	</h5>
 		<h5> PreRequisites : ${courses.coursePrerequisites }	</h5>
 		<h5> Description :  ${courses.courseDescription } </h5>
