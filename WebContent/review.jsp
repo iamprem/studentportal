@@ -102,9 +102,9 @@
 
 				
 						<button
-							type="submit" name="action" id="action" value="Submit" class="btn btn-default" onclick="return confirm('Are you sure?')">Update</button>
+							type="submit" name="action" id="action" value="Submit" class="btn btn-primary" onclick="return confirm('Are you sure?')">Update</button>
 						<button
-							type="submit" name="action" id="action" value="Cancel" class="btn btn-default">Cancel</button> 
+							type="submit" name="action" id="action" value="Cancel" class="btn btn-danger">Cancel</button> 
 							
 							</div>
 							</div>

@@ -108,7 +108,7 @@
                         <div class="col-sm-4">
                         </div>
                         <div class="col-sm-8">
-					<button type="submit" name="action" id="action" value="Submit" class="btn btn-default" onclick="myFunction()">Filter</button>
+					<button type="submit" name="action" id="action" value="Submit" class="btn btn-primary" onclick="myFunction()">Filter</button>
 					    </div>
 							</div></form>
 							</div>
@@ -117,6 +117,15 @@ function myFunction() {
     document.getElementById("op").required = true;
     document.getElementById("gpaop").required = true;
 }
+$(function(){
+	 $('#app').DataTable( {
+	 "oLanguage": {
+	 "sEmptyTable": "No results found for the selected criteria. "
+	 }
+	 } );
+	 
+	 
+	})
 </script>
 			<div class="container">
 					<table id="app" class="table table-striped table-bordered" bgcolor="#00FF00" border="5">
