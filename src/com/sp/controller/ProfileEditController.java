@@ -1,6 +1,11 @@
 package com.sp.controller;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,8 +13,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sp.dao.StudentDAO;
+import com.sp.dao.staffDAO;
 
 /**
  * Servlet implementation class ProfileEdit
@@ -54,7 +61,44 @@ public class ProfileEditController extends StudentBaseController {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("userName");;
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String phone = request.getParameter("phoneNumber");
+		String ssn = request.getParameter("ssn");
+		String streetAddress = request.getParameter("streetAddress");
+		String apartmentNo = request.getParameter("aptNumber");
+		String city = request.getParameter("city");
+		String stateOrTeritory = request.getParameter("state");
+		String country = request.getParameter("country_lb");
+		System.out.println("country" + country);
+		String zipcode = request.getParameter("zipCode");
+		String userType = (String) session.getAttribute("userType");
+		System.out.println("=============");
+		System.out.println(email);
+		System.out.println(firstName);
+		System.out.println(lastName);
+		System.out.println(phone);
+		System.out.println(ssn);
+		System.out.println(streetAddress);
+		System.out.println(apartmentNo);
+		System.out.println(city);
+		System.out.println(stateOrTeritory);
+		System.out.println(country);
+		System.out.println(zipcode);
+		System.out.println(userType);
+		if(userType.equals("faculty")){
+			System.out.println("FAC");
+			
+			staffDAO.editStaff(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode);
+		}else if(userType.equals("student")){
+			System.out.println("STU");
+			StudentDAO.editStudent(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode);
+			
+		}
+		}
+		
+//		doGet(request, response);
 
 }

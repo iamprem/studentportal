@@ -12,7 +12,7 @@
 	<div class="col-md-offset-3">
 	
 		<form class="form-horizontal" id="profile" method="POST"
-			action="ProfileEdit">
+			action="ProfileEditController">
 			
 			<div class="form-group">
 					<label for="email" class="col-sm-2 control-label">Email

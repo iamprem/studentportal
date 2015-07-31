@@ -21,6 +21,42 @@ public class StudentDAO {
 
 	private static List<StudentDashboard> studentDashboardList;
 
+	public static void editStudent(String email,String firstName,String lastName,String phoneNumber, String ssn, String streetAddress,
+			String aptNo,String city, String state,String country, String zipcode){
+		Statement stmt = null;
+		DbConnection conn = null;
+		try {
+			conn = new DbConnection();
+			System.out.println("Editing Student");
+			System.out.println(email);
+			String sql1 = "UPDATE student SET " + "firstName = '" + firstName + "', lastName = '"
+					+ lastName + "',phone='" + phoneNumber + "', ssn='" + ssn + "', streetAddress='"
+					+ streetAddress + "', apartmentNo='" + aptNo + "', city='"
+					+ city + "', stateOrTeritory='" + state + "', country='"
+					+ country + "', zipcode='" + zipcode + "' WHERE email='" + email + "';";
+			stmt = conn.DbConnectionForStatement();
+			stmt.execute(sql1);
+			System.out.println("Updated");
+			stmt.close();
+			conn.close();
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+				if (conn != null)
+					conn.close();
+			}
+		}
+		
+	}
+	
+	
+	
 	public static void addStudent(String email, String password) {
 		Statement stmt = null;
 		DbConnection conn = null;
