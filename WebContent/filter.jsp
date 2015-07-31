@@ -14,7 +14,7 @@
 	<div class="container-fluid wrap">
 		<div class="col-sm-2 col-md-2"></div>
 		<div class="col-sm-8 col-md-8">
-			<h2> <font class="jumbotron-oneline" color="red"> ${requestScope.Message}</font></h2> <br>
+			<h4> <font class="jumbotron-oneline" color="red"> ${requestScope.Message}</font></h4> <br>
 		</div>
 		<div class="col-sm-2 col-md-2"></div>
 	</div>

@@ -27,10 +27,10 @@
 	<!--  <button type="Login" onclick="location.href='/StudentPortalWebApp/application.jsp'" class="btn btn-primary">Create Application</button>  -->
 	<br>
 	<br>
-	
+	<c:if test="${sessionScope.studentDashboardList.size() > 0 }">
 	
 	<div class="container">
-<p>Below is the list of applications you have applied for. Note:Condition for checking if at least one application exits is pending</p>
+<p>Below is the list of applications you have applied for.</p>
 
 <div class="row">
   <div class="col-sm-10 col-md-10 centered" id="container_color_grey">
@@ -87,10 +87,17 @@
 </br>
 </div>
 </c:forEach>
-
-
 </div>
-<input type="hidden" name="studentId" value=${sessionScope.student.getStudent_id()}>
+</c:if>
+
+<c:if test="${sessionScope.studentDashboardList.size() == 0 }">
+<br>
+<br>
+<h2 class="col-sm-10 col-md-10 centered">
+Get started by creating an Application
+</h2>
+</c:if>
+<input type="hidden" name="studentId" value="${sessionScope.student.getStudent_id()}">
 </div>
 <div id = "footer">
 	<%@include file="footer.jsp"%>
