@@ -42,13 +42,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><img class="navbar-brand" src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
+      <a href="#"><img class="navbar-brand" src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li> <a href="/StudentPortalWebApp/" target="_blank">Home</a></li>
-        <li><a href="/StudentPortalWebApp/DepartmentController">Departments</a></li>
+        <li><a href="/StudentPortalWebApp/" target="_blank">Home</a></li>
+        <li><a href="/StudentPortalWebApp/DepartmentController"  target="_blank">Departments</a></li>
         <li><a href="/StudentPortalWebApp/faculty.jsp">Dashboard</a></li>
         <li><a href="#">About UNCC</a></li>
         <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}&&userType=faculty">Edit Profile</a></li>

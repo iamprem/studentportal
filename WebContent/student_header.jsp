@@ -45,8 +45,8 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li> <a href="/StudentPortalWebApp/" target="_blank">Home</a></li>
-        <li><a href="/StudentPortalWebApp/DepartmentController">Departments</a></li>
+        <li><a href="/StudentPortalWebApp/" target="_blank">Home</a></li>
+        <li><a href="/StudentPortalWebApp/DepartmentController"  target="_blank">Departments</a></li>
         <li><a href="/StudentPortalWebApp/StudentDashController">Dashboard</a></li>
         <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}&userType=student">Edit Profile</a></li>
    
