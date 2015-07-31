@@ -26,54 +26,57 @@ import com.sp.model.Student;
 @WebServlet("/ProfileEditController")
 public class ProfileEditController extends StudentBaseController {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ProfileEditController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ProfileEditController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String email=null;
+		// response.getWriter().append("Served at:
+		// ").append(request.getContextPath());
+		String email = null;
 		HttpSession session = request.getSession();
-		if(session.getAttribute("userType").equals("faculty")){
-			email= ((Staff) session.getAttribute("STAFF")).getEmail();
-			}
-		else if(session.getAttribute("userType").equals("student"))
-		{
-			email= ((Student) session.getAttribute("student")).getEmail();
+		if (session.getAttribute("userType").equals("faculty")) {
+			email = ((Staff) session.getAttribute("STAFF")).getEmail();
+		} else if (session.getAttribute("userType").equals("student")) {
+			email = ((Student) session.getAttribute("student")).getEmail();
 		}
-		
-		String userType =(String) session.getAttribute("userType");
-		System.out.println("User email received" +email);
-		System.out.println("User Type"+userType);
-		if(userType.equals("student")){
-		request.setAttribute(STUDENT,StudentDAO.getStudent(email));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
-		dispatcher.forward(request, response);
-		return;
-		}
-		else if(userType.equals("faculty")){
-			request.setAttribute("STAFF",StudentDAO.getStudent(email));
+
+		String userType = (String) session.getAttribute("userType");
+		System.out.println("User email received" + email);
+		System.out.println("User Type" + userType);
+		if (userType.equals("student")) {
+			request.setAttribute(STUDENT, StudentDAO.getStudent(email));
+			RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
+			dispatcher.forward(request, response);
+			return;
+		} else if (userType.equals("faculty")) {
+			request.setAttribute("STAFF", StudentDAO.getStudent(email));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("staff_profile.jsp");
 			dispatcher.forward(request, response);
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("userName");;
+		String email = (String) session.getAttribute("userName");
+		;
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String phone = request.getParameter("phoneNumber");
@@ -99,17 +102,19 @@ public class ProfileEditController extends StudentBaseController {
 		System.out.println(country);
 		System.out.println(zipcode);
 		System.out.println(userType);
-		if(userType.equals("faculty")){
+		if (userType.equals("faculty")) {
 			System.out.println("FAC");
-			
-			staffDAO.editStaff(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode);
-		}else if(userType.equals("student")){
+
+			staffDAO.editStaff(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city,
+					stateOrTeritory, country, zipcode);
+		} else if (userType.equals("student")) {
 			System.out.println("STU");
-			StudentDAO.editStudent(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode);
-			
+			StudentDAO.editStudent(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city,
+					stateOrTeritory, country, zipcode);
+
 		}
-		}
-		
-//		doGet(request, response);
+	}
+
+	// doGet(request, response);
 
 }
