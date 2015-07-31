@@ -31,6 +31,30 @@
 </head>
 
 <body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#"><img class="navbar-brand" src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/StudentPortalWebApp/" target="_blank">Home</a></li>
+        <li><a href="/StudentPortalWebApp/DepartmentController">Departments</a></li>
+        <li><a href="/StudentPortalWebApp/StudentDashController">Dashboard</a></li>
+        <li><a href="/StudentPortalWebApp/ProfileEditController?email=${sessionScope.student.getEmail()}&userType=student">Edit Profile</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a><span class="glyphicon glyphicon-user"></span>Welcome, <%=session.getAttribute("userName")%></a></li>
+      <li><a><form action="LogoutController" method="post" id="logout"><input class="btn btn-danger" type="submit" value="Logout"></form></a></li>
+       <!--<li><form action="LogoutController" method="post" id="logout">
+<a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
+</form></li>-->
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 
 <nav class="navbar navbar-default navbar-fixed-top navbar-left" >
   <div class="container-fluid">
     <div class="navbar-header">
@@ -58,12 +82,12 @@
      <form action="LogoutController" method="post" id="logout">
 <input type="submit" class="btn btn-danger" value="Logout">
 </form>
-</li>
+	</li>
 
        </ul>
     </div>
   </div>
-</nav>
+</nav> -->
 <%
 String userName = null;
 String sessionID = null;

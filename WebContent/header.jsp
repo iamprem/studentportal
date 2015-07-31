@@ -32,7 +32,25 @@
 
 </head>
 <body>
-
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#"><img class="navbar-brand" src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/StudentPortalWebApp/" target="_blank">Home</a></li>
+        <li><a href="/StudentPortalWebApp/DepartmentController">Departments</a></li>
+        <li><a href="#">Admissions</a></li>
+        <li><a href="#">About UNCC</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="login.jsp"><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-log-in"></span> Login</button></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- 
 <nav class="navbar navbar-default navbar-fixed-top" >
   <div class="container-fluid">
     <div class="navbar-header">
@@ -61,6 +79,9 @@
     </div>
   </div>
 </nav>
-<div class="clear"></div>
+ -->
+</body>
+</html>
+
 
 
