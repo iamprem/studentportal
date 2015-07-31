@@ -1,6 +1,8 @@
 package com.sp.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,38 +17,54 @@ import com.sp.dao.StudentDAO;
 @WebServlet("/RegisterController")
 public class RegisterController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameterMap().containsKey("emailid")){
-			String emailID = request.getParameter("emailid");
-			System.out.println("EmailID received "+emailID);
-		}
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+	public RegisterController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String emailID = request.getParameter("emailid");
+		System.out.println("EmailID received " + emailID);
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		try {
+
+			if (StudentDAO.isEmailPresent(emailID)) {
+
+				out.println("true");
+			} else {
+				out.println("false");
+			}
+
+		} finally {
+			out.close();
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		System.out.println("Reached");
 		String userEmail = request.getParameter("userEmail");
-//		System.out.println(userEmail);
+		// System.out.println(userEmail);
 		String password = request.getParameter("confirmPassword");
-//		System.out.println(password);
+		// System.out.println(password);
 		StudentDAO.addStudent(userEmail, password);
-//		doGet(request, response);
+		// doGet(request, response);
 	}
 
 }

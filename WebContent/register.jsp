@@ -29,15 +29,16 @@
 
 		<h4>Enter the Below Details</h4>
 
-		
 		<div class="form-group">
 			<label for="userEmail" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-6">
-				<input type="email" class="form-control" id="userEmail focusout="validateEmail()"
+				<input type="email" class="form-control" id="userEmail" 
 					name="userEmail" placeholder="Recipient's username"
 					aria-describedby="basic-addon2" required>
+					<label id ="vaildateUser" class="error"  style="color: #F00000;"></label>
 			</div>
 		</div>
+		
 		<br /> <br /> <br />
 
 		<div class="form-group">
@@ -63,12 +64,14 @@
 		<br />
 		<div class="form-group">
 			<div class="col-sm-offset-4 col-sm-2">
-				<input type="submit"  onclick="return confirm('Are you sure?')" class="btn btn-primary" value="Register">
+				<input type="submit" class="btn btn-primary" value="Register">
 			</div>
 		</div>
 
 	</form>
 	<script type="text/javascript">
+        var x = document.getElementById("userEmail");
+        x.addEventListener("focusout", validateEmail);
 		$('#registerUser').validator()
 	</script>
 	<%@ include file="footer.jsp"%>
