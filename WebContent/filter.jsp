@@ -11,6 +11,12 @@
 <%@ include file="header.jsp"%>
 </head>
 <body>
+	<div class="container-fluid wrap">
+
+<div class="col-sm-4 col-md-4">
+						<h2> ${requestScope.Message}</h2>
+					</div></div>
+
 <div class="container">
 <form class="form-horizontal" role="form" id="adds" method="post" action="StaffFilterController">	
 

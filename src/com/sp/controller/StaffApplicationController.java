@@ -69,16 +69,16 @@ public class StaffApplicationController extends StudentBaseController {
 			String name=StudentDAO.getSavedApplication(app).getStudent().getFullName();
 		 ApplicationDAO.updateAppStatus( app, status,empID);
 		EmailDAO.emailStatusSender(email,studentId,dept,degree,name,status,app);
-		
-		 }else{
-			 request.setAttribute(MESSAGE,"Please Try to Validate "+staffDept+ "application");
+		request.setAttribute(MESSAGE, "Application Status has been Updated Successfully. Please select a search Criteria to review");	
+		RequestDispatcher dispatcher = request.getRequestDispatcher("filter.jsp");
+		dispatcher.forward(request, response);
 		 }
 	 } else if ("Cancel".equalsIgnoreCase(action)) {
-	 }
+		 request.setAttribute(MESSAGE, "Please select a different search Criteria to review");
 		 RequestDispatcher dispatcher = request.getRequestDispatcher("filter.jsp");
 			dispatcher.forward(request, response);
 	
-		
+	 }
 	}
 	
 

@@ -75,7 +75,20 @@
 							size="21"  readonly /><br>
                                 </div>
 					</div>
-				
+				 <div class="form-group">
+						<label class="control-label col-sm-4">GPA</label>
+						<div class="col-sm-8">
+						<input type="text" id="gpa" name="gpa" value="${student.gpa}"
+							size="21"  readonly /><br>
+							</div>
+					</div>
+					 <div class="form-group">
+						<label class="control-label col-sm-4">Major</label>
+						<div class="col-sm-8">
+						<input type="text" id="major" name="major" value="${student.major}"
+							size="21"  readonly /><br>
+							</div>
+					</div>
                        <div class="form-group">
 						<label class="control-label col-sm-4" for="sop">Statement Of Purpose</label>
 						<div class="col-sm-8">
