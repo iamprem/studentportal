@@ -9,7 +9,7 @@
   
 <title>Welcome Page</title>
 <!-- Pahes Needed -->
-<%@ include file="header.jsp"%>
+<%@ include file="common_header.jsp"%>
 </head>
 <body>
 <div id="wrap">
@@ -51,8 +51,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-This is a test!
 
 </div>
 <div id = "footer">
