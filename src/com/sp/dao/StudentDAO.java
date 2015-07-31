@@ -459,4 +459,41 @@ public class StudentDAO {
 		return student;
 	}
 
+	public static boolean isEmailPresent(String email)
+	{
+		boolean result = false;
+		Statement stmt = null;
+		DbConnection conn = null;
+		try{
+		conn = new DbConnection();
+		System.out.println("Validating Email");
+		System.out.println(email);
+		String sql1 = "SELECT * FROM student WHERE email = (\"" + email + "\")";
+		stmt = conn.DbConnectionForStatement();
+		ResultSet rs  = stmt.executeQuery(sql1);
+		
+		if(rs.next()){
+			result = true;
+		}
+
+		stmt.close();
+		conn.close();
+		}
+		catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+				if (conn != null)
+					conn.close();
+			}
+		}		
+		return result;
+	}
+
+
 }
