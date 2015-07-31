@@ -48,7 +48,7 @@
 				<label for="CourseID" class="col-sm-2 control-label">Course
 					ID</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="courseID"
+					<input type="number" class="form-control" id="courseID"
 						name="courseID" placeholder=" 4 Characters ID"
 						aria-describedby="basic-addon2" required>
 
@@ -62,7 +62,7 @@
 				<div class="col-sm-4 col-xs-4">
 
 					<input type='text' class="form-control" name="courseName"
-						id="courseName" placeholder="Course Name"
+						id="courseName" placeholder="Course Name" pattern="[A-Za-z]+" title="Only characters are allowed"
 						aria-describedby="basic-addon2" required>
 
 				</div>
@@ -86,7 +86,7 @@
 					Hours</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<input type='text' class="form-control" name="creditHours"
+					<input type='number' class="form-control" name="creditHours"
 						id="creditHours" placeholder="(1-6)"
 						aria-describedby="basic-addon2" required>
 				</div>
