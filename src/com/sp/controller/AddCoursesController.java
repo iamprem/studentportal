@@ -78,7 +78,9 @@ public class AddCoursesController extends StudentBaseController {
 				request.setAttribute("insMethod",(String) request.getParameter(INS_METHOD));
 				request.setAttribute("creditHours",(String) request.getParameter(CREDIT_HOURS));
 				request.setAttribute("deptID",(String) request.getParameter(DEPT_ID));
-				request.setAttribute("degID",(String) request.getParameter(DEG_ID));
+				request.setAttribute("courseDescription",(String) request.getParameter(COURSE_DESC));
+				request.setAttribute("coursePrerequisites",(String) request.getParameter(COURSE_PREREQ));
+				
 				RequestDispatcher dispatcher = request
 						.getRequestDispatcher("Addcourse.jsp");
 				dispatcher.forward(request, response);

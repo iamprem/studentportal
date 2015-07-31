@@ -16,6 +16,41 @@ public class staffDAO {
 
 	private static List<Staff> staffList;
 
+	
+	public static void editStaff(String email,String firstName,String lastName,String phoneNumber, String ssn, String streetAddress,
+			String aptNo,String city, String state,String country, String zipcode){
+		Statement stmt = null;
+		DbConnection conn = null;
+		try {
+			conn = new DbConnection();
+			System.out.println("Updating Staff");
+			System.out.println(email);
+			String sql1 = "UPDATE staff SET " + "firstName = '" + firstName + "', lastName = '"
+					+ lastName + "',phone='" + phoneNumber + "', ssn='" + ssn + "', streetAddress='"
+					+ streetAddress + "', apartmentNo='" + aptNo + "', city='"
+					+ city + "', stateOrTeritory='" + state + "', country='"
+					+ country + "', zipcode='" + zipcode + "' WHERE email=" + email + ";";
+			
+			stmt.execute(sql1);
+			stmt = conn.DbConnectionForStatement();
+			stmt.close();
+			conn.close();
+		} catch (SQLException se) {
+			se.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+				if (conn != null)
+					conn.close();
+			}
+		}
+		
+	}
+	
 	public static Staff getStaff(String email) {
 		Statement stmt = null;
 		DbConnection conn = null;
