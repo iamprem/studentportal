@@ -12,11 +12,12 @@
 </head>
 <body>
 	<div class="container-fluid wrap">
-
-<div class="col-sm-4 col-md-4">
-						<h2> ${requestScope.Message}</h2>
-					</div></div>
-
+		<div class="col-sm-2 col-md-2"></div>
+		<div class="col-sm-8 col-md-8">
+			<h2> ${requestScope.Message}</h2>
+		</div>
+		<div class="col-sm-2 col-md-2"></div>
+	</div>
 <div class="container">
 <form class="form-horizontal" role="form" id="adds" method="post" action="StaffFilterController">	
 
