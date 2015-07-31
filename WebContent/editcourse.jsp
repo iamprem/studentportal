@@ -44,7 +44,7 @@
 					Name</label>
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" id="courseName" class="form-control"
-						name="courseName" value="${course.courseName}"
+						name="courseName" value="${course.courseName}" pattern="[A-Za-z]+" title="Only characters are allowed"
 						aria-describedby="basic-addon1" readonly required>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 				<label for="creditHours" class="col-sm-2 control-label">Credit
 					Hours</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" id="creditHours" class="form-control"
+					<input type="number" id="creditHours" class="form-control"
 						name="creditHours" value="${course.creditHours}"
 						aria-describedby="basic-addon1" required>
 				</div>

@@ -347,7 +347,7 @@
 
 					</div>
 					<div class="col-sm-2 col-xs-2">
-				<input type="text" class="form-control" id="test_gre_gmat"
+				<input type="number" class="form-control" id="test_gre_gmat"
 									name="test_gre_gmat" aria-describedby="basic-addon2" required>
 									</div>
 				</div>
@@ -389,7 +389,7 @@
 						</select>
 					</div>
 			<div class="col-sm-2 col-xs-2">
-				<input type="text" class="form-control" id="test_toefl_ielts"
+				<input type="number" class="form-control" id="test_toefl_ielts"
 									name="test_gre_gmat" aria-describedby="basic-addon2" required>
 									</div>
 				</div>
@@ -439,7 +439,7 @@
 					<label for="yearsWorked" class="col-sm-2 control-label">Years
 						Worked</label>
 					<div class="col-sm-4 col-xs-4">
-						<input type="text" class="form-control" id="yearsWorked"
+						<input type="number" class="form-control" id="yearsWorked"
 							name="yearsWorked" placeholder="Years Worked"
 							value="${student.getYearsWorked()}"
 							aria-describedby="basic-addon2" required>
@@ -450,7 +450,7 @@
 					<label for="role" class="col-sm-2 control-label">Role</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="role" name="role"
-							value="${student.getKeyRole()}" placeholder="Role"
+							value="${student.getKeyRole()}" placeholder="Role" pattern="[A-Za-z0-9]+" title="Only alpha-numericals are allowed"
 							aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -461,7 +461,7 @@
 					<div class="col-sm-4 col-xs-4">
 						<textarea class="form-control" rows="5" id="comment"
 							name="sop_content"
-							placeholder="Brief Statement of Purpose in 300 Words"
+							placeholder="Brief Statement of Purpose in 300 Words" pattern="[A-Za-z0-9]+" title="Only alpha-numericals are allowed"
 							aria-describedby="basic-addon2"></textarea>
 					</div>
 				</div>
