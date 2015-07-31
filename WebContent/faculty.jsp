@@ -26,8 +26,8 @@
 					<div class="col-sm-4 col-md-4">
 						<h2>Manage Courses</h2>
 						<p>
-							<a class="btn btn-primary btn-lg" href="#registerUser"
-								role="button">Courses</a>
+							<a class="btn btn-primary btn-lg" href="DegreeController?deptID=${sessionScope.STAFF.getdeptId()}"
+								role="button">${sessionScope.STAFF.getdeptId()}  Courses</a>
 						</p>
 					</div>
 					<div class="col-sm-3 col-md-3"></div>
@@ -35,12 +35,6 @@
 			</div>
 		</div>
 
-		<%=session.getAttribute("userName")%>
-		<%=session.getAttribute("userType")%>
-		<a href="filter.jsp">Filter</a> Staff Logged In
-		${sessionScope.STAFF.getFirstName()} <a
-			href="DegreeController?deptID=${sessionScope.STAFF.getdeptId()}">
-			${sessionScope.STAFF.getdeptId()} Department Courses</a>
 	</div>
 	<div class="footer">
 		<%@include file="footer.jsp"%>
