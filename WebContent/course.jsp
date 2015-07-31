@@ -9,7 +9,7 @@
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <title>Department</title>
-<%@ include file="header.jsp"%>
+<%@ include file="common_header.jsp"%>
 </head>
 <body>
 <div id = "wrap">

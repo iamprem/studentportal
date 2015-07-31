@@ -87,4 +87,3 @@
 		</div>
 	</div>
 	</nav>
-<div class="clear"></div>

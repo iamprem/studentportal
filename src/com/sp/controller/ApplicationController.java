@@ -171,9 +171,6 @@ public class ApplicationController extends StudentBaseController {
 		application = new Application(appID, appStatus, desiredTerm, studForApplication, degree, department,
 				sopContent);
 
-		System.out.println("Here");
-		System.out.println(application.toString());
-
 		if ("Submit".equalsIgnoreCase(action)) {
 			// Insert or Update application table
 			if (appID == 0) {
@@ -196,11 +193,9 @@ public class ApplicationController extends StudentBaseController {
 				StudentDAO.updateApplication(application);
 			}
 		}
-		System.out.println("Before calling studentDashboard");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("StudentDashController");
 		String encodedURL = response.encodeRedirectURL("StudentDashController");
 		response.sendRedirect(encodedURL);
-		System.out.println("Here again");
 		return;
 	}
 

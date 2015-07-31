@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id = "wrap">
-<%@ include file="header.jsp"%>
+<%@ include file="common_header.jsp"%>
 <div class="container">
 <c:set var="department" value="${requestScope.department_data}"/>
 

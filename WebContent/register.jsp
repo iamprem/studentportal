@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Registration</title>
 <script type="text/javascript" src="js/register.js"></script>
-<%@ include file="header.jsp"%>
+<%@ include file="common_header.jsp"%>
 </head>
 <body>
 

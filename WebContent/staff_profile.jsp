@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Edit Profile</title>
 </head>
-<%@ include file = 'faculty_header.jsp' %>
+<%@ include file = 'common_header.jsp' %>
 <body>
 <div id="wrap">
 	<br>

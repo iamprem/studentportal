@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Apply for Application</title>
-<%@include file="student_header.jsp"%>
+<%@include file="common_header.jsp"%>
 </head>
 <body>
 	<c:set var="student" value="${sessionScope.student}" />

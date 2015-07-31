@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <title>Registration</title>
-<%@ include file="header.jsp"%>
+<%@ include file="common_header.jsp"%>
 </head>
 <body>
 <c:if test="${not empty requestScope.Message }">

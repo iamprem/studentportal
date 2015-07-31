@@ -61,6 +61,7 @@ public class ProfileEditController extends StudentBaseController {
 			dispatcher.forward(request, response);
 			return;
 		} else if (userType.equals("faculty")) {
+			//TODO Handle NULL POINTER
 			request.setAttribute("STAFF", StudentDAO.getStudent(email));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("staff_profile.jsp");
 			dispatcher.forward(request, response);
