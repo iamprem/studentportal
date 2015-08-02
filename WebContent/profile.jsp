@@ -55,7 +55,7 @@
 				<label for="phoneNumber" class="col-sm-2 control-label">Phone
 					Number</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="phoneNumber"
+					<input type="text" class="form-control" id="phoneNumber" maxlength="11"
 						name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX"
 						value="${sessionScope.student.getPhone()}" aria-describedby="basic-addon2"
 						required>
@@ -68,7 +68,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="ssn"  maxlength="11"
 						name="ssn" placeholder="SSN"
-						value="${sessionScope.STAFF.getSsn()}" aria-describedby="basic-addon2"
+						value="${sessionScope.student.getSsn()}" aria-describedby="basic-addon2"
 						required>
 				</div>
 			</div>
@@ -145,7 +145,6 @@
 	</div>
 	<script>
 	$( document ).ready($(function(){
-		
 		$("#country_label").val("${sessionScope.student.getCountry()}");
 		})
 	);

@@ -4,8 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Faculty Dashboard</title>
 <%@include file="common_header.jsp"%>
+<%@include file="session.jsp" %>
 </head>
 <body>
 	<div id="wrap">
@@ -13,7 +14,7 @@
 			<div class="faculty-bg">
 				<div class="jumbotron">
 					<div class="row">
-						<br> <br> <br>
+						<br> <br> <br> <br> <br> <br>
 						<div class="col-sm-2 col-md-2"></div>
 						<div class="col-sm-4 col-md-4">
 							<h2>Review Application</h2>

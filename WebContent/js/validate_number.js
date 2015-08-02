@@ -2,7 +2,7 @@
  * 
  */
 $(document).ready(function(){
-$("#cvv,#cardNumber,#zipCode,#productCost,#billZip").on("keypress",function(evt){
+$("#courseID,#creditHours,#gpa,#score,#phoneNumber,#ssn,#zipCode,#yearsWorked,#test_gre_gmat,#test_toefl_ielts").on("keypress",function(evt){
 	
 	evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;
@@ -12,7 +12,7 @@ $("#cvv,#cardNumber,#zipCode,#productCost,#billZip").on("keypress",function(evt)
     return true;
 });
 
-$("#streetName,#city,#state,#cardName,#billCity,#billState").on("keypress",function(evt){
+$("#courseName,#insMethod,#firstName,#lastName,#city,#state,#major,#degreeEarned").on("keypress",function(evt){
 	
 	evt = (evt) ? evt : window.event;
     var charCode = (evt.which) ? evt.which : evt.keyCode;

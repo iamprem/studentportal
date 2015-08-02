@@ -44,7 +44,7 @@
 
 	<c:set var="userType" value="${sessionScope.userType}"/>
 	
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style="margin-bottom:0px;">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a href="/StudentPortalWebApp"><img class=""
@@ -55,7 +55,7 @@
 				<li><a href="/StudentPortalWebApp">Home</a></li>
 				<li><a href="/StudentPortalWebApp/DepartmentController">Departments</a></li>
 				<li><a href="#">Admissions</a></li>
-				<li><a href="#">About UNCC</a></li>
+				<li><a href="/StudentPortalWebApp/about.jsp">About UNCC</a></li>
 			</ul>
 			
 			<ul class="nav navbar-nav navbar-right">

@@ -64,7 +64,7 @@
     </div>
   </div>
 </nav>
-<div class="clear"></div>
+
 <%
 String userName = null;
 String sessionID = null;
