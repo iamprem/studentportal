@@ -77,7 +77,6 @@ public class ProfileEditController extends StudentBaseController {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("userName");
-		;
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String phone = request.getParameter("phoneNumber");

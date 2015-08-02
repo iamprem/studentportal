@@ -115,7 +115,7 @@
 					<label for="country_label" class="col-sm-2 control-label">Country</label>
 					<div class="col-sm-4 col-xs-4">
 						<select class="form-control sel" id="country_label" name="country">
-							<option value="United States	">United States</option>
+							<option value="USA">United States</option>
 							<option value="India">India</option>
 							<option value="China">China</option>
 							<option value="Canada">Canada</option>
@@ -149,9 +149,6 @@
 	$( document ).ready($(function(){
 		
 		$("#country_label").val("${sessionScope.student.getCountry()}");
-		//alert()
-		//$("#country_label option[value='China']").attr("selected","selected");
-		alert("yo");
 		})
 	);
 
