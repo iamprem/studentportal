@@ -68,7 +68,7 @@ s = login_msg.toString();
 $('document').ready(function() {
 
 	value = $("#error_message").val(); 
-	if (value == "User Not Found"){
+	if (value == "Invaid Username and Password"){
 		alert(value);
 		window.location = "login.jsp";
 	}
