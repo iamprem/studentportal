@@ -20,7 +20,7 @@
 						Name</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" id="firstName" class="form-control"
-							name="firstName" placeholder="First Name" pattern="[A-Za-z]+" title="Only characters are allowed"
+							name="firstName" placeholder="First Name" 
 							aria-describedby="basic-addon1" value="${student.getFirstName()}"
 							required>
 					</div>
@@ -30,7 +30,7 @@
 						Name</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="lastName"
-							name="lastName" placeholder="Last Name" pattern="[A-Za-z]+" title="Only characters are allowed"
+							name="lastName" placeholder="Last Name" 
 							aria-describedby="basic-addon2" value="${student.getLastName()}"
 							required>
 					</div>
@@ -67,7 +67,7 @@
 						Birth</label>
 					<div class="col-sm-4 col-xs-4">
 						<div class='input-group date' id='datetimepicker10'>
-							<input type='text' name="dateOfBirth" id="dateOfBirth"
+							<input type="text" name="dateOfBirth" id="dateOfBirth"
 								class="form-control" value="${student.getDob()}" required /> <span
 								class="input-group-addon"> <span
 								class="glyphicon glyphicon-calendar"> </span>
@@ -90,8 +90,8 @@
 					<label for="phoneNumber" class="col-sm-2 control-label">Phone
 						Number</label>
 					<div class="col-sm-4 col-xs-4">
-						<input type="text" class="form-control" id="phoneNumber"
-							name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX" pattern="[0-9-]+" title="Only numbers are allowed"
+						<input type="text" class="form-control" id="phoneNumber" maxlength="12"
+							name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX" 
 							value="${student.getPhone()}" aria-describedby="basic-addon2"
 							required>
 					</div>
@@ -103,7 +103,7 @@
 				<div class="form-group">
 					<label for="ssn" class="col-sm-2 control-label">SSN</label>
 					<div class="col-sm-4 col-xs-4">
-						<input type="text" class="form-control" id="ssn" name="ssn"
+						<input type="text" class="form-control" id="ssn" name="ssn" maxlength="11"
 							value="${student.getSsn()}" placeholder="SSN"
 							aria-describedby="basic-addon2">
 					</div>
@@ -194,7 +194,7 @@
 					<label for="zipCode" class="col-sm-2 control-label">Zip
 						Code</label>
 					<div class="col-sm-4 col-xs-4">
-						<input type="number" class="form-control" id="zipCode"
+						<input type="text" class="form-control" id="zipCode"
 							name="zipCode" placeholder="Zip Code" 
 							value="${student.getZipcode()}" aria-describedby="basic-addon2"
 							required>
@@ -227,7 +227,7 @@
 				<div class="form-group">
 					<label for="gpa" class="col-sm-2 control-label">GPA</label>
 					<div class="col-sm-4 col-xs-4">
-						<input type="number" class="form-control" id="gpa" name="gpa"
+						<input type="text" class="form-control" id="gpa" name="gpa"
 							value="${student.getGpa()}" placeholder="GPA"
 							aria-describedby="basic-addon2" required>
 					</div>
@@ -343,7 +343,7 @@
 
 					</div>
 					<div class="col-sm-2 col-xs-2">
-				<input type="number" class="form-control" id="test_gre_gmat"
+				<input type="text" class="form-control" id="test_gre_gmat"
 									name="test_gre_gmat" aria-describedby="basic-addon2" required>
 									</div>
 				</div>
@@ -384,7 +384,7 @@
 						</select>
 					</div>
 					<div class="col-sm-2 col-xs-2">
-						<input type="number" class="form-control" id="test_toefl_ielts"
+						<input type="text" class="form-control" id="test_toefl_ielts"
 										name="test_toefl_ielts" aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -445,7 +445,7 @@
 					<label for="role" class="col-sm-2 control-label">Role</label>
 					<div class="col-sm-4 col-xs-4">
 						<input type="text" class="form-control" id="role" name="role"
-							value="${student.getKeyRole()}" placeholder="Role" pattern="[A-Za-z0-9]+" title="Only alpha-numericals are allowed"
+							value="${student.getKeyRole()}" placeholder="Role" 
 							aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -456,7 +456,7 @@
 					<div class="col-sm-4 col-xs-4">
 						<textarea class="form-control" rows="5" id="comment"
 							name="sop_content"
-							placeholder="Brief Statement of Purpose in 300 Words" pattern="[A-Za-z0-9]+" title="Only alpha-numericals are allowed"
+							placeholder="Brief Statement of Purpose in 300 Words" 
 							aria-describedby="basic-addon2"></textarea>
 					</div>
 				</div>
