@@ -20,24 +20,30 @@
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
     <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+    
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <div class="item active">
-      <img src="http://www.uncc.edu/sites/default/files/styles/front-page-banner/public/spotlight/flickr-2014.jpg?itok=y3WTasR6" style="width:940;height:300;">
+      <img src="https://colleges.niche.com/images/standard/29205/?v=cb3241c" style="width:940;height:360;">
     </div>
 
     <div class="item">
-      <img src="http://cres.uncc.edu/sites/cres.uncc.edu/files/images/Union-web.jpeg" style="width:940;height:300;">
+      <img src="http://cres.uncc.edu/sites/cres.uncc.edu/files/images/Union-web.jpeg" style="width:1040;height:360;">
+    </div>
+    <div class="item">
+      <img src="https://admissions.uncc.edu/sites/default/files/styles/modal_window_slider/public/CHHS-students-nursing.jpg?itok=jCIoQYhR" style="width:1040;height:360;">
+    </div>
+    
+    <div class="item">
+      <img src="https://colleges.niche.com/images/standard/29207/?v=cb3241c" style="width:1040;height:360;">
     </div>
 
+    
     <div class="item">
-      <img src="http://analytics.uncc.edu/sites/analytics.uncc.edu/files/media/Woodward%2520Hall%2520Night.jpg" style="width:940;height:300;">
-    </div>
-
-    <div class="item">
-      <img src="http://complexity.uncc.edu/sites/complexity.uncc.edu/files/imagecache/home_page_image/Woodward.jpg" style="width:940;height:300;">
+      <img src="http://commencement.uncc.edu/sites/commencement.uncc.edu/files/media/Commencement%20streamers%202015.jpg" style="width:1040;height:360;">
     </div>
   </div>
 
@@ -51,6 +57,8 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
+
 
 </div>
 <div id = "footer">

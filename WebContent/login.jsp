@@ -17,15 +17,18 @@
 	<div class="col-md-offset-3">
 	<form class="form-horizontal" id="loginform" method="POST"
 		action="LoginController">
+		
+		
 		<div class="form-group">
-
-			<label for="userName" class="col-sm-2 control-label">UserName</label>
+			<label for="userName" class="col-sm-2 control-label">Email</label>
 			<div class="col-sm-4 col-xs-4">
-				<input type="text" id="userName" class="form-control"
-					name="userName" placeholder="Username"
-					aria-describedby="basic-addon1" required>
+				<input type="email" class="form-control" id="userName" 
+					name="userName" placeholder="Registered Email"
+					aria-describedby="basic-addon2" required>
+					<label id ="vaildateUser" class="error"  style="color: #F00000;"></label>
 			</div>
 		</div>
+		
 		<div class="form-group">
 			<label for="password" class="col-sm-2 control-label">Password</label>
 			<div class="col-sm-4 col-xs-4">
@@ -48,17 +51,41 @@
 
 			</div>
 		</div>
+		
+		<%
+String s = "";
+String login_msg=(String)request.getAttribute("error");  
+if(login_msg!=null){
+s = login_msg.toString();
+}
 
+%>
+
+
+<input id="error_message" type="hidden" name="error_msg" value="<%=s %>" />
+
+<script>
+
+$('document').ready(function() {
+	$('#loginform').validator()
+	value = $("#error_message").val(); 
+	if (value == "Invaid Username and Password"){
+		alert(value);
+		window.location = "login.jsp";
+	}
+	});
+</script>
 
 		<div class="form-group">
 			<div class="col-sm-offset-3 col-sm-10">
-				<button type="Login" class="btn btn-primary">Login</button>
+				<button type="Login" class="btn btn-primary" id="login">Login</button>
 			</div>
 		</div>
 		<div class="form-group">
 		<a href="forgotPwd.jsp" class="col-sm-3 col-md-offset-2">Forgot Password</a>
 		<a href="register.jsp">Register</a><br>
 		</div>
+		
 
 	</form>
 	</div>

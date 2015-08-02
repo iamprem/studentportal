@@ -297,8 +297,7 @@
 				</div>
 -->
 
-<div class="form-group">
-
+				<div class="form-group">
 					<label for="degree_label" class="col-sm-2 control-label department_label">Applying degree</label>
 					<div class="col-sm-4 col-xs-4">
 						<select class="form-control sel" id="degree_label">
@@ -307,9 +306,7 @@
 							<option>PHD</option>
 							<option>CERT</option>
 						</select>
-
 					</div>
-					
 				</div>
 				
 				<!-- 
@@ -378,8 +375,7 @@
 				</div>
 -->
 
-<div class="form-group">
-
+				<div class="form-group">
 					<label for="test_toefl_ielts_label" class="col-sm-2 control-label department_label">Select a Test Type</label>
 					<div class="col-sm-4 col-xs-4">
 						<select class="form-control sel" id="test_toefl_ielts_label">
@@ -388,10 +384,10 @@
 							<option>IELTS</option>
 						</select>
 					</div>
-			<div class="col-sm-2 col-xs-2">
-				<input type="number" class="form-control" id="test_toefl_ielts"
-									name="test_toefl_ielts" aria-describedby="basic-addon2" required>
-									</div>
+					<div class="col-sm-2 col-xs-2">
+						<input type="number" class="form-control" id="test_toefl_ielts"
+										name="test_toefl_ielts" aria-describedby="basic-addon2" required>
+					</div>
 				</div>
 	<!-- 			
 			

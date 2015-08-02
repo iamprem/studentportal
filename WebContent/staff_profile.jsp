@@ -113,6 +113,7 @@
 
 					<label for="country_label" class="col-sm-2 control-label">Country</label>
 					<div class="col-sm-4 col-xs-4">
+
 						<select class="form-control sel" id="country_label" name="country">
 							<option>United States</option>
 							<option>India</option>
@@ -123,7 +124,16 @@
 					</div>
 
 				</div>
-			<div class="form-group">
+				<script type="text/javascript">
+					$(document)
+							.ready(
+									$(function() {
+										$("#country_label")
+												.val(
+														"${sessionScope.student.getCountry()}");
+									}));
+				</script>
+				<div class="form-group">
 				<label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="zipCode" name="zipCode"
