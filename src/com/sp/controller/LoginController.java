@@ -95,7 +95,7 @@ public class LoginController extends StudentBaseController {
 				if (userType.equals("faculty")) {
 					System.out.println("Fac");
 					HttpSession user_session = request.getSession(true);
-					user_session.setMaxInactiveInterval(60 * 60);
+					user_session.setMaxInactiveInterval(600 * 600);
 					Cookie userNameC = new Cookie("userNAME", userName);
 					response.addCookie(userNameC);
 					String encodedURL = response.encodeRedirectURL("faculty.jsp");
@@ -106,7 +106,7 @@ public class LoginController extends StudentBaseController {
 				} else if (userType.equals("student")) {
 					System.out.println("student");
 					HttpSession user_session = request.getSession(true);
-					user_session.setMaxInactiveInterval(60 * 60);
+					user_session.setMaxInactiveInterval(600 * 600);
 					Cookie userNameC = new Cookie("userNAME", userName);
 					response.addCookie(userNameC);
 					String encodedURL = response.encodeRedirectURL("StudentDashController");
