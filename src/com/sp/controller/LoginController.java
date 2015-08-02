@@ -89,6 +89,7 @@ public class LoginController extends StudentBaseController {
 			}
 			if (!passcode.equals(passCode)) {
 				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+				request.setAttribute("error", "Invaid Username and Password");
 				rd.include(request, response);
 			} else {
 				if (userType.equals("faculty")) {
