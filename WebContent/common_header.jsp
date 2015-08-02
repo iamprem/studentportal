@@ -47,8 +47,8 @@
 	<nav class="navbar navbar-inverse">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a href="/StudentPortalWebApp"><img class="navbar-brand"
-				src="images/unc-charlotte-logo.gif" alt="UNCC logo"></a>
+			<a href="/StudentPortalWebApp"><img class=""
+				src="images/UNCC_logo_sm2.png" alt="UNCC logo"></a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
