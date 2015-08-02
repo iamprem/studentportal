@@ -8,8 +8,8 @@
 <%@include file="common_header.jsp"%>
 </head>
 <body>
-	<div class="wrap">
-		<div class="container-fluid">
+	<div id="wrap">
+		<div class="">
 			<div class="faculty-bg">
 				<div class="jumbotron">
 					<div class="row">
