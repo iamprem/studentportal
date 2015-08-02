@@ -66,7 +66,7 @@
 				<label for="ssn" class="col-sm-2 control-label">SSN
 					</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="ssn"
+					<input type="text" class="form-control" id="ssn"  maxlength="11"
 						name="ssn" placeholder="SSN"
 						value="${sessionScope.STAFF.getSsn()}" aria-describedby="basic-addon2"
 						required>
