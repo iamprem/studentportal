@@ -26,6 +26,7 @@
 	rel="stylesheet" type="text/css">
 </head>
 <body>
+<div id="wrap">
 	<!-- Header -->
 	<header id="top" class="header">
 	<div class="text-vertical-center">
@@ -162,28 +163,28 @@
 				<div class="row">
 					<div class="col-md-6">
 						<div class="portfolio-item">
-							<a href="#"> <img class="img-portfolio img-responsive"
+							<a> <img class=" img-responsive"
 								src="images/portfolio-1.jpg">
 							</a>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="portfolio-item">
-							<a href="#"> <img class="img-portfolio img-responsive"
+							<a> <img class=" img-responsive"
 								src="images/portfolio-2.jpg">
 							</a>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="portfolio-item">
-							<a href="#"> <img class="img-portfolio img-responsive"
+							<a><img class=" img-responsive"
 								src="images/portfolio-3.jpg">
 							</a>
 						</div>
 					</div>
 					<div class="col-md-6">
 						<div class="portfolio-item">
-							<a href="#"> <img class="img-portfolio img-responsive"
+							<a> <img class=" img-responsive"
 								src="images/portfolio-4.png">
 							</a>
 						</div>
@@ -249,6 +250,9 @@
 							});
 		});
 	</script>
-
+</div>
+<div id = "footer">
+<%@ include file="footer.jsp"%>
+</div>
 </body>
 </html>
