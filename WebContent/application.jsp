@@ -194,7 +194,7 @@
 					<label for="zipCode" class="col-sm-2 control-label">Zip
 						Code</label>
 					<div class="col-sm-4 col-xs-4">
-						<input type="text" class="form-control" id="zipCode"
+						<input type="text" class="form-control" id="zipCode" maxlength="6"
 							name="zipCode" placeholder="Zip Code" 
 							value="${student.getZipcode()}" aria-describedby="basic-addon2"
 							required>
@@ -343,7 +343,7 @@
 
 					</div>
 					<div class="col-sm-2 col-xs-2">
-				<input type="text" class="form-control" id="test_gre_gmat"
+				<input type="text" class="form-control" id="test_gre_gmat" maxlength="4"
 									name="test_gre_gmat" aria-describedby="basic-addon2" required>
 									</div>
 				</div>
@@ -384,7 +384,7 @@
 						</select>
 					</div>
 					<div class="col-sm-2 col-xs-2">
-						<input type="text" class="form-control" id="test_toefl_ielts"
+						<input type="text" class="form-control" id="test_toefl_ielts" maxlength="4"
 										name="test_toefl_ielts" aria-describedby="basic-addon2" required>
 					</div>
 				</div>
@@ -473,7 +473,7 @@
 
 				<input type="hidden" name="test_toefl_ielts_lb" value="" id="test_toefl_ielts_lb"></input>
 				<input type="hidden" name="test_gre_gmat_lb" value="" id="test_gre_gmat_lb"></input> 
-				<input type="hidden" name="country_lb" value="yo" id="country_lb"></input> 
+				<input type="hidden" name="country_lb" value="" id="country_lb"></input> 
 				<input type="hidden" name="department_lb" value="" id="department_lb"></input> 
 				<input type="hidden" name="degree_lb" value="" id="degree_lb"></input>
 				<input type="hidden" name="enroll_term_lb" value="" id="enroll_term_lb"></input>
