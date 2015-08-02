@@ -48,7 +48,7 @@
 				<label for="CourseID" class="col-sm-2 control-label">Course
 					ID</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="number" class="form-control" id="courseID"
+					<input type="text" class="form-control" id="courseID"
 						name="courseID" placeholder=" 4 Characters ID"
 						aria-describedby="basic-addon2" required>
 
@@ -61,8 +61,8 @@
 					Name</label>
 				<div class="col-sm-4 col-xs-4">
 
-					<input type='text' class="form-control" name="courseName"
-						id="courseName" placeholder="Course Name" pattern="[A-Za-z]+" title="Only characters are allowed"
+					<input type="text" class="form-control" name="courseName"
+						id="courseName" placeholder="Course Name" 
 						aria-describedby="basic-addon2" required>
 
 				</div>
@@ -74,7 +74,7 @@
 					Method</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<input type='text' class="form-control" name="insMethod"
+					<input type="text" class="form-control" name="insMethod"
 						id="insMethod" placeholder="Instruction Method"
 						aria-describedby="basic-addon2" required>
 
@@ -86,7 +86,7 @@
 					Hours</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<input type='number' class="form-control" name="creditHours"
+					<input type="text" class="form-control" name="creditHours"
 						id="creditHours" placeholder="(1-6)"
 						aria-describedby="basic-addon2" required>
 				</div>
@@ -98,7 +98,7 @@
 					Prerequisites</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<input type='text' class="form-control" name="coursePrerequisites"
+					<input type="text" class="form-control" name="coursePrerequisites"
 						id="coursePrerequisites"
 						placeholder="Pre-requisites required for the course"
 						aria-describedby="basic-addon2" required>

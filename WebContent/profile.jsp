@@ -68,7 +68,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="ssn"  maxlength="11"
 						name="ssn" placeholder="SSN"
-						value="${sessionScope.STAFF.getSsn()}" aria-describedby="basic-addon2"
+						value="${sessionScope.student.getSsn()}" aria-describedby="basic-addon2"
 						required>
 				</div>
 			</div>
@@ -115,14 +115,12 @@
 					<label for="country_label" class="col-sm-2 control-label">Country</label>
 					<div class="col-sm-4 col-xs-4">
 						<select class="form-control sel" id="country_label" name="country">
-							<option value="USA">United States</option>
+							<option value="United States">United States</option>
 							<option value="India">India</option>
 							<option value="China">China</option>
 							<option value="Canada">Canada</option>
 						</select>
-
 					</div>
-
 				</div>
 				
 			<div class="form-group">
@@ -147,7 +145,6 @@
 	</div>
 	<script>
 	$( document ).ready($(function(){
-		
 		$("#country_label").val("${sessionScope.student.getCountry()}");
 		})
 	);

@@ -153,6 +153,19 @@
 				</div>
 			</div>
 			<!-- ***********************COUNTRY********************************* -->
+			
+			<div class="form-group">
+				<label for="country_label" class="col-sm-2 control-label">Country</label>
+				<div class="col-sm-4 col-xs-4">
+					<select class="form-control sel" id="country_label">
+						<option value="United States">United States</option>
+						<option value="India">India</option>
+						<option value="China">China</option>
+						<option value="Canada">Canada</option>
+					</select>
+				</div>
+			</div>
+<!-- 
 
 			<div class="form-group ">
 				<label for="country" class="col-sm-2 control-label">Country</label>
@@ -171,7 +184,7 @@
 					</div>
 				</div>
 			</div>
-
+ -->
 
 			<div class="form-group">
 				<label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
@@ -212,6 +225,18 @@
 				</div>
 			</div>
 
+
+			<div class="form-group">
+			<label for="enroll_term_label" class="col-sm-2 control-label department_label">Enrollment Term</label>
+				<div class="col-sm-4 col-xs-4">
+					<select class="form-control sel" id="enroll_term_label">
+						<option value="Spring 2016">Spring 2016</option>
+					</select>
+				</div>
+			</div>
+			
+			
+			<!-- 
 			<div class="form-group ">
 				<label for="country" class="col-sm-2 control-label">Enrollment
 					Term</label>
@@ -227,9 +252,22 @@
 					</div>
 				</div>
 			</div>
+			 -->
 
-
-
+			<div class="form-group">
+					<label for="department_label" class="col-sm-2 control-label department_label">Applying for</label>
+					<div class="col-sm-4 col-xs-4">
+						<select class="form-control sel" id="department_label">
+							<option value="ACCF">ACCF</option>
+							<option value="ECGR">ECGR</option>
+							<option value="GEOS">GEOS</option>
+							<option value="ITCS">ITCS</option>
+							<option value="ITIS">ITIS</option>
+						</select>
+					</div>
+				</div>
+				
+<!-- 
 			<div class="form-group ">
 				<label for="country" class="col-sm-2 control-label">Applying
 					for</label>
@@ -249,7 +287,19 @@
 					</div>
 				</div>
 			</div>
-
+ -->
+			<div class="form-group">
+				<label for="degree_label" class="col-sm-2 control-label department_label">Applying degree</label>
+				<div class="col-sm-4 col-xs-4">
+					<select class="form-control sel" id="degree_label">
+						<option value="BS">BS</option>
+						<option value="MS">MS</option>
+						<option value="PHD">PHD</option>
+						<option value="CERT">CERT</option>
+					</select>
+				</div>
+			</div>
+<!-- 
 			<div class="form-group ">
 				<label for="country" class="col-sm-2 control-label">Applying
 					degree</label>
@@ -268,9 +318,24 @@
 					</div>
 				</div>
 			</div>
+ -->
 
+			<div class="form-group">
+				<label for="test_gre_gmat_label" class="col-sm-2 control-label department_label">Select a Test Type</label>
+				<div class="col-sm-4 col-xs-4">
+					<select class="form-control sel" id="test_gre_gmat_label">
+						<option value="">None</option>
+						<option value="GRE">GRE</option>
+						<option value="GMAT">GMAT</option>
+					</select>
+				</div>
+				<div class="col-sm-2 col-xs-2">
+					<input type="number" class="form-control" id="test_gre_gmat"
+									name="test_gre_gmat" aria-describedby="basic-addon2" required>
+				</div>
+			</div>
 
-
+<!-- 
 			<div class="form-group">
 				<div class="col-sm-3 col-xs-3">
 					<div class="row">
@@ -294,8 +359,24 @@
 
 				</div>
 			</div>
+ -->
 
-
+			<div class="form-group">
+				<label for="test_toefl_ielts_label" class="col-sm-2 control-label department_label">Select a Test Type</label>
+				<div class="col-sm-4 col-xs-4">
+					<select class="form-control sel" id="test_toefl_ielts_label">
+						<option value="">None</option>
+						<option value="TOEFL">TOEFL</option>
+						<option value="IELTS">IELTS</option>
+					</select>
+				</div>
+				<div class="col-sm-2 col-xs-2">
+					<input type="number" class="form-control" id="test_toefl_ielts"
+									name="test_toefl_ielts" aria-describedby="basic-addon2" required>
+				</div>
+			</div>
+			
+<!-- 
 			<div class="form-group ">
 				<div class="col-sm-3 col-xs-3">
 					<div class="row">
@@ -320,7 +401,7 @@
 
 				</div>
 			</div>
-
+ -->
 
 			<div class="form-group">
 				<label for="workOrgName" class="col-sm-2 control-label">Work
@@ -378,17 +459,49 @@
 				</div>
 			</div>
 			<input type="hidden" name="test_toefl_ielts_lb" value=""
-				id="test_toefl_ielts_lb"></input> <input type="hidden"
-				name="test_gre_gmat_lb" value="" id="test_gre_gmat_lb"></input> <input
-				type="hidden" name="country_lb" value="" id="country_lb"></input> <input
+				id="test_toefl_ielts_lb"></input> 
+			<input type="hidden"
+				name="test_gre_gmat_lb" value="" id="test_gre_gmat_lb"></input> 
+			<input
+				type="hidden" name="country_lb" value="" id="country_lb"></input> 
+			<input
 				type="hidden" name="department_lb" value="something"
-				id="department_lb"></input> <input type="hidden" name="degree_lb"
-				value="" id="degree_lb"></input> <input type="hidden"
+				id="department_lb"></input> 
+			<input type="hidden" name="degree_lb"
+				value="" id="degree_lb"></input> 
+			<input type="hidden"
 				name="enroll_term_lb" value="" id="enroll_term_lb"></input>
-
 		</form>
 	</div>
 
+	<script>
+	$( document ).ready($(function(){
+		$("#country_label").val("${sessionScope.student.getCountry()}");
+		})
+	);
+	$( document ).ready($(function(){
+		$("#enroll_term_label").val("Spring 2016");
+		})
+	);
+	$( document ).ready($(function(){
+		$("#degree_label").val("${sessionScope.application.getDegree().getDegID()}");
+		})
+	);
+	$( document ).ready($(function(){
+		$("#department_label").val("${sessionScope.application.getDepartment().getDeptID()}");
+		})
+	);
+	
+	//TODO: Have to fetch the correct test code and its value from backend
+	$( document ).ready($(function(){
+		$("#test_toefl_ielts_label").val("${sessionScope.application.getDepartment().getDeptID()}");
+		})
+	);
+	$( document ).ready($(function(){
+		$("#test_gre_gmat_label").val("${sessionScope.application.getDepartment().getDeptID()}");
+		})
+	);
+	</script>
 </div>
 
 	<script>
@@ -410,8 +523,6 @@
 					} else if (idComp == "enroll_term_label") {
 						$("#enroll_term_lb").val(selText);
 					}
-
-					enroll_term_label
 
 					$(this).parents('.btn-group').find('.dropdown-toggle')
 							.html(selText + ' <span class="caret"></span>');

@@ -8,12 +8,12 @@
 <%@include file="common_header.jsp"%>
 </head>
 <body>
-	<div class="wrap">
-		<div class="container-fluid">
+	<div id="wrap">
+		<div class="">
 			<div class="faculty-bg">
 				<div class="jumbotron">
 					<div class="row">
-						<br> <br> <br>
+						<br> <br> <br> <br> <br> <br>
 						<div class="col-sm-2 col-md-2"></div>
 						<div class="col-sm-4 col-md-4">
 							<h2>Review Application</h2>
