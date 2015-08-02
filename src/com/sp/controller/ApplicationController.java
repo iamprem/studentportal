@@ -46,8 +46,7 @@ public class ApplicationController extends StudentBaseController {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("userEmail");
@@ -68,7 +67,7 @@ public class ApplicationController extends StudentBaseController {
 			session.setAttribute(APPLICATION, StudentDAO.getSavedApplication(appID));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("application_filled.jsp");
 			dispatcher.forward(request, response);
-		} else{
+		} else {
 			String encodedURL = response.encodeRedirectURL("StudentDashController");
 			response.sendRedirect(encodedURL);
 		}
@@ -81,8 +80,8 @@ public class ApplicationController extends StudentBaseController {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
+			IOException {
 
 		HttpSession session = request.getSession();
 		Application application = new Application();
@@ -130,7 +129,7 @@ public class ApplicationController extends StudentBaseController {
 		String keyRole = request.getParameter("role");
 		// Application
 		String desiredTerm = request.getParameter("enroll_term_lb");
-		System.out.println("Term : "+desiredTerm);
+		System.out.println("Term : " + desiredTerm);
 		// String desiredTerm = "Spring 2016";
 		String sopContent = request.getParameter("sop_content");
 		String appStatus = null;
@@ -151,8 +150,17 @@ public class ApplicationController extends StudentBaseController {
 
 		// TestScore
 		ArrayList<TestScore> testScoreList = new ArrayList<TestScore>();
-		Double testToeflIelts = Double.parseDouble(request.getParameter("test_toefl_ielts"));
-		Double testGreGmat = Double.parseDouble(request.getParameter("test_gre_gmat"));
+		String toeflScore = request.getParameter("test_toefl_ielts");
+		Double testToeflIelts = 0.0;
+		Double testGreGmat = 0.0;
+		if (null != toeflScore && (!toeflScore.equals(""))) {
+			testToeflIelts = Double.parseDouble(toeflScore);
+		}
+		String greScore = request.getParameter("test_gre_gmat");
+		System.out.println("ddddddd"+greScore);
+		if ((!greScore.equals("")) && null != greScore) {
+			testGreGmat = Double.parseDouble(greScore);
+		}
 		String testToeflIeltCode = request.getParameter("test_toefl_ielts_lb");
 		String testGreGmatCode = request.getParameter("test_gre_gmat_lb");
 		if (testToeflIeltCode != "") {
@@ -161,15 +169,13 @@ public class ApplicationController extends StudentBaseController {
 		if (testGreGmatCode != "") {
 			testScoreList.add(new TestScore(testGreGmatCode, testGreGmat, new Date()));
 		}
-		
-		
+
 		// TODO
 		Student studForApplication = new Student(student_id, firstName, lastName, gender, email, dateOfBirth, phone,
 				ssn, streetAddress, testScoreList, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned,
 				gpa, major, workOrgName, yearsWorked, keyRole);
 
-		application = new Application(appID, appStatus, desiredTerm, studForApplication, degree, department,
-				sopContent);
+		application = new Application(appID, appStatus, desiredTerm, studForApplication, degree, department, sopContent);
 
 		if ("Submit".equalsIgnoreCase(action)) {
 			// Insert or Update application table
