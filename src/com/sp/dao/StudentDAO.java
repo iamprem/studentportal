@@ -414,7 +414,7 @@ public class StudentDAO {
 				String lastName = rs.getString("lastName");
 				String gender = rs.getString("gender");
 				String emailUser = rs.getString("email");
-				Date dateOfBirth = rs.getDate("dateOfBirth");
+				
 				String phone = rs.getString("phone");
 				String ssn = rs.getString("ssn");
 				String streetAddress = rs.getString("streetAddress");
@@ -430,7 +430,7 @@ public class StudentDAO {
 				Double yearsWorked = rs.getDouble("yearsWorked");
 				String keyRole = rs.getString("keyRole");
 
-				student = new Student(student_id, firstName, lastName, gender, emailUser, dateOfBirth, phone, ssn,
+				student = new Student(student_id, firstName, lastName, gender, emailUser,null , phone, ssn,
 						streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned, gpa, major,
 						workOrgName, yearsWorked, keyRole);
 			}
