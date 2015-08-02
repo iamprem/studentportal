@@ -65,8 +65,9 @@ s = login_msg.toString();
 <input id="error_message" type="hidden" name="error_msg" value="<%=s %>" />
 
 <script>
-$('document').ready(function() {
 
+$('document').ready(function() {
+	$('#loginform').validator()
 	value = $("#error_message").val(); 
 	if (value == "Invaid Username and Password"){
 		alert(value);
