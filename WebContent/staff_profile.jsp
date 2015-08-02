@@ -57,7 +57,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="phoneNumber" maxlength="11"
 						name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX"
-						value="${sessionScope.STAFF.getPhone()}" aria-describedby="basic-addon2"
+						value="${STAFF.getPhone()}" aria-describedby="basic-addon2"
 						required>
 				</div>
 			</div>
@@ -67,7 +67,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="ssn"
 						name="ssn" placeholder="SSN"  maxlength="11"
-						value="${sessionScope.STAFF.getSsn()}" aria-describedby="basic-addon2"
+						value="${STAFF.getSsn()}" aria-describedby="basic-addon2"
 						required>
 				</div>
 			</div>
@@ -78,7 +78,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="streetAddress"
 						name="streetAddress" placeholder="Street Address"
-						value="${sessionScope.STAFF.getStAddress()}"
+						value="${STAFF.getStAddress()}"
 						aria-describedby="basic-addon2" required>
 				</div>
 			</div>
@@ -88,7 +88,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="aptNumber"
 						name="aptNumber" placeholder="Apartment Number"
-						value="${sessionScope.STAFF.getAptNo()}"
+						value="${STAFF.getAptNo()}"
 						aria-describedby="basic-addon2" required>
 				</div>
 			</div>
@@ -96,7 +96,7 @@
 				<label for="city" class="col-sm-2 control-label">City</label>
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="city" name="city"
-						value="${sessionScope.STAFF.getCity()}"
+						value="${STAFF.getCity()}"
 						placeholder="City" aria-describedby="basic-addon2" required>
 				</div>
 			</div>
@@ -104,7 +104,7 @@
 				<label for="state" class="col-sm-2 control-label">State</label>
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="state" name="state"
-						value="${sessionScope.STAFF.getStateOrUT()}"
+						value="${STAFF.getStateOrUT()}"
 						placeholder="State" aria-describedby="basic-addon2" required>
 				</div>
 			</div>
@@ -115,10 +115,10 @@
 					<div class="col-sm-4 col-xs-4">
 
 						<select class="form-control sel" id="country_label" name="country">
-							<option>United States</option>
-							<option>India</option>
-							<option>China</option>
-							<option>Canada</option>
+							<option value="USA">United States</option>
+							<option value="India">India</option>
+							<option value="China">China</option>
+							<option value="Canada">Canada</option>
 						</select>
 
 					</div>
@@ -130,14 +130,14 @@
 									$(function() {
 										$("#country_label")
 												.val(
-														"${sessionScope.student.getCountry()}");
+														"${STAFF.getCountry()}");
 									}));
 				</script>
 				<div class="form-group">
 				<label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="zipCode" name="zipCode"
-						value="${sessionScope.STAFF.getZipcode()}"
+						value="${STAFF.getZipcode()}"
 						placeholder="Zip Code" aria-describedby="basic-addon2" required>
 				</div>
 			</div>

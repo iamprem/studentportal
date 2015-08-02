@@ -57,6 +57,7 @@ public class ProfileEditController extends StudentBaseController {
 		System.out.println("User Type" + userType);
 		if (userType.equals("student")) {
 			request.setAttribute(STUDENT, StudentDAO.getStudent(email));
+			System.out.println(StudentDAO.getStudent(email));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
 			dispatcher.forward(request, response);
 			return;
