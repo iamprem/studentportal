@@ -78,7 +78,7 @@ $('document').ready(function() {
 
 		<div class="form-group">
 			<div class="col-sm-offset-3 col-sm-10">
-				<button type="Login" class="btn btn-primary" id="login">Login</button>
+				<input type="submit" class="btn btn-primary" value="Login">
 			</div>
 		</div>
 		<div class="form-group">
