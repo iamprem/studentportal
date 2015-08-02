@@ -29,10 +29,9 @@ public class staffDAO {
 					+ lastName + "',phone='" + phoneNumber + "', ssn='" + ssn + "', streetAddress='"
 					+ streetAddress + "', apartmentNo='" + aptNo + "', city='"
 					+ city + "', stateOrTeritory='" + state + "', country='"
-					+ country + "', zipcode='" + zipcode + "' WHERE email=" + email + ";";
-			
-			stmt.execute(sql1);
+					+ country + "', zipcode='" + zipcode + "' WHERE email= '" + email + "';";
 			stmt = conn.DbConnectionForStatement();
+			stmt.execute(sql1);
 			stmt.close();
 			conn.close();
 		} catch (SQLException se) {

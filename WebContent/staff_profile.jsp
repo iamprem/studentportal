@@ -63,10 +63,10 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="phoneNumber" class="col-sm-2 control-label">SSN</label>
+				<label for="ssn" class="col-sm-2 control-label">SSN</label>
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="ssn"
-						name="ssn" placeholder="SSN"
+						name="ssn" placeholder="SSN"  maxlength="11"
 						value="${sessionScope.STAFF.getSsn()}" aria-describedby="basic-addon2"
 						required>
 				</div>
@@ -113,7 +113,8 @@
 
 					<label for="country_label" class="col-sm-2 control-label">Country</label>
 					<div class="col-sm-4 col-xs-4">
-						<select class="form-control sel" id="country" name="country">
+
+						<select class="form-control sel" id="country_label" name="country">
 							<option>United States</option>
 							<option>India</option>
 							<option>China</option>

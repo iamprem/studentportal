@@ -107,11 +107,14 @@ public class ProfileEditController extends StudentBaseController {
 
 			staffDAO.editStaff(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city,
 					stateOrTeritory, country, zipcode);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("faculty.jsp");
+			dispatcher.forward(request, response);
 		} else if (userType.equals("student")) {
 			System.out.println("STU");
 			StudentDAO.editStudent(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city,
 					stateOrTeritory, country, zipcode);
-
+			RequestDispatcher dispatcher = request.getRequestDispatcher("student.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
