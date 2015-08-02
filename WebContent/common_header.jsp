@@ -44,7 +44,7 @@
 
 	<c:set var="userType" value="${sessionScope.userType}"/>
 	
-	<nav class="navbar navbar-inverse">
+	<nav class="navbar navbar-inverse" style="margin-bottom:0px;">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<a href="/StudentPortalWebApp"><img class=""

@@ -234,8 +234,8 @@
 				</div>
 				
 				
-	<div class="form-group">
-		<label for="enroll_term_label" class="col-sm-2 control-label department_label">Enrollment Term</label>
+				<div class="form-group">
+					<label for="enroll_term_label" class="col-sm-2 control-label department_label">Enrollment Term</label>
 					<div class="col-sm-4 col-xs-4">
 						<select class="form-control sel" id="enroll_term_label">
 							<option>Spring 2016</option>
@@ -332,8 +332,7 @@
  -->
 
 
-<div class="form-group">
-
+				<div class="form-group">
 					<label for="test_gre_gmat_label" class="col-sm-2 control-label department_label">Select a Test Type</label>
 					<div class="col-sm-4 col-xs-4">
 						<select class="form-control sel" id="test_gre_gmat_label">
@@ -373,7 +372,7 @@
 
 					</div>
 				</div>
--->
+				-->
 
 				<div class="form-group">
 					<label for="test_toefl_ielts_label" class="col-sm-2 control-label department_label">Select a Test Type</label>
