@@ -390,7 +390,7 @@
 					</div>
 			<div class="col-sm-2 col-xs-2">
 				<input type="number" class="form-control" id="test_toefl_ielts"
-									name="test_gre_gmat" aria-describedby="basic-addon2" required>
+									name="test_toefl_ielts" aria-describedby="basic-addon2" required>
 									</div>
 				</div>
 	<!-- 			
