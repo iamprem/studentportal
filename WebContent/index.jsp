@@ -9,7 +9,7 @@
   
 <title>Welcome Page</title>
 <!-- Pahes Needed -->
-<%@ include file="header.jsp"%>
+<%@ include file="common_header.jsp"%>
 </head>
 <body>
 <div id="wrap">
