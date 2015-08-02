@@ -23,8 +23,7 @@ public class StaffFilterDao {
 			conn = new DbConnection();
 			String sql;
 			sql="select S.student_id,S.firstName, S.lastName,S.email,S.gender,S.country,S.gpa,A.app_id,A.app_status,A.applied_date,A.decision_date,A.dept_id,T.test_code,T.score,T.expiry_date from student S INNER JOIN application_applied A on S.student_id=A.student_id INNER JOIN student_taken_test T on S.student_id=T.student_id "
-					+ "WHERE A.dept_id like '" + pgmApplied + "' AND T.test_code like '" + testCode + "' AND S.country like '" + country + "' AND S.gender like '"+ gender+"' AND S.gpa  "+gpaOp+ gpa +" AND T.score " + scoreOp+score + ";";
-			
+					+ "WHERE A.dept_id like '" + pgmApplied + "' AND T.test_code like '" + testCode + "' AND S.country like '" + country + "' AND S.gender like '"+ gender+"' AND S.gpa  "+gpaOp+ gpa +" AND T.score " + scoreOp+score + " and A.app_Status in ('Processing','Submitted');";
 			stmt = conn.DbConnectionForPreparedStatement(sql);
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
