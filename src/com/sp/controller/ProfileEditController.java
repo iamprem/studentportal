@@ -86,7 +86,7 @@ public class ProfileEditController extends StudentBaseController {
 		String apartmentNo = request.getParameter("aptNumber");
 		String city = request.getParameter("city");
 		String stateOrTeritory = request.getParameter("state");
-		String country = request.getParameter("country_lb");
+		String country = request.getParameter("country");
 		System.out.println("country" + country);
 		String zipcode = request.getParameter("zipCode");
 		String userType = (String) session.getAttribute("userType");

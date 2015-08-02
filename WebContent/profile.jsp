@@ -114,11 +114,11 @@
 
 					<label for="country_label" class="col-sm-2 control-label">Country</label>
 					<div class="col-sm-4 col-xs-4">
-						<select class="form-control sel" id="country_label">
-							<option>United States</option>
-							<option>India</option>
-							<option>China</option>
-							<option>Canada</option>
+						<select class="form-control sel" id="country_label" name="country">
+							<option value="United States">United States</option>
+							<option value="India">India</option>
+							<option value="China">China</option>
+							<option value="Canada">Canada</option>
 						</select>
 
 					</div>
@@ -145,6 +145,15 @@
 		</div>
 	</form>
 	</div>
+	<script>
+	$( document ).ready($(function(){
+		alert("Checking");
+		$("select option[value='China']").attr("selected","selected");
+		alert("yo");
+		})
+	);
+
+	</script>
 	</div>
 	<div id="footer">
 		<%@include file="footer.jsp"%>
