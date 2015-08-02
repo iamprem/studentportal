@@ -55,7 +55,7 @@
 				<label for="phoneNumber" class="col-sm-2 control-label">Phone
 					Number</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="phoneNumber"
+					<input type="text" class="form-control" id="phoneNumber" maxlength="11"
 						name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX"
 						value="${sessionScope.STAFF.getPhone()}" aria-describedby="basic-addon2"
 						required>

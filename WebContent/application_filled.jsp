@@ -20,7 +20,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" id="firstName" class="form-control"
 						name="firstName" placeholder="First Name"
-						value="${sessionScope.application.getStudent().getFirstName()}" pattern="[A-Za-z]+" title="Only characters are allowed"
+						value="${sessionScope.application.getStudent().getFirstName()}"
 						aria-describedby="basic-addon1" required>
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="lastName"
 						name="lastName" placeholder="Last Name"
-						value="${sessionScope.application.getStudent().getLastName()}" pattern="[A-Za-z]+" title="Only characters are allowed"
+						value="${sessionScope.application.getStudent().getLastName()}" 
 						aria-describedby="basic-addon2" required>
 				</div>
 			</div>
@@ -67,7 +67,7 @@
 					Birth</label>
 				<div class="col-sm-4 col-xs-4">
 					<div class='input-group date' id='datetimepicker10'>
-						<input type='text' name="dateOfBirth" id="dateOfBirth"
+						<input type="text" name="dateOfBirth" id="dateOfBirth"
 							class="form-control"
 							value="${sessionScope.application.getStudent().getDob()}"
 							required /> <span class="input-group-addon"> <span
@@ -91,8 +91,8 @@
 				<label for="phoneNumber" class="col-sm-2 control-label">Phone
 					Number</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="phoneNumber"
-						name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX" pattern="[0-9-]+" title="Only numbers and - are allowed"
+					<input type="text" class="form-control" id="phoneNumber" maxlength="11"
+						name="phoneNumber" placeholder="Phone Number XXX-XXX-XXXX" 
 						value="${sessionScope.application.getStudent().getPhone()}"
 						aria-describedby="basic-addon2" required>
 				</div>
@@ -104,7 +104,7 @@
 			<div class="form-group">
 				<label for="ssn" class="col-sm-2 control-label">SSN</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" id="ssn" name="ssn"
+					<input type="text" class="form-control" id="ssn" name="ssn" maxlength="11"
 						value="${sessionScope.application.getStudent().getSsn()}"
 						placeholder="SSN" aria-describedby="basic-addon2">
 				</div>
@@ -189,7 +189,7 @@
 			<div class="form-group">
 				<label for="zipCode" class="col-sm-2 control-label">Zip Code</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="number" class="form-control" id="zipCode" name="zipCode"
+					<input type="text" class="form-control" id="zipCode" name="zipCode"
 						value="${sessionScope.application.getStudent().getZipcode()}"
 						placeholder="Zip Code" aria-describedby="basic-addon2" required>
 				</div>
@@ -219,7 +219,7 @@
 			<div class="form-group">
 				<label for="gpa" class="col-sm-2 control-label">GPA</label>
 				<div class="col-sm-4 col-xs-4">
-					<input type="number" class="form-control" id="gpa" name="gpa"
+					<input type="text" class="form-control" id="gpa" name="gpa"
 						value="${sessionScope.application.getStudent().getGpa()}"
 						placeholder="GPA" aria-describedby="basic-addon2" required>
 				</div>
@@ -330,7 +330,7 @@
 					</select>
 				</div>
 				<div class="col-sm-2 col-xs-2">
-					<input type="number" class="form-control" id="test_gre_gmat"
+					<input type="text" class="form-control" id="test_gre_gmat"
 									name="test_gre_gmat" aria-describedby="basic-addon2" required>
 				</div>
 			</div>
@@ -371,7 +371,7 @@
 					</select>
 				</div>
 				<div class="col-sm-2 col-xs-2">
-					<input type="number" class="form-control" id="test_toefl_ielts"
+					<input type="text" class="form-control" id="test_toefl_ielts"
 									name="test_toefl_ielts" aria-describedby="basic-addon2" required>
 				</div>
 			</div>
