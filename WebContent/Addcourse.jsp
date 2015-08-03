@@ -61,7 +61,7 @@
 					Name</label>
 				<div class="col-sm-4 col-xs-4">
 
-					<input type="text" class="form-control" name="courseName"
+					<input type="text" class="form-control" name="courseName" value="${courseName }"
 						id="courseName" placeholder="Course Name" 
 						aria-describedby="basic-addon2" required>
 
@@ -74,7 +74,7 @@
 					Method</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" name="insMethod"
+					<input type="text" class="form-control" name="insMethod" value="${insMethod }"
 						id="insMethod" placeholder="Instruction Method"
 						aria-describedby="basic-addon2" required>
 
@@ -86,7 +86,7 @@
 					Hours</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" name="creditHours"
+					<input type="text" class="form-control" name="creditHours" value="${creditHours}"
 						id="creditHours" placeholder="(1-6)"
 						aria-describedby="basic-addon2" required>
 				</div>
@@ -98,7 +98,7 @@
 					Prerequisites</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<input type="text" class="form-control" name="coursePrerequisites"
+					<input type="text" class="form-control" name="coursePrerequisites" value="${coursePrerequisites }"
 						id="coursePrerequisites"
 						placeholder="Pre-requisites required for the course"
 						aria-describedby="basic-addon2" required>
@@ -111,10 +111,10 @@
 					Description</label>
 
 				<div class="col-sm-4 col-xs-4">
-					<textarea class="form-control" rows="5" name="courseDescription"
+					<textarea class="form-control" rows="5" name="courseDescription" 
 						id="courseDescription"
 						placeholder="Short description about the course"
-						aria-describedby="basic-addon2" required></textarea>
+						aria-describedby="basic-addon2" required>${courseDescription}</textarea>
 				</div>
 
 

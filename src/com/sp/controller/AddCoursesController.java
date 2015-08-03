@@ -88,6 +88,7 @@ public class AddCoursesController extends StudentBaseController {
 
 				RequestDispatcher dispatcher = request.getRequestDispatcher("Addcourse.jsp");
 				dispatcher.forward(request, response);
+				return;
 
 			}
 		} else if ("Cancel".equalsIgnoreCase(action)) {

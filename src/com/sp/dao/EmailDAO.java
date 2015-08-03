@@ -130,7 +130,7 @@ public class EmailDAO {
 			message.setFrom(new InternetAddress("gany@gmail.com"));
 			for (int i = 0; i < students.size(); i++) {
 
-				message.addRecipient(Message.RecipientType.TO, new InternetAddress(students.get(i)));
+				message.addRecipient(Message.RecipientType.BCC, new InternetAddress(students.get(i)));
 			}
 			message.setSubject("New Course Update");
 			message.setText("Dear "+ deptID +" User," + "\n\n" + "A new Course has been added/Modified to the degree "+degID
