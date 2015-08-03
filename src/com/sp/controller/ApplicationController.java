@@ -174,6 +174,7 @@ public class ApplicationController extends StudentBaseController {
 		Student studForApplication = new Student(student_id, firstName, lastName, gender, email, dateOfBirth, phone,
 				ssn, streetAddress, testScoreList, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned,
 				gpa, major, workOrgName, yearsWorked, keyRole);
+		session.setAttribute(STUDENT, studForApplication);
 
 		application = new Application(appID, appStatus, desiredTerm, studForApplication, degree, department, sopContent);
 
