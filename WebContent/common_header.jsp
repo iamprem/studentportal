@@ -54,7 +54,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="/StudentPortalWebApp">Home</a></li>
 				<li><a href="/StudentPortalWebApp/DepartmentController">Departments</a></li>
-				<li><a href="/StudentPortalWebApp/admission_index.jsp">Admissions</a></li>
+				<li><a href="/StudentPortalWebApp/gallery.jsp">Gallery</a></li>
 				<li><a href="/StudentPortalWebApp/about.jsp">About UNCC</a></li>
 			</ul>
 			
