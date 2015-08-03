@@ -331,7 +331,7 @@
 				</div>
 				<div class="col-sm-2 col-xs-2">
 					<input type="text" class="form-control" id="test_gre_gmat" maxlength="4"
-									name="test_gre_gmat" aria-describedby="basic-addon2" required>
+									name="test_gre_gmat" aria-describedby="basic-addon2">
 				</div>
 			</div>
 
@@ -372,7 +372,7 @@
 				</div>
 				<div class="col-sm-2 col-xs-2">
 					<input type="text" class="form-control" id="test_toefl_ielts" maxlength="4"
-									name="test_toefl_ielts" aria-describedby="basic-addon2" required>
+									name="test_toefl_ielts" aria-describedby="basic-addon2">
 				</div>
 			</div>
 			
@@ -411,7 +411,7 @@
 						name="workOrgName"
 						value="${sessionScope.application.getStudent().getWorkOrgName()}"
 						placeholder="Work Organisation Name"
-						aria-describedby="basic-addon2" required>
+						aria-describedby="basic-addon2">
 				</div>
 			</div>
 
@@ -423,7 +423,7 @@
 					<input type="text" class="form-control" id="yearsWorked"
 						name="yearsWorked" placeholder="Years Worked"
 						value="${sessionScope.application.getStudent().getYearsWorked()}"
-						aria-describedby="basic-addon2" required>
+						aria-describedby="basic-addon2">
 				</div>
 			</div>
 
@@ -432,7 +432,7 @@
 				<div class="col-sm-4 col-xs-4">
 					<input type="text" class="form-control" id="role" name="role"
 						value="${sessionScope.application.getStudent().getKeyRole()}"
-						placeholder="Role" aria-describedby="basic-addon2" required>
+						placeholder="Role" aria-describedby="basic-addon2">
 				</div>
 			</div>
 
