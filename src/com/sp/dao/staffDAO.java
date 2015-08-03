@@ -23,8 +23,6 @@ public class staffDAO {
 		DbConnection conn = null;
 		try {
 			conn = new DbConnection();
-			System.out.println("Updating Staff");
-			System.out.println(email);
 			String sql1 = "UPDATE staff SET " + "firstName = '" + firstName + "', lastName = '"
 					+ lastName + "',phone='" + phoneNumber + "', ssn='" + ssn + "', streetAddress='"
 					+ streetAddress + "', apartmentNo='" + aptNo + "', city='"
@@ -56,7 +54,6 @@ public class staffDAO {
 		Staff staff =null;
 		try {
 			conn = new DbConnection();
-			System.out.println("Fetching Staff all Application overview");
 			String sql1 = "SELECT S.employee_id,S.firstName,S.lastName,S.email,S.ssn,S.phone,S.streetAddress,S.apartmentNo,S.city,S.stateOrTeritory,S.country,S.zipcode,W.dept_id from staff S INNER JOIN staff_worksin_dept W on S.employee_id=W.employee_id WHERE S.email='"
 					+ email + "';";
 			stmt = conn.DbConnectionForPreparedStatement(sql1);

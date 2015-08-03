@@ -50,7 +50,6 @@ public class ApplicationController extends StudentBaseController {
 
 		HttpSession session = request.getSession();
 		String email = (String) session.getAttribute("userEmail");
-		System.out.println(request.getParameter("appID"));
 		int appID;
 		String appStatus = null;
 		try {
@@ -59,7 +58,6 @@ public class ApplicationController extends StudentBaseController {
 		} catch (Exception e) {
 			appID = 0;
 		}
-		System.out.println("Incomming AppID: " + appID);
 		if (appID == 0) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("application.jsp");
 			dispatcher.forward(request, response);
@@ -87,7 +85,6 @@ public class ApplicationController extends StudentBaseController {
 		Application application = new Application();
 
 		String action = request.getParameter(ACTION);
-		System.out.println(request.getParameter("appID"));
 		int appID;
 		try {
 			appID = Integer.parseInt(request.getParameter("appID"));
@@ -97,7 +94,6 @@ public class ApplicationController extends StudentBaseController {
 
 		Student student = (Student) session.getAttribute(STUDENT);
 		int student_id = student.getStudent_id();
-		System.out.println("From session student object: " + student_id);
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String gender = request.getParameter("gender");
@@ -106,7 +102,6 @@ public class ApplicationController extends StudentBaseController {
 		Date dateOfBirth = null;
 		try {
 			String dob = request.getParameter("dateOfBirth");
-			System.out.println("DOB : " + dob);
 			dateOfBirth = (Date) format.parse(dob);
 		} catch (ParseException e) {
 			e.printStackTrace();
@@ -118,7 +113,6 @@ public class ApplicationController extends StudentBaseController {
 		String city = request.getParameter("city");
 		String stateOrTeritory = request.getParameter("state");
 		String country = request.getParameter("country_lb");
-		System.out.println("country" + country);
 
 		String zipcode = request.getParameter("zipCode");
 		String degreeEarned = request.getParameter("degreeEarned");
@@ -129,7 +123,6 @@ public class ApplicationController extends StudentBaseController {
 		String keyRole = request.getParameter("role");
 		// Application
 		String desiredTerm = request.getParameter("enroll_term_lb");
-		System.out.println("Term : " + desiredTerm);
 		// String desiredTerm = "Spring 2016";
 		String sopContent = request.getParameter("sop_content");
 		String appStatus = null;
@@ -142,7 +135,6 @@ public class ApplicationController extends StudentBaseController {
 		// Dept and Deg
 		String deptID = request.getParameter("department_lb");
 		String degID = request.getParameter("degree_lb");
-		System.out.println("Dept : " + deptID + " Deg : " + degID);
 		Degree degree = new Degree();
 		Department department = new Department();
 		degree.setDegID(degID);
@@ -157,7 +149,6 @@ public class ApplicationController extends StudentBaseController {
 			testToeflIelts = Double.parseDouble(toeflScore);
 		}
 		String greScore = request.getParameter("test_gre_gmat");
-		System.out.println("ddddddd"+greScore);
 		if ((!greScore.equals("")) && null != greScore) {
 			testGreGmat = Double.parseDouble(greScore);
 		}
@@ -181,11 +172,9 @@ public class ApplicationController extends StudentBaseController {
 		if ("Submit".equalsIgnoreCase(action)) {
 			// Insert or Update application table
 			if (appID == 0) {
-				System.out.println("On Submit newly created application" + appID);
 				StudentDAO.createApplication(application);
 
 			} else {
-				System.out.println("On Submit retrived application" + appID);
 				StudentDAO.updateApplication(application);
 			}
 
@@ -193,10 +182,8 @@ public class ApplicationController extends StudentBaseController {
 			// Insert or Update Application table
 
 			if (appID == 0) {
-				System.out.println("On Save new application" + appID);
 				StudentDAO.createApplication(application);
 			} else {
-				System.out.println("On Save retrived application" + appID);
 				StudentDAO.updateApplication(application);
 			}
 		}

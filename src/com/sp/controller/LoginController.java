@@ -54,9 +54,6 @@ public class LoginController extends StudentBaseController {
 		String userName = request.getParameter("userName");
 		String passCode = request.getParameter("password");
 		String userType = request.getParameter("userType");
-		System.out.println(userName);
-		System.out.println(passCode);
-		System.out.println(userType);
 
 		DbConnection conn = null;
 		Statement stmt = null;
@@ -75,13 +72,10 @@ public class LoginController extends StudentBaseController {
 			if (rs.next()) {
 				if (userType.equals("student")) {
 					passcode = rs.getString("user_stud_pwd");
-					System.out.println("Retrived" + passcode);
 				} else {
 					passcode = rs.getString("user_staf_pwd");
-					System.out.println("Retrived" + passcode);
 				}
 			} else {
-				System.out.println("User Not Found");
 				request.setAttribute("error", "Invaid Username and Password");
 				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
 				rd.include(request, response);
@@ -93,7 +87,6 @@ public class LoginController extends StudentBaseController {
 				rd.include(request, response);
 			} else {
 				if (userType.equals("faculty")) {
-					System.out.println("Fac");
 					HttpSession user_session = request.getSession(true);
 					//user_session.setMaxInactiveInterval(600 * 600);
 					Cookie userNameC = new Cookie("userNAME", userName);
@@ -104,7 +97,6 @@ public class LoginController extends StudentBaseController {
 					user_session.setAttribute("userType", userType);
 					user_session.setAttribute("STAFF", staffDAO.getStaff(userName));
 				} else if (userType.equals("student")) {
-					System.out.println("student");
 					HttpSession user_session = request.getSession(true);
 					//user_session.setMaxInactiveInterval(600 * 600);
 					Cookie userNameC = new Cookie("userNAME", userName);
@@ -118,51 +110,9 @@ public class LoginController extends StudentBaseController {
 
 				}
 			}
-			//
-			// } else {
-			// if (approvalflag == 0) {
-			// response.sendRedirect("confirmation_page.jsp");
-			// // Since a object is used to compare the if changes a bit to
-			// // the below format
-			// } else if (approvalflag == 1 && usertype.equals("student")) {
-			// HttpSession user_session = request.getSession(true);
-			// user_session.setMaxInactiveInterval(30 * 60);
-			// Cookie userName = new Cookie("userNAME", username);
-			// response.addCookie(userName);
-			// String encodedURL = responseStudent Login Successful! Take data
-			// from
-			// .encodeRedirectURL("student_home.jsp");
-			// response.sendRedirect(encodedURL);
-			// user_session.setAttribute("userName", username);
-			// user_session.setAttribute("userType","student");
-			// } else if (approvalflag == 1 && "faculty".equals(usertype)) {
-			// HttpSession user_session = request.getSession(true);
-			// user_session.setMaxInactiveInterval(30 * 60);
-			// Cookie userName = new Cookie("userNAME", username);
-			// response.addCookie(userName);
-			// String encodedURL = response
-			// .encodeRedirectURL("faculty_home.jsp");
-			// response.sendRedirect(encodedURL);
-			// user_session.setAttribute("userName", username);
-			// user_session.setAttribute("userType","faculty");
-			// } else if (approvalflag == 1 && "admin".equals(usertype)) {
-			// HttpSession user_session = request.getSession(true);
-			// user_session.setMaxInactiveInterval(30 * 60);
-			// Cookie userName = new Cookie("userNAME", username);
-			// response.addCookie(userName);
-			// String encodedURL = response
-			// .encodeRedirectURL("admin_home.jsp");
-			// response.sendRedirect(encodedURL);
-			// user_session.setAttribute("userName", username);
-			// user_session.setAttribute("userType","admin");
-			// }
-			// }
 		} catch (SQLException e) {
-			System.out.println("issue with connectivity" + e);
+			System.out.println("Issue with connectivity" + e);
 		}
-		// }
-
-		// doGet(request, response);
 	}
 
 }

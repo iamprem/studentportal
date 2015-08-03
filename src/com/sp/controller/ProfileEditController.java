@@ -53,11 +53,8 @@ public class ProfileEditController extends StudentBaseController {
 		}
 
 		String userType = (String) session.getAttribute("userType");
-		System.out.println("User email received" + email);
-		System.out.println("User Type" + userType);
 		if (userType.equals("student")) {
 			request.setAttribute(STUDENT, StudentDAO.getStudent(email));
-			System.out.println(StudentDAO.getStudent(email));
 			RequestDispatcher dispatcher = request.getRequestDispatcher("profile.jsp");
 			dispatcher.forward(request, response);
 			return;
@@ -87,31 +84,15 @@ public class ProfileEditController extends StudentBaseController {
 		String city = request.getParameter("city");
 		String stateOrTeritory = request.getParameter("state");
 		String country = request.getParameter("country");
-		System.out.println("country" + country);
 		String zipcode = request.getParameter("zipCode");
 		String userType = (String) session.getAttribute("userType");
-		System.out.println("=============");
-		System.out.println(email);
-		System.out.println(firstName);
-		System.out.println(lastName);
-		System.out.println(phone);
-		System.out.println(ssn);
-		System.out.println(streetAddress);
-		System.out.println(apartmentNo);
-		System.out.println(city);
-		System.out.println(stateOrTeritory);
-		System.out.println(country);
-		System.out.println(zipcode);
-		System.out.println(userType);
 		if (userType.equals("faculty")) {
-			System.out.println("FAC");
 
 			staffDAO.editStaff(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city,
 					stateOrTeritory, country, zipcode);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("faculty.jsp");
 			dispatcher.forward(request, response);
 		} else if (userType.equals("student")) {
-			System.out.println("STU");
 			StudentDAO.editStudent(email, firstName, lastName, phone, ssn, streetAddress, apartmentNo, city,
 					stateOrTeritory, country, zipcode);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("student.jsp");

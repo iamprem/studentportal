@@ -27,15 +27,12 @@ public class StudentDAO {
 		DbConnection conn = null;
 		try {
 			conn = new DbConnection();
-			// System.out.println("Editing Student");
-			// System.out.println(email);
 			String sql1 = "UPDATE student SET " + "firstName = '" + firstName + "', lastName = '" + lastName
 					+ "',phone='" + phoneNumber + "', ssn='" + ssn + "', streetAddress='" + streetAddress
 					+ "', apartmentNo='" + aptNo + "', city='" + city + "', stateOrTeritory='" + state + "', country='"
 					+ country + "', zipcode='" + zipcode + "' WHERE email='" + email + "';";
 			stmt = conn.DbConnectionForStatement();
 			stmt.execute(sql1);
-			System.out.println("Updated");
 			stmt.close();
 			conn.close();
 		} catch (SQLException se) {
@@ -59,9 +56,6 @@ public class StudentDAO {
 		DbConnection conn = null;
 		try {
 			conn = new DbConnection();
-			System.out.println("Adding users");
-			System.out.println(email);
-			System.out.println(password);
 			String sql1 = "INSERT INTO student(email) values (\"" + email + "\")";
 			String sql2 = "INSERT INTO user_student(user_stud_email,user_stud_pwd) values (\"" + email + "\",\""
 					+ password + "\");";
@@ -94,8 +88,6 @@ public class StudentDAO {
 		try {
 
 			conn = new DbConnection();
-			// System.out.println("Fetching Student's all Application
-			// overview");
 			String sql1 = "SELECT S.student_id, S.firstName,S.lastName, A.app_id, A.deg_id, D.dept_name, A.desired_term, A.app_status "
 					+ "FROM student S " + "INNER JOIN application_applied A ON S.student_id=A.student_id "
 					+ "INNER JOIN department D ON A.dept_id = D.dept_id" + " WHERE S.email = '" + email + "';";
@@ -112,7 +104,6 @@ public class StudentDAO {
 				String app_status = rs.getString("app_status");
 				StudentDashboard studentDashboard = new StudentDashboard(firstName, lastName, email, app_id, dept_name,
 						deg_id, app_status, desired_term);
-				System.out.println("Before Null POint" + studentDashboard.toString());
 				studentDashboardList.add(studentDashboard);
 			}
 			rs.close();
@@ -148,8 +139,6 @@ public class StudentDAO {
 
 		try {
 			conn = new DbConnection();
-			// System.out.println("Fetching Student's specific Application");
-			// System.out.println("App ID: " + app_id);
 			String sql1 = "SELECT S.student_id, S.firstName,S.lastName, S.gender, S.email, S.dateOfBirth, S.phone, S.ssn,"
 					+ "S.streetAddress, S.apartmentNo, S.city, S.stateOrTeritory, S.country, S.zipcode,"
 					+ "S.degreeEarned, S.gpa, S.major, S.workOrgName, S.yearsWorked, S.keyRole,"
@@ -161,10 +150,8 @@ public class StudentDAO {
 
 			stmt = conn.DbConnectionForPreparedStatement(sql1);
 			ResultSet rs = stmt.executeQuery(sql1);
-			System.out.println("2");
 			while (rs.next()) {
 				// Student Profile
-				System.out.println("1");
 				int student_id = rs.getInt("student_id");
 				String firstName = rs.getString("firstName");
 				String lastName = rs.getString("lastName");
@@ -211,7 +198,6 @@ public class StudentDAO {
 				application.setDepartment(department);
 			}
 
-			System.out.println(application.toString());
 			// Get the student id from the previous query output
 			int sql2_studId = application.getStudent().getStudent_id();
 
@@ -247,7 +233,6 @@ public class StudentDAO {
 			if (conn != null)
 				conn.close();
 		}
-		System.out.println("****" + application.toString());
 		return application;
 
 	}
@@ -263,7 +248,6 @@ public class StudentDAO {
 
 		try {
 			conn = new DbConnection();
-			// System.out.println("Create Student's Application");
 			stmt = conn.DbConnectionForStatement();
 
 			String sql1 = "INSERT INTO application_applied "
@@ -274,8 +258,6 @@ public class StudentDAO {
 			stmt.execute(sql1);
 			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
 			String dob = sdf.format(student.getDob());
-			// System.out.println(dob);
-			// System.out.println("sql1 complete");
 			String sql2 = "UPDATE student SET " + "firstName = '" + student.getFirstName() + "', lastName = '"
 					+ student.getLastName() + "', gender = '" + student.getGender() + "', dateOfBirth='" + dob
 					+ "', phone='" + student.getPhone() + "', ssn='" + student.getSsn() + "', streetAddress='"
@@ -289,20 +271,16 @@ public class StudentDAO {
 
 			String sql3 = null;
 			for (TestScore testScoreItem : testScoreList) {
-				// System.out.println(testScoreItem.toString());
 				try {
-					// System.out.println("Inside try testscore");
 					sql3 = "INSERT INTO student_taken_test (student_id, test_code, score, expiry_date) " + "value("
 							+ student.getStudent_id() + ", '" + testScoreItem.getTestCode() + "', "
 							+ testScoreItem.getScore() + ", " + "'2016-12-30');";
 					stmt.execute(sql3);
 				} catch (SQLException e) {
-					// System.out.println("Inside catch testscore");
 					sql3 = "UPDATE student_taken_test SET " + "score=" + testScoreItem.getScore()
 							+ ", expiry_date='2016-12-30'" + " WHERE student_id=" + student.getStudent_id()
 							+ " AND test_code='" + testScoreItem.getTestCode() + "';";
 					stmt.execute(sql3);
-					// e.printStackTrace();
 				}
 
 			}
@@ -335,7 +313,6 @@ public class StudentDAO {
 
 		try {
 			conn = new DbConnection();
-			// System.out.println("Update Student's Application");
 			stmt = conn.DbConnectionForStatement();
 
 			String sql1 = "UPDATE application_applied SET " + "desired_term='" + app.getDesired_term() + "', "
@@ -346,8 +323,6 @@ public class StudentDAO {
 			stmt.execute(sql1);
 			java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd");
 			String dob = sdf.format(student.getDob());
-			// System.out.println(dob);
-			// System.out.println("sql1 complete");
 			String sql2 = "UPDATE student SET " + "firstName = '" + student.getFirstName() + "', lastName = '"
 					+ student.getLastName() + "', gender = '" + student.getGender() + "', dateOfBirth='" + dob
 					+ "', phone='" + student.getPhone() + "', ssn='" + student.getSsn() + "', streetAddress='"
@@ -361,20 +336,16 @@ public class StudentDAO {
 
 			String sql3 = null;
 			for (TestScore testScoreItem : testScoreList) {
-				System.out.println(testScoreItem.toString());
 				try {
-					// System.out.println("Inside try testscore");
 					sql3 = "INSERT INTO student_taken_test (student_id, test_code, score, expiry_date) " + "value("
 							+ student.getStudent_id() + ", '" + testScoreItem.getTestCode() + "', "
 							+ testScoreItem.getScore() + ", " + "'2016-12-30');";
 					stmt.execute(sql3);
 				} catch (SQLException e) {
-					// System.out.println("Inside catch testscore");
 					sql3 = "UPDATE student_taken_test SET " + "score=" + testScoreItem.getScore()
 							+ ", expiry_date='2016-12-30'" + " WHERE student_id=" + student.getStudent_id()
 							+ " AND test_code='" + testScoreItem.getTestCode() + "';";
 					stmt.execute(sql3);
-					// e.printStackTrace();
 				}
 			}
 			stmt.close();
@@ -400,8 +371,6 @@ public class StudentDAO {
 		DbConnection conn = null;
 		try {
 			conn = new DbConnection();
-			// System.out.println("Fetching Student all Application overview");
-			// System.out.println("Email: " + email);
 			String sql1 = "SELECT student_id, firstName, lastName, gender, email, dateOfBirth, phone, ssn, "
 					+ "streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned, "
 					+ "gpa, major, workOrgName, yearsWorked, keyRole " + "FROM student S WHERE S.email='" + email
@@ -434,7 +403,6 @@ public class StudentDAO {
 						streetAddress, apartmentNo, city, stateOrTeritory, country, zipcode, degreeEarned, gpa, major,
 						workOrgName, yearsWorked, keyRole);
 			}
-			// System.out.println(student.toString());
 			rs.close();
 			stmt.close();
 			conn.close();
@@ -460,8 +428,6 @@ public class StudentDAO {
 		DbConnection conn = null;
 		try {
 			conn = new DbConnection();
-			// System.out.println("Validating Email");
-			// System.out.println(email);
 			String sql1 = "SELECT * FROM student WHERE email = (\"" + email + "\")";
 			stmt = conn.DbConnectionForStatement();
 			ResultSet rs = stmt.executeQuery(sql1);

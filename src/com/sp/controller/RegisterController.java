@@ -35,7 +35,6 @@ public class RegisterController extends StudentBaseController {
 			throws ServletException, IOException {
 
 		String emailID = request.getParameter("emailid");
-		System.out.println("EmailID received " + emailID);
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		try {
@@ -59,21 +58,15 @@ public class RegisterController extends StudentBaseController {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("Reached");
 		String userEmail = request.getParameter("userEmail");
-		// System.out.println(userEmail);
 		if (StudentDAO.isEmailPresent(userEmail)) {
-			System.out.println("user already present");
 			request.setAttribute(MESSAGE, "User already exists");  
 			RequestDispatcher dispatcher = request.getRequestDispatcher("register.jsp");
 			dispatcher.forward(request, response);
 		}else{
-			System.out.println("creating new user");
 		
 			String password = request.getParameter("confirmPassword");
-			// System.out.println(password);
 			StudentDAO.addStudent(userEmail, password);
-			// doGet(request, response);
 			response.sendRedirect("login.jsp");
 		}
 	}

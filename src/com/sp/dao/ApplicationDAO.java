@@ -67,7 +67,6 @@ public class ApplicationDAO {
 			conn = new DbConnection();
 			String sql;
 			sql = "UPDATE application_applied SET app_status ='"+status+"' , decision_date='" +decDate +"', reviewer_id='" +empID +"'where app_id='"+appID+"';";
-			System.out.println("sssssssssssssss"+sql);
 			stmt = conn.DbConnectionForStatement();
 			stmt.execute(sql);
 			stmt.close();
