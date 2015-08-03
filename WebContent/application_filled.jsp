@@ -505,6 +505,35 @@
 </div>
 
 	<script>
+	$( document ).ready(function() {
+		$(".sel").change();
+	});
+	
+	$(".sel").change(
+			function() {
+				idComp = $(this).attr('id');
+				var selText = $(this).find(":selected").text();
+				if (idComp == "test_gre_gmat_label") {
+					if(selText=="None"){
+						selText = ""
+					}
+					$("#test_gre_gmat_lb").val(selText);
+				} else if (idComp == "test_toefl_ielts_label") {
+					if(selText=="None"){
+						selText = ""
+					}
+					$("#test_toefl_ielts_lb").val(selText);
+				} else if (idComp == "country_label") {
+					$("#country_lb").val(selText);
+				} else if (idComp == "department_label") {
+					$("#department_lb").val(selText);
+				} else if (idComp == "degree_label") {
+					$("#degree_lb").val(selText);
+				} else if (idComp == "enroll_term_label") {
+					$("#enroll_term_lb").val(selText);
+				}
+			});
+	
 		$('.dropdown-toggle').dropdown()
 		$(".dropdown-menu li a").click(
 				function() {
