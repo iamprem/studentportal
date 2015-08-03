@@ -11,11 +11,11 @@
 <body>
 <div id = "wrap" class = "container">
 <p>To reset your password, submit your email address.</p>
-<p class="text-danger">${requestScope.Message }</p>
+<p class="text-primary">${requestScope.Message }</p>
 <form class="form-inline" role="form" id="emailForm" action="EmailController" method="post">
   <div class="form-group centered">
     <label for="email">Email address:</label>
-    <input type="email" class="form-control" id="email" required placeholder="Enter your email address">
+    <input type="text" class="form-control" id="email" name="email" required placeholder="Enter your email address">
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
