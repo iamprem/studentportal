@@ -21,7 +21,7 @@
 	
 	<br> -->
 	<p>
-	Welcome back. To create a new application, click <a href="/StudentPortalWebApp/ApplicationController" alt="Create application">here</a>.
+	Welcome. To create a new application, click <a href="/StudentPortalWebApp/ApplicationController" alt="Create application">here</a>.
 	</p>
 	<p>For more information on departments, click <a href="/StudentPortalWebApp/DepartmentController" target="_blank">here</a></p>
 	<!--  <button type="Login" onclick="location.href='/StudentPortalWebApp/application.jsp'" class="btn btn-primary">Create Application</button>  -->
